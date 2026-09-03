@@ -1,0 +1,2098 @@
+/* =========================================================
+   STITCHLY
+   RESPONSIVE STYLESHEET
+   Desktop → Tablet → Mobile
+========================================================= */
+
+
+/* =========================================================
+   LARGE TABLET / SMALL DESKTOP
+   1200px
+========================================================= */
+
+@media (max-width: 1200px) {
+
+  .navbar-container,
+  .section-container,
+  .hero-container,
+  .footer-container {
+
+    width:
+      min(
+        calc(100% - 40px),
+        1120px
+      );
+
+  }
+
+
+  .desktop-navigation {
+
+    gap:
+      22px;
+
+  }
+
+
+  .hero-container {
+
+    gap:
+      50px;
+
+  }
+
+
+  .hero-title {
+
+    font-size:
+      clamp(3.4rem, 6vw, 5.5rem);
+
+  }
+
+
+  .hero-image {
+
+    height:
+      600px;
+
+  }
+
+
+  .hero-floating-card {
+
+    left:
+      -25px;
+
+  }
+
+
+  html[dir="rtl"] .hero-floating-card {
+
+    left:
+      auto;
+
+    right:
+      -25px;
+
+  }
+
+
+  .intro-grid,
+  .why-grid {
+
+    gap:
+      55px;
+
+  }
+
+
+  .process-grid {
+
+    gap:
+      10px;
+
+  }
+
+
+  .footer-grid {
+
+    gap:
+      35px;
+
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+   992px
+========================================================= */
+
+@media (max-width: 992px) {
+
+
+  /* =======================================================
+     GLOBAL
+  ======================================================== */
+
+  .section-padding {
+
+    padding:
+      85px 0;
+
+  }
+
+
+  /* =======================================================
+     NAVBAR
+  ======================================================== */
+
+  .navbar-container {
+
+    min-height:
+      76px;
+
+  }
+
+
+  .desktop-navigation,
+  .profile-wrapper {
+
+    display:
+      none;
+
+  }
+
+
+  .mobile-menu-button {
+
+    display:
+      inline-flex;
+
+  }
+
+
+  .mobile-navigation {
+
+    display:
+      block;
+
+  }
+
+
+  .navbar-logo img {
+
+    height:
+      39px;
+
+  }
+
+
+  .navbar-logo span {
+
+    font-size:
+      1.3rem;
+
+  }
+
+
+  .navbar-actions {
+
+    margin-left:
+      auto;
+
+  }
+
+
+  /* =======================================================
+     HERO
+  ======================================================== */
+
+  .hero-section {
+
+    padding:
+      70px 0 90px;
+
+  }
+
+
+  .hero-container {
+
+    grid-template-columns:
+      1fr 1fr;
+
+    gap:
+      40px;
+
+  }
+
+
+  .hero-title {
+
+    font-size:
+      clamp(3rem, 6vw, 4.8rem);
+
+  }
+
+
+  .hero-description {
+
+    font-size:
+      0.9rem;
+
+  }
+
+
+  .hero-image {
+
+    height:
+      550px;
+
+  }
+
+
+  .hero-floating-card {
+
+    left:
+      -18px;
+
+    bottom:
+      65px;
+
+  }
+
+
+  html[dir="rtl"] .hero-floating-card {
+
+    left:
+      auto;
+
+    right:
+      -18px;
+
+  }
+
+
+  .hero-image-accent {
+
+    left:
+      -12px;
+
+  }
+
+
+  html[dir="rtl"] .hero-image-accent {
+
+    left:
+      auto;
+
+    right:
+      -12px;
+
+  }
+
+
+  /* =======================================================
+     INTRO
+  ======================================================== */
+
+  .intro-grid,
+  .why-grid {
+
+    grid-template-columns:
+      1fr 1fr;
+
+    gap:
+      40px;
+
+  }
+
+
+  .intro-image img {
+
+    height:
+      480px;
+
+  }
+
+
+  .why-image img {
+
+    height:
+      520px;
+
+  }
+
+
+  .why-image-label {
+
+    right:
+      -15px;
+
+  }
+
+
+  html[dir="rtl"] .why-image-label {
+
+    right:
+      auto;
+
+    left:
+      -15px;
+
+  }
+
+
+  /* =======================================================
+     SERVICES
+  ======================================================== */
+
+  .services-grid {
+
+    gap:
+      17px;
+
+  }
+
+
+  .service-image {
+
+    height:
+      270px;
+
+  }
+
+
+  .service-content {
+
+    padding:
+      22px;
+
+  }
+
+
+  .service-content h3 {
+
+    font-size:
+      1.35rem;
+
+  }
+
+
+  /* =======================================================
+     COLLECTION
+  ======================================================== */
+
+  .collection-grid {
+
+    grid-template-columns:
+      1.2fr 0.9fr 0.9fr;
+
+  }
+
+
+  .collection-card {
+
+    min-height:
+      390px;
+
+  }
+
+
+  .collection-large {
+
+    min-height:
+      500px;
+
+  }
+
+
+  /* =======================================================
+     PROCESS
+  ======================================================== */
+
+  .process-grid {
+
+    grid-template-columns:
+      repeat(4, 1fr);
+
+    gap:
+      25px;
+
+  }
+
+
+  .process-line {
+
+    display:
+      none;
+
+  }
+
+
+  /* =======================================================
+     TESTIMONIALS
+  ======================================================== */
+
+  .testimonials-grid {
+
+    gap:
+      15px;
+
+  }
+
+
+  .testimonial-card {
+
+    padding:
+      25px;
+
+  }
+
+
+  .testimonial-text {
+
+    font-size:
+      1rem;
+
+  }
+
+
+  /* =======================================================
+     GALLERY
+  ======================================================== */
+
+  .gallery-grid {
+
+    grid-template-columns:
+      repeat(2, 1fr);
+
+    grid-template-rows:
+      250px 250px 250px;
+
+  }
+
+
+  .gallery-tall {
+
+    grid-row:
+      span 2;
+
+  }
+
+
+  .gallery-wide {
+
+    grid-column:
+      span 1;
+
+  }
+
+
+  /* =======================================================
+     FOOTER
+  ======================================================== */
+
+  .footer-grid {
+
+    grid-template-columns:
+      1.4fr 1fr 1fr;
+
+    gap:
+      40px;
+
+  }
+
+
+  .footer-brand {
+
+    grid-column:
+      span 3;
+
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   768px
+========================================================= */
+
+@media (max-width: 768px) {
+
+
+  /* =======================================================
+     GLOBAL
+  ======================================================== */
+
+  .section-container,
+  .hero-container,
+  .footer-container {
+
+    width:
+      calc(100% - 32px);
+
+  }
+
+
+  .section-padding {
+
+    padding:
+      70px 0;
+
+  }
+
+
+  .section-title {
+
+    font-size:
+      clamp(2.2rem, 9vw, 3.2rem);
+
+  }
+
+
+  .section-description {
+
+    font-size:
+      0.88rem;
+
+  }
+
+
+  /* =======================================================
+     NAVBAR
+  ======================================================== */
+
+  .site-navbar {
+
+    position:
+      sticky;
+
+    top:
+      0;
+
+  }
+
+
+  .navbar-container {
+
+    width:
+      calc(100% - 32px);
+
+    min-height:
+      70px;
+
+    gap:
+      10px;
+
+  }
+
+
+  /*
+     IMPORTANT MOBILE NAVBAR LAYOUT
+
+     LEFT:
+     STITCHLY LOGO
+
+     RIGHT:
+     RTL
+     THEME
+     HAMBURGER
+  */
+
+  .navbar-logo {
+
+    margin-right:
+      auto;
+
+  }
+
+
+  .navbar-logo img {
+
+    height:
+      35px;
+
+  }
+
+
+  .navbar-logo span {
+
+    font-size:
+      1.15rem;
+
+    letter-spacing:
+      0.06em;
+
+  }
+
+
+  .navbar-actions {
+
+    display:
+      flex;
+
+    align-items:
+      center;
+
+    gap:
+      2px;
+
+    margin-left:
+      auto;
+
+  }
+
+
+  .nav-icon-button {
+
+    width:
+      38px;
+
+    height:
+      38px;
+
+  }
+
+
+  .direction-button {
+
+    min-width:
+      38px;
+
+    padding:
+      0 6px;
+
+    font-size:
+      0.62rem;
+
+  }
+
+
+  .mobile-menu-button {
+
+    display:
+      inline-flex;
+
+  }
+
+
+  /*
+     Keep mobile controls together on the right
+  */
+
+  .navbar-actions {
+
+    flex-shrink:
+      0;
+
+  }
+
+
+  /*
+     Mobile navigation
+  */
+
+  .mobile-nav-list {
+
+    width:
+      calc(100% - 32px);
+
+    padding:
+      12px 0 20px;
+
+  }
+
+
+  .mobile-navigation.open {
+
+    max-height:
+      650px;
+
+  }
+
+
+  .mobile-nav-link {
+
+    padding:
+      13px 0;
+
+    font-size:
+      0.86rem;
+
+  }
+
+
+  .mobile-profile-section {
+
+    margin-top:
+      12px;
+
+    padding-top:
+      12px;
+
+  }
+
+
+  .mobile-profile-link {
+
+    padding:
+      11px;
+
+    font-size:
+      0.78rem;
+
+  }
+
+
+  /* =======================================================
+     HERO
+  ======================================================== */
+
+  .hero-section {
+
+    padding:
+      55px 0 75px;
+
+  }
+
+
+  .hero-container {
+
+    display:
+      flex;
+
+    flex-direction:
+      column;
+
+    align-items:
+      stretch;
+
+    gap:
+      45px;
+
+  }
+
+
+  .hero-content {
+
+    padding:
+      0;
+
+  }
+
+
+  .hero-title {
+
+    max-width:
+      600px;
+
+    font-size:
+      clamp(3.2rem, 14vw, 5rem);
+
+  }
+
+
+  .hero-description {
+
+    max-width:
+      600px;
+
+    margin-top:
+      22px;
+
+    font-size:
+      0.88rem;
+
+  }
+
+
+  .hero-actions {
+
+    margin-top:
+      27px;
+
+  }
+
+
+  .hero-trust {
+
+    margin-top:
+      32px;
+
+  }
+
+
+  .hero-image-wrapper {
+
+    max-width:
+      600px;
+
+    margin:
+      0 auto;
+
+  }
+
+
+  .hero-image {
+
+    height:
+      580px;
+
+  }
+
+
+  .hero-floating-card {
+
+    left:
+      15px;
+
+    bottom:
+      30px;
+
+  }
+
+
+  html[dir="rtl"] .hero-floating-card {
+
+    left:
+      auto;
+
+    right:
+      15px;
+
+  }
+
+
+  .hero-image-accent {
+
+    display:
+      none;
+
+  }
+
+
+  .hero-image-wrapper::before {
+
+    top:
+      -10px;
+
+    right:
+      -10px;
+
+  }
+
+
+  html[dir="rtl"] .hero-image-wrapper::before {
+
+    right:
+      auto;
+
+    left:
+      -10px;
+
+  }
+
+
+  /* =======================================================
+     INTRO
+  ======================================================== */
+
+  .intro-grid,
+  .why-grid {
+
+    grid-template-columns:
+      1fr;
+
+    gap:
+      45px;
+
+  }
+
+
+  .intro-image {
+
+    max-width:
+      650px;
+
+    margin:
+      0 auto;
+
+  }
+
+
+  .intro-image img {
+
+    height:
+      520px;
+
+  }
+
+
+  .intro-content {
+
+    max-width:
+      650px;
+
+    margin:
+      0 auto;
+
+  }
+
+
+  /* =======================================================
+     SERVICES
+  ======================================================== */
+
+  .services-grid {
+
+    grid-template-columns:
+      1fr 1fr;
+
+    margin-top:
+      40px;
+
+  }
+
+
+  .service-image {
+
+    height:
+      300px;
+
+  }
+
+
+  /* =======================================================
+     COLLECTION
+  ======================================================== */
+
+  .section-heading-row {
+
+    align-items:
+      flex-start;
+
+    flex-direction:
+      column;
+
+  }
+
+
+  .collection-grid {
+
+    grid-template-columns:
+      1fr 1fr;
+
+  }
+
+
+  .collection-card {
+
+    min-height:
+      360px;
+
+  }
+
+
+  .collection-large {
+
+    grid-column:
+      span 2;
+
+    min-height:
+      500px;
+
+  }
+
+
+  /* =======================================================
+     WHY STITCHLY
+  ======================================================== */
+
+  .why-image {
+
+    max-width:
+      650px;
+
+    margin:
+      0 auto;
+
+  }
+
+
+  .why-image img {
+
+    height:
+      560px;
+
+  }
+
+
+  .why-image-label {
+
+    right:
+      15px;
+
+  }
+
+
+  html[dir="rtl"] .why-image-label {
+
+    right:
+      auto;
+
+    left:
+      15px;
+
+  }
+
+
+  /* =======================================================
+     PROCESS
+  ======================================================== */
+
+  .process-grid {
+
+    grid-template-columns:
+      repeat(2, 1fr);
+
+    gap:
+      35px 20px;
+
+    margin-top:
+      45px;
+
+  }
+
+
+  /* =======================================================
+     GALLERY
+  ======================================================== */
+
+  .gallery-grid {
+
+    grid-template-columns:
+      repeat(2, 1fr);
+
+    grid-template-rows:
+      230px 230px 230px;
+
+    margin-top:
+      40px;
+
+  }
+
+
+  /* =======================================================
+     TESTIMONIALS
+  ======================================================== */
+
+  .testimonials-grid {
+
+    grid-template-columns:
+      1fr;
+
+    max-width:
+      650px;
+
+    margin-left:
+      auto;
+
+    margin-right:
+      auto;
+
+  }
+
+
+  .testimonial-card {
+
+    padding:
+      28px;
+
+  }
+
+
+  /* =======================================================
+     CTA
+  ======================================================== */
+
+  .cta-box {
+
+    min-height:
+      auto;
+
+    padding:
+      55px 35px;
+
+    border-radius:
+      25px;
+
+  }
+
+
+  .cta-content {
+
+    max-width:
+      600px;
+
+  }
+
+
+  .cta-decoration {
+
+    right:
+      -180px;
+
+  }
+
+
+  html[dir="rtl"] .cta-decoration {
+
+    right:
+      auto;
+
+    left:
+      -180px;
+
+  }
+
+
+  /* =======================================================
+     FOOTER
+  ======================================================== */
+
+  .footer-container {
+
+    padding:
+      60px 0 22px;
+
+  }
+
+
+  .footer-grid {
+
+    grid-template-columns:
+      1fr 1fr;
+
+    gap:
+      38px 25px;
+
+  }
+
+
+  .footer-brand {
+
+    grid-column:
+      span 2;
+
+  }
+
+
+  .footer-description {
+
+    max-width:
+      500px;
+
+  }
+
+
+  .footer-bottom {
+
+    align-items:
+      flex-start;
+
+    flex-wrap:
+      wrap;
+
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   576px
+========================================================= */
+
+@media (max-width: 576px) {
+
+
+  /* =======================================================
+     GLOBAL
+  ======================================================== */
+
+  .section-container,
+  .hero-container,
+  .footer-container {
+
+    width:
+      calc(100% - 28px);
+
+  }
+
+
+  .section-padding {
+
+    padding:
+      58px 0;
+
+  }
+
+
+  .section-eyebrow {
+
+    font-size:
+      0.64rem;
+
+    letter-spacing:
+      0.12em;
+
+  }
+
+
+  .section-title {
+
+    font-size:
+      2.25rem;
+
+  }
+
+
+  /* =======================================================
+     MOBILE NAVBAR
+  ======================================================== */
+
+  .navbar-container {
+
+    width:
+      calc(100% - 24px);
+
+    min-height:
+      66px;
+
+  }
+
+
+  .navbar-logo {
+
+    gap:
+      7px;
+
+  }
+
+
+  .navbar-logo img {
+
+    height:
+      32px;
+
+  }
+
+
+  .navbar-logo span {
+
+    font-size:
+      1.02rem;
+
+  }
+
+
+  .navbar-actions {
+
+    gap:
+      0;
+
+  }
+
+
+  .nav-icon-button {
+
+    width:
+      35px;
+
+    height:
+      35px;
+
+  }
+
+
+  .nav-icon-button svg {
+
+    width:
+      17px;
+
+    height:
+      17px;
+
+  }
+
+
+  .direction-button {
+
+    min-width:
+      35px;
+
+    padding:
+      0 4px;
+
+    font-size:
+      0.56rem;
+
+  }
+
+
+  .mobile-navigation.open {
+
+    max-height:
+      700px;
+
+  }
+
+
+  .mobile-nav-list {
+
+    width:
+      calc(100% - 28px);
+
+  }
+
+
+  /* =======================================================
+     HERO
+  ======================================================== */
+
+  .hero-section {
+
+    padding:
+      45px 0 60px;
+
+  }
+
+
+  .hero-title {
+
+    font-size:
+      clamp(2.9rem, 16vw, 4.1rem);
+
+  }
+
+
+  .hero-description {
+
+    font-size:
+      0.82rem;
+
+    line-height:
+      1.75;
+
+  }
+
+
+  .hero-actions {
+
+    flex-direction:
+      column;
+
+    align-items:
+      stretch;
+
+  }
+
+
+  .hero-actions .btn {
+
+    width:
+      100%;
+
+  }
+
+
+  .hero-trust {
+
+    align-items:
+      flex-start;
+
+    gap:
+      15px;
+
+  }
+
+
+  .hero-trust-item {
+
+    gap:
+      8px;
+
+  }
+
+
+  .hero-trust-divider {
+
+    height:
+      32px;
+
+  }
+
+
+  .hero-trust-item strong {
+
+    font-size:
+      0.65rem;
+
+  }
+
+
+  .hero-trust-item span {
+
+    font-size:
+      0.58rem;
+
+  }
+
+
+  .hero-image {
+
+    height:
+      470px;
+
+    border-radius:
+      21px;
+
+  }
+
+
+  .hero-image-wrapper::before {
+
+    border-radius:
+      21px;
+
+  }
+
+
+  .hero-floating-card {
+
+    left:
+      10px;
+
+    bottom:
+      20px;
+
+    padding:
+      11px 13px;
+
+  }
+
+
+  html[dir="rtl"] .hero-floating-card {
+
+    left:
+      auto;
+
+    right:
+      10px;
+
+  }
+
+
+  .floating-card-icon {
+
+    width:
+      34px;
+
+    height:
+      34px;
+
+  }
+
+
+  .hero-floating-card span {
+
+    font-size:
+      0.56rem;
+
+  }
+
+
+  .hero-floating-card strong {
+
+    font-size:
+      0.67rem;
+
+  }
+
+
+  /* =======================================================
+     INTRO
+  ======================================================== */
+
+  .intro-grid,
+  .why-grid {
+
+    gap:
+      35px;
+
+  }
+
+
+  .intro-image img {
+
+    height:
+      420px;
+
+  }
+
+
+  .intro-image::after {
+
+    left:
+      -10px;
+
+    bottom:
+      -10px;
+
+    border-radius:
+      18px;
+
+  }
+
+
+  .intro-content p {
+
+    font-size:
+      0.82rem;
+
+    line-height:
+      1.8;
+
+  }
+
+
+  /* =======================================================
+     SERVICES
+  ======================================================== */
+
+  .services-grid {
+
+    grid-template-columns:
+      1fr;
+
+    gap:
+      18px;
+
+  }
+
+
+  .service-image {
+
+    height:
+      360px;
+
+  }
+
+
+  .service-content {
+
+    padding:
+      24px;
+
+  }
+
+
+  /* =======================================================
+     COLLECTION
+  ======================================================== */
+
+  .collection-grid {
+
+    grid-template-columns:
+      1fr;
+
+  }
+
+
+  .collection-large {
+
+    grid-column:
+      span 1;
+
+    min-height:
+      470px;
+
+  }
+
+
+  .collection-card {
+
+    min-height:
+      400px;
+
+  }
+
+
+  .outline-link {
+
+    margin-top:
+      3px;
+
+  }
+
+
+  /* =======================================================
+     WHY STITCHLY
+  ======================================================== */
+
+  .why-image img {
+
+    height:
+      470px;
+
+  }
+
+
+  .why-image-label {
+
+    right:
+      10px;
+
+    bottom:
+      15px;
+
+    min-width:
+      185px;
+
+    padding:
+      14px 16px;
+
+  }
+
+
+  html[dir="rtl"] .why-image-label {
+
+    right:
+      auto;
+
+    left:
+      10px;
+
+  }
+
+
+  .feature-list {
+
+    gap:
+      18px;
+
+    margin-top:
+      30px;
+
+  }
+
+
+  .feature-item {
+
+    gap:
+      12px;
+
+  }
+
+
+  .feature-icon {
+
+    width:
+      40px;
+
+    height:
+      40px;
+
+  }
+
+
+  .feature-item h3 {
+
+    font-size:
+      1rem;
+
+  }
+
+
+  .feature-item p {
+
+    font-size:
+      0.7rem;
+
+  }
+
+
+  /* =======================================================
+     PROCESS
+  ======================================================== */
+
+  .process-grid {
+
+    grid-template-columns:
+      1fr;
+
+    gap:
+      30px;
+
+  }
+
+
+  .process-item p {
+
+    max-width:
+      270px;
+
+  }
+
+
+  /* =======================================================
+     GALLERY
+  ======================================================== */
+
+  .gallery-grid {
+
+    grid-template-columns:
+      1fr 1fr;
+
+    grid-template-rows:
+      200px 200px 200px;
+
+    gap:
+      9px;
+
+  }
+
+
+  .gallery-tall {
+
+    grid-row:
+      span 2;
+
+  }
+
+
+  /* =======================================================
+     TESTIMONIALS
+  ======================================================== */
+
+  .testimonial-card {
+
+    padding:
+      24px;
+
+    border-radius:
+      20px;
+
+  }
+
+
+  .testimonial-text {
+
+    font-size:
+      1rem;
+
+  }
+
+
+  /* =======================================================
+     CTA
+  ======================================================== */
+
+  .cta-box {
+
+    padding:
+      45px 24px;
+
+    border-radius:
+      22px;
+
+  }
+
+
+  .cta-content h2 {
+
+    font-size:
+      2.35rem;
+
+  }
+
+
+  .cta-content p {
+
+    font-size:
+      0.78rem;
+
+  }
+
+
+  .cta-actions {
+
+    flex-direction:
+      column;
+
+    align-items:
+      stretch;
+
+  }
+
+
+  .cta-actions .btn {
+
+    width:
+      100%;
+
+  }
+
+
+  /* =======================================================
+     FOOTER
+  ======================================================== */
+
+  .footer-container {
+
+    width:
+      calc(100% - 28px);
+
+    padding:
+      50px 0 20px;
+
+  }
+
+
+  .footer-grid {
+
+    grid-template-columns:
+      1fr;
+
+    gap:
+      32px;
+
+  }
+
+
+  .footer-brand {
+
+    grid-column:
+      span 1;
+
+  }
+
+
+  .footer-logo img {
+
+    height:
+      36px;
+
+  }
+
+
+  .footer-logo span {
+
+    font-size:
+      1.2rem;
+
+  }
+
+
+  .footer-description {
+
+    font-size:
+      0.7rem;
+
+  }
+
+
+  .footer-bottom {
+
+    flex-direction:
+      column;
+
+    align-items:
+      flex-start;
+
+    gap:
+      15px;
+
+  }
+
+
+  .back-to-top {
+
+    align-self:
+      flex-end;
+
+  }
+
+}
+
+
+/* =========================================================
+   EXTRA SMALL DEVICES
+   400px
+========================================================= */
+
+@media (max-width: 400px) {
+
+
+  .navbar-logo span {
+
+    display:
+      none;
+
+  }
+
+
+  .navbar-logo img {
+
+    height:
+      31px;
+
+  }
+
+
+  .navbar-actions {
+
+    gap:
+      0;
+
+  }
+
+
+  .nav-icon-button {
+
+    width:
+      33px;
+
+    height:
+      33px;
+
+  }
+
+
+  .direction-button {
+
+    min-width:
+      33px;
+
+  }
+
+
+  .hero-title {
+
+    font-size:
+      2.8rem;
+
+  }
+
+
+  .hero-image {
+
+    height:
+      430px;
+
+  }
+
+
+  .hero-trust {
+
+    gap:
+      10px;
+
+  }
+
+
+  .hero-trust-divider {
+
+    height:
+      28px;
+
+  }
+
+
+  .gallery-grid {
+
+    grid-template-rows:
+      180px 180px 180px;
+
+  }
+
+
+}
+
+
+/* =========================================================
+   RTL MOBILE ALIGNMENT
+========================================================= */
+
+@media (max-width: 768px) {
+
+  html[dir="rtl"] .navbar-logo {
+
+    margin-right:
+      0;
+
+    margin-left:
+      auto;
+
+  }
+
+
+  html[dir="rtl"] .navbar-actions {
+
+    margin-left:
+      0;
+
+    margin-right:
+      auto;
+
+  }
+
+
+  html[dir="rtl"] .hero-content,
+  html[dir="rtl"] .intro-content,
+  html[dir="rtl"] .why-content {
+
+    text-align:
+      right;
+
+  }
+
+
+  html[dir="rtl"] .section-heading.centered {
+
+    text-align:
+      center;
+
+  }
+
+
+  html[dir="rtl"] .section-heading-row {
+
+    align-items:
+      flex-end;
+
+  }
+
+
+  html[dir="rtl"] .hero-actions {
+
+    justify-content:
+      flex-start;
+
+  }
+
+}
+
+
+/* =========================================================
+   PRINT
+========================================================= */
+
+@media print {
+
+  .site-navbar,
+  .mobile-navigation,
+  .site-footer,
+  .hero-actions,
+  .cta-actions {
+
+    display:
+      none !important;
+
+  }
+
+
+  body {
+
+    background:
+      white;
+
+    color:
+      black;
+
+  }
+
+}

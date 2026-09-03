@@ -1,0 +1,521 @@
+/* =====================================================
+   PRICING PAGE CSS
+====================================================== */
+
+/* Hero Section */
+.pricing-hero {
+  padding: 160px 20px 100px;
+  text-align: center;
+  background-color: var(--color-cream, #fbf8f2);
+  border-bottom: 1px solid var(--color-border, #eee);
+  position: relative;
+  overflow: hidden;
+}
+
+body.dark-mode .pricing-hero {
+  background-color: #0a0a0a;
+  border-bottom-color: #222;
+}
+
+.pricing-hero h1 {
+  font-family: var(--font-primary, 'Fraunces', serif);
+  font-size: 3.5rem;
+  color: var(--color-navy, #172033);
+  margin-bottom: 25px;
+  max-width: 800px;
+  margin-inline: auto;
+  line-height: 1.2;
+}
+
+body.dark-mode .pricing-hero h1 {
+  color: #fff;
+}
+
+.pricing-hero p {
+  font-family: var(--font-secondary, 'Manrope', sans-serif);
+  font-size: 1.2rem;
+  color: var(--color-text-light, #697181);
+  max-width: 700px;
+  margin: 0 auto 40px;
+}
+
+body.dark-mode .pricing-hero p {
+  color: #ccc;
+}
+
+/* Category Sections (Women/Men) */
+.pricing-section {
+  padding: 100px 20px;
+  background-color: var(--color-surface, #fcfcfc);
+}
+
+.pricing-section.alt-bg {
+  background-color: var(--color-ivory, #f7f2e8);
+}
+
+body.dark-mode .pricing-section {
+  background-color: #111;
+}
+body.dark-mode .pricing-section.alt-bg {
+  background-color: #151515;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-header h2 {
+  font-family: var(--font-primary, 'Fraunces', serif);
+  font-size: 2.5rem;
+  color: var(--color-text-primary, #111);
+}
+
+body.dark-mode .section-header h2 {
+  color: #fff;
+}
+
+/* Pricing Grid */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.pricing-card {
+  background: var(--color-white, #fff);
+  border: 1px solid var(--color-border, #eee);
+  border-radius: 12px;
+  padding: 40px 30px;
+  text-align: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+  display: flex;
+  flex-direction: column;
+}
+
+body.dark-mode .pricing-card {
+  background: #1a1a1a;
+  border-color: #333;
+}
+
+.pricing-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(163, 130, 88, 0.1);
+  border-color: var(--color-gold, #a38258);
+}
+
+.pricing-card h3 {
+  font-family: var(--font-primary, 'Fraunces', serif);
+  font-size: 1.8rem;
+  color: var(--color-text-primary, #111);
+  margin-bottom: 10px;
+}
+
+body.dark-mode .pricing-card h3 {
+  color: #fff;
+}
+
+.pricing-card .price {
+  font-family: var(--font-secondary, 'Manrope', sans-serif);
+  color: var(--color-gold, #a38258);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.pricing-card .price span {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-text-primary, #111);
+  margin-left: 5px;
+}
+
+body.dark-mode .pricing-card .price span {
+  color: #fff;
+}
+
+.pricing-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 30px 0;
+  text-align: left;
+  flex-grow: 1;
+}
+
+.pricing-features li {
+  font-family: var(--font-secondary, 'Manrope', sans-serif);
+  font-size: 0.95rem;
+  color: var(--color-text-secondary, #666);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+body.dark-mode .pricing-features li {
+  color: #ccc;
+}
+
+.pricing-features li i {
+  color: var(--color-gold, #a38258);
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  margin-top: 3px;
+}
+
+.pricing-card .btn {
+  width: 100%;
+}
+
+/* Customization Add-ons Table */
+.addons-section {
+  padding: 100px 20px;
+  background: var(--color-cream, #fbf8f2);
+  text-align: center;
+}
+
+body.dark-mode .addons-section {
+  background: #0d0d0d;
+}
+
+.addons-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--color-white, #fff);
+  border: 1px solid var(--color-border, #eee);
+  border-radius: 12px;
+  padding: 40px;
+}
+
+body.dark-mode .addons-container {
+  background: #151515;
+  border-color: #333;
+}
+
+.addons-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 30px;
+  text-align: left;
+}
+
+.addons-table th, .addons-table td {
+  padding: 20px;
+  border-bottom: 1px solid var(--color-border, #eee);
+  font-family: var(--font-secondary, 'Manrope', sans-serif);
+}
+
+body.dark-mode .addons-table th, 
+body.dark-mode .addons-table td {
+  border-bottom-color: #333;
+}
+
+.addons-table th {
+  font-weight: 600;
+  color: var(--color-text-secondary, #777);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+}
+
+.addons-table td:first-child {
+  font-size: 1.1rem;
+  color: var(--color-text-primary, #111);
+  font-weight: 500;
+}
+
+body.dark-mode .addons-table td:first-child {
+  color: #eee;
+}
+
+.addons-table td:last-child {
+  text-align: right;
+  color: var(--color-gold, #a38258);
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* Included Features */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 60px auto 0;
+}
+
+.feature-box {
+  text-align: center;
+  padding: 30px;
+}
+
+.feature-box i {
+  color: var(--color-gold, #a38258);
+  width: 40px;
+  height: 40px;
+  margin-bottom: 20px;
+}
+
+.feature-box h4 {
+  font-family: var(--font-primary, 'Fraunces', serif);
+  font-size: 1.3rem;
+  color: var(--color-text-primary, #111);
+  margin-bottom: 10px;
+}
+
+body.dark-mode .feature-box h4 {
+  color: #fff;
+}
+
+.feature-box p {
+  font-family: var(--font-secondary, 'Manrope', sans-serif);
+  font-size: 0.95rem;
+  color: var(--color-text-secondary, #666);
+}
+
+body.dark-mode .feature-box p {
+  color: #ccc;
+}
+
+/* Fabric Pricing Box */
+.fabric-pricing {
+  max-width: 900px;
+  margin: 80px auto 0;
+  background: var(--color-navy, #172033);
+  border-radius: 12px;
+  padding: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.fabric-text h3 {
+  font-family: var(--font-primary, 'Fraunces', serif);
+  font-size: 2rem;
+  color: var(--color-white, #fff);
+  margin-bottom: 15px;
+}
+
+.fabric-text p {
+  font-family: var(--font-secondary, 'Manrope', sans-serif);
+  color: #ccc;
+  margin-bottom: 0;
+  max-width: 400px;
+}
+
+.fabric-tiers {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.fabric-tier {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 10px;
+}
+
+.fabric-tier span:first-child {
+  color: #fff;
+  font-family: var(--font-secondary, 'Manrope', sans-serif);
+}
+
+.fabric-tier span:last-child {
+  color: var(--color-gold, #a38258);
+  font-weight: 600;
+}
+
+/* How Price is Calculated (Visual Equation) */
+.equation-section {
+  padding: 120px 20px;
+  background: #111;
+  text-align: center;
+}
+
+.equation-section h2 {
+  font-family: var(--font-primary, 'Fraunces', serif);
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 60px;
+}
+
+.equation-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.eq-block {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  padding: 30px 20px;
+  border-radius: 8px;
+  min-width: 150px;
+}
+
+.eq-block i {
+  color: var(--color-gold, #a38258);
+  margin-bottom: 15px;
+  width: 30px;
+  height: 30px;
+}
+
+.eq-block span {
+  display: block;
+  font-family: var(--font-secondary, 'Manrope', sans-serif);
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.eq-operator {
+  font-size: 2rem;
+  color: var(--color-gold, #a38258);
+  font-weight: 300;
+}
+
+.eq-final {
+  background: var(--color-gold, #a38258);
+  border-color: var(--color-gold, #a38258);
+}
+.eq-final i, .eq-final span {
+  color: #111;
+}
+
+/* Custom Quote */
+.quote-section {
+  padding: 100px 20px;
+  background: var(--color-surface, #fcfcfc);
+  text-align: center;
+}
+
+body.dark-mode .quote-section {
+  background: #0a0a0a;
+}
+
+.quote-box {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 60px;
+  background: rgba(163, 130, 88, 0.05);
+  border-radius: 12px;
+  border-left: 4px solid var(--color-gold, #a38258);
+}
+
+.quote-box h3 {
+  font-family: var(--font-primary, 'Fraunces', serif);
+  font-size: 2rem;
+  color: var(--color-text-primary, #111);
+  margin-bottom: 15px;
+}
+
+body.dark-mode .quote-box h3 {
+  color: #fff;
+}
+
+.quote-box p {
+  font-family: var(--font-secondary, 'Manrope', sans-serif);
+  color: var(--color-text-secondary, #666);
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+}
+
+body.dark-mode .quote-box p {
+  color: #ccc;
+}
+
+/* FAQ Accordion */
+.faq-section {
+  padding: 100px 20px;
+  background: var(--color-cream, #fbf8f2);
+}
+
+body.dark-mode .faq-section {
+  background: #151515;
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--color-border, #eee);
+}
+
+body.dark-mode .faq-item {
+  border-bottom-color: #333;
+}
+
+.faq-question {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 25px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-primary, 'Fraunces', serif);
+  font-size: 1.3rem;
+  color: var(--color-text-primary, #111);
+  cursor: pointer;
+}
+
+body.dark-mode .faq-question {
+  color: #fff;
+}
+
+.faq-question i {
+  color: var(--color-gold, #a38258);
+  transition: transform 0.3s ease;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.faq-answer p {
+  font-family: var(--font-secondary, 'Manrope', sans-serif);
+  color: var(--color-text-secondary, #666);
+  padding-bottom: 25px;
+  line-height: 1.7;
+}
+
+body.dark-mode .faq-answer p {
+  color: #ccc;
+}
+
+.faq-item.active .faq-question i {
+  transform: rotate(180deg);
+}
+
+/* Final CTA */
+.final-cta {
+  padding: 120px 20px;
+  background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('../assets/images/stitching.png') center/cover;
+  text-align: center;
+}
+
+.final-cta h2 {
+  font-family: var(--font-primary, 'Fraunces', serif);
+  font-size: 3rem;
+  color: #fff;
+  margin-bottom: 30px;
+}

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register | STITCHLY</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/auth.css">
+
+</head>
+<body class="dark-mode">
+
+  <div class="auth-page">
+    
+    <!-- Image Side -->
+    <div class="auth-image-side" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('assets/images/stitching.png');"></div>
+
+    <!-- Form Side -->
+    <div class="auth-form-side">
+      <div class="auth-container">
+        
+        <a href="index.html" class="back-link">
+          <i data-lucide="arrow-left"></i> Back to Home
+        </a>
+
+        <a href="index.html" class="auth-logo">
+          <img src="assets/logoo1.png" alt="STITCHLY Logo" class="logo-light">
+          <img src="assets/logoo1_dark.png" alt="STITCHLY Logo" class="logo-dark">
+        </a>
+        
+        <h1>Create Your Account</h1>
+        <p>Join STITCHLY and begin your personalized fashion journey.</p>
+        
+        <div class="role-selector">
+          <button type="button" class="role-btn active" data-role="user" id="regRoleBtnUser">User</button>
+          <button type="button" class="role-btn" data-role="admin" id="regRoleBtnAdmin">Admin</button>
+        </div>
+
+        <form id="registerForm">
+          
+          <!-- USER FIELDS -->
+          <div id="userFields">
+            <div class="form-group">
+              <label for="fullName">Full Name</label>
+              <input type="text" id="fullName" placeholder="Enter your full name" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="userEmail">Email Address</label>
+              <input type="email" id="userEmail" placeholder="Enter your email address" required>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" placeholder="Enter your phone number" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="userPassword">Password</label>
+              <div class="password-wrapper">
+                <input type="password" id="userPassword" placeholder="Create a password" required>
+                <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+                  <i data-lucide="eye" class="icon-eye"></i>
+                  <i data-lucide="eye-off" class="icon-eye-off hidden-element"></i>
+                </button>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="userConfirmPassword">Confirm Password</label>
+              <div class="password-wrapper">
+                <input type="password" id="userConfirmPassword" placeholder="Confirm your password" required>
+                <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+                  <i data-lucide="eye" class="icon-eye"></i>
+                  <i data-lucide="eye-off" class="icon-eye-off hidden-element"></i>
+                </button>
+              </div>
+            </div>
+            
+            <div class="form-group" style="display: flex; align-items: flex-start; gap: 10px; margin-top: 15px;">
+              <input type="checkbox" id="terms" style="width: auto; margin-top: 4px;" required>
+              <label for="terms" style="font-weight: 500; color: var(--color-text-secondary); font-size: 0.85rem; line-height: 1.4;">
+                I agree to the Terms of Service & Privacy Policy
+              </label>
+            </div>
+          </div>
+
+          <!-- ADMIN FIELDS (Initially Hidden) -->
+          <div id="adminFields" class="hidden-element">
+            <div class="form-group">
+              <label for="adminName">Admin Name</label>
+              <input type="text" id="adminName" placeholder="Enter your admin name">
+            </div>
+            
+            <div class="form-group">
+              <label for="adminEmail">Admin Email</label>
+              <input type="email" id="adminEmail" placeholder="Enter your admin email">
+            </div>
+            
+            <div class="form-group">
+              <label for="adminPassword">Password</label>
+              <div class="password-wrapper">
+                <input type="password" id="adminPassword" placeholder="Create a password">
+                <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+                  <i data-lucide="eye" class="icon-eye"></i>
+                  <i data-lucide="eye-off" class="icon-eye-off hidden-element"></i>
+                </button>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="adminConfirmPassword">Confirm Password</label>
+              <div class="password-wrapper">
+                <input type="password" id="adminConfirmPassword" placeholder="Confirm your password">
+                <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+                  <i data-lucide="eye" class="icon-eye"></i>
+                  <i data-lucide="eye-off" class="icon-eye-off hidden-element"></i>
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+          <button type="submit" class="auth-submit-btn" id="registerBtnText">Create User Account</button>
+          
+        </form>
+
+        <div class="auth-footer">
+          <p>Already have an account? <a href="login.html">Sign In</a></p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Javascript -->
+  <script src="js/auth.js"></script>
+
+</body>
+</html>

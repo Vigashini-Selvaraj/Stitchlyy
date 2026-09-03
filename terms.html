@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Terms and Conditions for using STITCHLY's custom tailoring platform.">
+  <title>Terms & Conditions | STITCHLY</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Icons & Styles -->
+  <script src="https://unpkg.com/lucide@latest" defer></script>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <style>
+    .tabs-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 5%;
+    }
+
+    .tabs-nav {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 40px;
+      border-bottom: 2px solid var(--color-border);
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    
+    .tabs-nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .tab-btn {
+      padding: 15px 30px;
+      background: transparent;
+      border: none;
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--color-text-light);
+      cursor: pointer;
+      white-space: nowrap;
+      position: relative;
+      transition: color var(--transition);
+    }
+
+    .tab-btn:hover {
+      color: var(--color-gold);
+    }
+
+    .tab-btn.active {
+      color: var(--color-gold);
+    }
+
+    .tab-btn::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--color-gold);
+      transform: scaleX(0);
+      transition: transform var(--transition);
+      transform-origin: center;
+    }
+
+    .tab-btn.active::after {
+      transform: scaleX(1);
+    }
+
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.4s ease forwards;
+    }
+    
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .tab-content h2 {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: var(--color-navy);
+      margin-bottom: 20px;
+    }
+    
+    body.dark-mode .tab-content h2 {
+      color: var(--color-white);
+    }
+
+    .tab-content p {
+      color: var(--color-text-light);
+      line-height: 1.8;
+      margin-bottom: 20px;
+      font-size: 1.05rem;
+    }
+    
+    body.dark-mode .tab-content p {
+      color: rgba(255, 255, 255, 0.7);
+    }
+    
+    .tab-card {
+      background: var(--color-white);
+      padding: 50px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-soft);
+    }
+    
+    body.dark-mode .tab-card {
+      background: var(--color-navy-light);
+    }
+  </style>
+</head>
+
+<body>
+  <div id="navbar"></div>
+
+  <main>
+    <section class="page-header section-padding" style="padding-top: 150px; padding-bottom: 60px; text-align: center; background: var(--color-cream);">
+      <div class="section-container">
+        <span class="section-eyebrow">LEGAL</span>
+        <h1 class="hero-title" style="margin-top: 1rem;">
+          Terms & <span>Conditions</span>
+        </h1>
+        <p class="hero-description" style="max-width: 600px; margin: 1.5rem auto 0;">
+          Please read these terms carefully before using the STITCHLY platform and services.
+        </p>
+      </div>
+    </section>
+
+    <section class="section-padding">
+      <div class="tabs-container">
+        
+        <!-- Tabs Navigation -->
+        <div class="tabs-nav">
+          <button class="tab-btn active" data-target="tab-agreement">User Agreement</button>
+          <button class="tab-btn" data-target="tab-alterations">Alteration Policies</button>
+          <button class="tab-btn" data-target="tab-refunds">Refunds & Cancellations</button>
+        </div>
+
+        <!-- Tabs Content -->
+        <div class="tab-card">
+          
+          <!-- Tab 1 -->
+          <div id="tab-agreement" class="tab-content active">
+            <h2>1. User Agreement & Services</h2>
+            <p>By accessing the STITCHLY website and placing an order, you agree to be bound by these terms. We provide bespoke tailoring services based on the measurements and fabric choices provided by you at the time of order.</p>
+            <p>We reserve the right to refuse service, terminate accounts, or cancel orders in our sole discretion if we suspect fraudulent activity or violation of these terms. All designs, branding, and images on this site are the intellectual property of STITCHLY.</p>
+          </div>
+
+          <!-- Tab 2 -->
+          <div id="tab-alterations" class="tab-content">
+            <h2>2. Measurement Accuracy & Alterations</h2>
+            <p>Customers are responsible for providing accurate measurements. While we offer extensive guides and virtual consultations, garments constructed precisely to inaccurate measurements provided by the customer are not eligible for full refunds.</p>
+            <p>We do offer one complimentary alteration round to fine-tune the fit. If further alterations are needed due to measurement errors on the customer's part, additional fees may apply. The complimentary alteration must be claimed within 14 days of receiving the item.</p>
+          </div>
+
+          <!-- Tab 3 -->
+          <div id="tab-refunds" class="tab-content">
+            <h2>3. Refunds & Cancellations</h2>
+            <p>Due to the highly customized nature of bespoke clothing, we cannot accept returns or offer full refunds once a garment has been cut and stitched. Every garment is made uniquely for your body.</p>
+            <p>Cancellations are only permitted within 24 hours of placing the order. In the rare event of a severe manufacturing defect or failure to meet the agreed-upon design specifications, we will remake the garment or provide a full refund upon return and inspection of the item.</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  
+
+
+    <!-- ===================================================
+         CONTACT SUPPORT
+    ==================================================== -->
+    <section class="contact-support-section section-padding" style="text-align: center;">
+      <div class="section-container">
+        <span class="section-eyebrow">NEED HELP?</span>
+        <h2 class="section-title">We're here for <span>you.</span></h2>
+        <p style="margin-top: 1rem; color: var(--text-secondary); max-width: 600px; margin-left: auto; margin-right: auto;">Whether you have a question about your order, need sizing advice, or just want to chat about fabrics, our team is ready to assist.</p>
+        <div style="margin-top: 2rem;">
+          <a href="contact.html" class="btn btn-primary">Contact Us</a>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- ===================================================
+         NEWSLETTER
+    ==================================================== -->
+    <section class="newsletter-section section-padding" style="background: var(--surface-hover); text-align: center;">
+      <div class="section-container">
+        <span class="section-eyebrow">STAY UPDATED</span>
+        <h2 class="section-title">Join the <span>STITCHLY</span> family.</h2>
+        <p style="margin-top: 1rem; color: var(--text-secondary); max-width: 500px; margin-left: auto; margin-right: auto;">Subscribe to our newsletter for the latest styling tips, exclusive offers, and behind-the-scenes looks.</p>
+        <form style="margin-top: 2rem; display: flex; justify-content: center; gap: 1rem; max-width: 500px; margin-left: auto; margin-right: auto;">
+          <input type="email" placeholder="Enter your email" style="padding: 1rem; flex: 1; border: 1px solid var(--border-color); border-radius: 4px; font-family: 'Manrope', sans-serif;">
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+      </div>
+    </section>
+
+
+  </main>
+
+  <div id="footer"></div>
+  
+  <script src="js/main.js"></script>
+  <script>
+    // Tabs Logic
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabBtns = document.querySelectorAll('.tab-btn');
+      const tabContents = document.querySelectorAll('.tab-content');
+      
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          // Remove active classes
+          tabBtns.forEach(b => b.classList.remove('active'));
+          tabContents.forEach(c => c.classList.remove('active'));
+          
+          // Add active class to clicked button
+          btn.classList.add('active');
+          
+          // Show target content
+          const targetId = btn.getAttribute('data-target');
+          document.getElementById(targetId).classList.add('active');
+        });
+      });
+    });
+  </script>
+</body>
+</html>

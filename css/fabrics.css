@@ -1,0 +1,371 @@
+/* =====================================================
+   FABRICS PAGE CSS (ATELIER CATALOG)
+====================================================== */
+
+.fabrics-hero {
+  padding: 160px 20px 100px;
+  text-align: center;
+  background-color: #0a0a0a;
+  border-bottom: 1px solid #222;
+  position: relative;
+  overflow: hidden;
+}
+
+.fabrics-hero h1 {
+  font-family: var(--font-primary, 'Fraunces', serif);
+  font-size: 4rem;
+  color: #fff;
+  margin-bottom: 25px;
+  max-width: 800px;
+  margin-inline: auto;
+  line-height: 1.1;
+}
+
+.fabrics-hero p {
+  font-family: var(--font-secondary, 'Manrope', sans-serif);
+  font-size: 1.2rem;
+  color: #ccc;
+  max-width: 650px;
+  margin: 0 auto 40px;
+}
+
+.fabrics-hero .hero-ctas {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.atelier-section {
+  padding: 80px 20px;
+  background-color: var(--color-surface, #fcfcfc);
+}
+
+body.dark-mode .atelier-section {
+  background-color: #111;
+}
+
+/* Tabs */
+.fabric-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 50px;
+}
+
+.filter-btn {
+  background: transparent;
+  border: 1px solid var(--border-color, #ccc);
+  color: var(--color-text-secondary, #666);
+  padding: 10px 25px;
+  border-radius: 30px;
+  font-family: var(--font-secondary, 'Manrope', sans-serif);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+body.dark-mode .filter-btn {
+  border-color: #444;
+  color: #aaa;
+}
+
+.filter-btn:hover {
+  border-color: var(--color-gold, #a38258);
+  color: var(--color-gold, #a38258);
+}
+
+.filter-btn.active {
+  background: var(--color-gold, #a38258);
+  color: #fff;
+  border-color: var(--color-gold, #a38258);
+}
+
+/* Fabric Cards */
+.fabric-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.fabric-card {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s ease;
+}
+
+.fabric-card.hidden {
+  display: none;
+}
+
+.fabric-image-wrapper {
+  position: relative;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-bottom: 25px;
+}
+
+.fabric-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.fabric-card:hover .fabric-image-wrapper img {
+  transform: scale(1.05);
+}
+
+.fabric-card:hover .fabric-title {
+  color: var(--color-gold, #a38258);
+}
+
+.fabric-title {
+  font-family: var(--font-primary, 'Fraunces', serif);
+  font-size: 1.8rem;
+  color: var(--color-text-primary, #111);
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+}
+
+body.dark-mode .fabric-title {
+  color: #fff;
+}
+
+.fabric-tags {
+  font-family: var(--font-secondary, 'Manrope', sans-serif);
+  font-size: 0.85rem;
+  color: var(--color-gold, #a38258);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+.fabric-desc {
+  font-family: var(--font-secondary, 'Manrope', sans-serif);
+  font-size: 1rem;
+  color: var(--color-text-secondary, #666);
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+body.dark-mode .fabric-desc {
+  color: #ccc;
+}
+
+.fabric-link {
+  font-family: var(--font-secondary, 'Manrope', sans-serif);
+  font-weight: 600;
+  color: var(--color-text-primary, #111);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+  transition: all 0.3s ease;
+}
+
+body.dark-mode .fabric-link {
+  color: #fff;
+}
+
+.fabric-link:hover {
+  color: var(--color-gold, #a38258);
+  border-bottom-color: var(--color-gold, #a38258);
+}
+
+/* Fabric Guide Table */
+.fabric-guide-section {
+  padding: 100px 20px;
+  background-color: var(--color-background, #fff);
+  border-top: 1px solid var(--border-color, #eee);
+}
+
+body.dark-mode .fabric-guide-section {
+  background-color: #0a0a0a;
+  border-top-color: #222;
+}
+
+.guide-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.guide-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 40px;
+}
+
+.guide-table th, .guide-table td {
+  padding: 20px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color, #eee);
+  font-family: var(--font-secondary, 'Manrope', sans-serif);
+}
+
+body.dark-mode .guide-table th, body.dark-mode .guide-table td {
+  border-bottom-color: #333;
+}
+
+.guide-table th {
+  font-weight: 600;
+  color: var(--color-text-secondary, #777);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+}
+
+.guide-table td.fabric-name {
+  font-family: var(--font-primary, 'Fraunces', serif);
+  font-size: 1.3rem;
+  color: var(--color-text-primary, #111);
+}
+
+body.dark-mode .guide-table td.fabric-name {
+  color: #fff;
+}
+
+.guide-table td {
+  color: var(--color-text-secondary, #555);
+  font-size: 1rem;
+}
+
+body.dark-mode .guide-table td {
+  color: #ccc;
+}
+
+/* Outfit Recommendations Tree */
+.recommendation-section {
+  padding: 100px 20px;
+  background-color: #111;
+  color: #fff;
+  text-align: center;
+}
+
+.rec-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 60px auto 0;
+}
+
+.rec-block {
+  text-align: center;
+}
+
+.rec-title {
+  font-family: var(--font-primary, 'Fraunces', serif);
+  font-size: 2rem;
+  color: var(--color-gold, #a38258);
+  margin-bottom: 20px;
+}
+
+.rec-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.rec-list li {
+  font-family: var(--font-secondary, 'Manrope', sans-serif);
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  color: #ddd;
+  position: relative;
+  display: inline-block;
+}
+
+.rec-list li::before {
+  content: "→";
+  margin-right: 10px;
+  color: var(--color-gold, #a38258);
+}
+
+/* Why Choose Us */
+.why-choose-section {
+  padding: 100px 20px;
+  background-color: var(--color-background, #fff);
+}
+
+body.dark-mode .why-choose-section {
+  background-color: #0a0a0a;
+}
+
+body.dark-mode .why-choose-section h2 {
+  color: #fff !important;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 60px auto 0;
+}
+
+.feature-box {
+  text-align: center;
+  padding: 30px;
+  background: var(--color-surface, #fcfcfc);
+  border-radius: 8px;
+  border: 1px solid var(--border-color, #eee);
+}
+
+body.dark-mode .feature-box {
+  background: #1a1a1a;
+  border-color: #333;
+}
+
+.feature-box i {
+  color: var(--color-gold, #a38258);
+  margin-bottom: 20px;
+}
+
+.feature-box h4 {
+  font-family: var(--font-primary, 'Fraunces', serif);
+  font-size: 1.2rem;
+  color: var(--color-text-primary, #111);
+  margin-bottom: 10px;
+}
+
+body.dark-mode .feature-box h4 {
+  color: #fff;
+}
+
+.feature-box p {
+  font-family: var(--font-secondary, 'Manrope', sans-serif);
+  font-size: 0.95rem;
+  color: var(--color-text-secondary, #666);
+}
+
+body.dark-mode .feature-box p {
+  color: #ccc;
+}
+
+/* Final CTA */
+.luxury-cta {
+  padding: 120px 20px;
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../assets/images/stitching.png') center/cover;
+  text-align: center;
+}
+
+.luxury-cta h2 {
+  font-family: var(--font-primary, 'Fraunces', serif);
+  font-size: 3rem;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.luxury-cta p {
+  font-family: var(--font-secondary, 'Manrope', sans-serif);
+  font-size: 1.2rem;
+  color: #ccc;
+  margin-bottom: 40px;
+}

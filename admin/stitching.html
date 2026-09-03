@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STITCHLY Admin - Custom Stitching</title>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="css/admin-responsive.css">
+  
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <div class="admin-layout">
+    
+    <!-- SIDEBAR -->
+    <aside class="admin-sidebar" id="admin-sidebar">
+      <div class="sidebar-header" style="padding-top: 30px; padding-bottom: 20px; height: auto;">
+        <a href="index.html">
+          <img src="../assets/logoo1.png" alt="STITCHLY" class="logo-light" style="max-width:140px;">
+          <img src="../assets/logoo1_dark.png" alt="STITCHLY" class="logo-dark" style="max-width:140px;">
+        </a>
+      </div>
+      
+      <div class="sidebar-settings" style="display:flex; justify-content:space-around; margin-bottom:20px; padding-bottom:20px; border-bottom:1px solid var(--color-border);">
+        <button type="button" class="nav-icon-button direction-toggle" id="sidebarDirectionToggle" title="Change text direction" style="font-size:0.85rem; font-weight:bold; background:transparent; border:none; color:inherit; cursor:pointer;">
+          <span id="sidebarDirectionText">RTL</span>
+        </button>
+        <button type="button" class="nav-icon-button theme-toggle" id="sidebarThemeToggle" title="Toggle theme" style="background:transparent; border:none; color:inherit; cursor:pointer;">
+          <i data-lucide="moon" id="sidebarThemeIcon"></i>
+        </button>
+      </div>
+      
+      <ul class="sidebar-nav">
+        <li class="nav-item">
+          <a href="index.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="layout-dashboard"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="orders.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="shopping-bag"></i>
+            <span>Orders</span>
+            <span class="nav-badge">12</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="customers.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="users"></i>
+            <span>Customers</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="measurements.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="ruler"></i>
+            <span>Measurements</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="appointments.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="calendar"></i>
+            <span>Appointments</span>
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a href="stitching.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="scissors"></i>
+            <span>Custom Stitching</span>
+            <span class="nav-badge">5</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="collections.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="layers"></i>
+            <span>Collections</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="fabrics.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="palette"></i>
+            <span>Fabrics</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="gallery.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="image"></i>
+            <span>Design Gallery</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="pricing.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="tag"></i>
+            <span>Pricing</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="invoices.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="file-text"></i>
+            <span>Invoices</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="reviews.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="star"></i>
+            <span>Reviews</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="messages.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="message-square"></i>
+            <span>Messages</span>
+            <span class="nav-badge">3</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="analytics.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="bar-chart-2"></i>
+            <span>Reports & Analytics</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="notifications.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="bell"></i>
+            <span>Notifications</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="../login.html" style="display: flex; align-items: center; gap: 16px; width: 100%; margin-top: 20px;">
+            <i data-lucide="log-out"></i>
+            <span>Logout</span>
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="admin-main">
+      
+      <!-- TOP HEADER -->
+      <header class="admin-header">
+        <div class="header-left">
+          <button class="toggle-sidebar" id="toggle-sidebar">
+            <i data-lucide="menu"></i>
+          </button>
+          <div class="page-title">
+            <h1>Stitching Production</h1>
+            <div class="breadcrumb">Admin / Custom Stitching</div>
+          </div>
+        </div>
+
+        <div class="header-right">
+          
+          
+          <button class="btn-primary">
+            <i data-lucide="plus"></i> New Project
+          </button>
+          
+          <button class="header-icon" id="theme-toggle">
+            <i data-lucide="moon"></i>
+          </button>
+          
+          <button class="header-icon">
+            <i data-lucide="bell"></i>
+            <span class="badge">4</span>
+          </button>
+
+          <div class="admin-profile">
+            <img src="../assets/team-1.jpg" alt="Admin" class="admin-avatar" onerror="this.src='https://ui-avatars.com/api/?name=Admin+User&background=c8a96b&color=fff'">
+            <div class="admin-info">
+              <h4>Eleanor Vance</h4>
+              <span>Administrator</span>
+            </div>
+            <i data-lucide="chevron-down" style="color: var(--color-text-light); width: 16px;"></i>
+          </div>
+        </div>
+      </header>
+
+      <!-- PAGE CONTENT -->
+      <div class="admin-content">
+        
+        <!-- KPI Cards -->
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-header">
+              <h3>Total Active Projects</h3>
+              <div class="kpi-icon"><i data-lucide="scissors"></i></div>
+            </div>
+            <div class="kpi-value">42</div>
+            <div class="kpi-meta">
+              <span>Across all stages</span>
+            </div>
+          </div>
+          
+          <div class="kpi-card">
+            <div class="kpi-header">
+              <h3>Cutting Phase</h3>
+              <div class="kpi-icon"><i data-lucide="ruler"></i></div>
+            </div>
+            <div class="kpi-value">12</div>
+            <div class="kpi-meta">
+              <span class="kpi-change positive">Master Tailor Queue</span>
+            </div>
+          </div>
+          
+          <div class="kpi-card">
+            <div class="kpi-header">
+              <h3>Stitching Phase</h3>
+              <div class="kpi-icon"><i data-lucide="pen-tool"></i></div>
+            </div>
+            <div class="kpi-value">24</div>
+            <div class="kpi-meta">
+              <span class="kpi-change positive">Machine & Handwork</span>
+            </div>
+          </div>
+          
+          <div class="kpi-card">
+            <div class="kpi-header">
+              <h3>Quality Check</h3>
+              <div class="kpi-icon"><i data-lucide="shield-check"></i></div>
+            </div>
+            <div class="kpi-value">6</div>
+            <div class="kpi-meta">
+              <span class="kpi-change negative" style="color: #f59e0b;"><i data-lucide="clock" style="width: 12px; height: 12px; margin-right: 4px; display: inline-block; vertical-align: middle;"></i> 2 delayed</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Filter Bar -->
+        <div class="card" style="margin-top: 24px; margin-bottom: 24px;">
+          <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center;">
+            <div style="display: flex; gap: 10px; overflow-x: auto;">
+              <button class="btn-primary" style="background: var(--color-gold); color: #fff; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer;">All Stages</button>
+              <button style="background: transparent; border: 1px solid var(--color-border); padding: 8px 16px; border-radius: 6px; cursor: pointer; color: var(--color-text-primary);">Pattern & Cutting</button>
+              <button style="background: transparent; border: 1px solid var(--color-border); padding: 8px 16px; border-radius: 6px; cursor: pointer; color: var(--color-text-primary);">Embroidery</button>
+              <button style="background: transparent; border: 1px solid var(--color-border); padding: 8px 16px; border-radius: 6px; cursor: pointer; color: var(--color-text-primary);">Stitching</button>
+              <button style="background: transparent; border: 1px solid var(--color-border); padding: 8px 16px; border-radius: 6px; cursor: pointer; color: var(--color-text-primary);">Finishing & QC</button>
+            </div>
+            
+            <div style="display: flex; gap: 10px;">
+              <select style="border: 1px solid var(--color-border); padding: 8px 16px; border-radius: 6px; outline: none; background: transparent; color: var(--color-text-primary);">
+                <option>Filter by Assignee</option>
+                <option>Master Ali</option>
+                <option>Tailor John</option>
+                <option>Designer Maya</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Cards Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px;">
+          
+          <!-- Project 1 -->
+          <div class="card" style="padding: 20px;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+              <div>
+                <div style="font-weight: 700; font-size: 16px; color: var(--color-navy); margin-bottom: 4px;">#ST-8992</div>
+                <div style="font-size: 13px; color: var(--color-text-light);">Bridal Lehenga</div>
+              </div>
+              <span class="status-badge status-progress" style="height: fit-content;"><i data-lucide="scissors" style="width: 12px; display: inline-block;"></i> Stitching</span>
+            </div>
+            
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+              <img src="https://ui-avatars.com/api/?name=Sarah+Jenkins&background=eee7dc" style="width: 24px; height: 24px; border-radius: 50%;">
+              <span style="font-size: 14px;">Sarah Jenkins</span>
+            </div>
+            
+            <div style="margin-bottom: 15px;">
+              <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 6px; color: var(--color-text-light);">
+                <span>Progress</span>
+                <span style="font-weight: 600; color: var(--color-text-primary);">65%</span>
+              </div>
+              <div style="width: 100%; background: var(--color-border); height: 6px; border-radius: 3px;">
+                <div style="width: 65%; background: var(--color-gold); height: 100%; border-radius: 3px;"></div>
+              </div>
+            </div>
+            
+            <div style="background: rgba(0,0,0,0.02); padding: 12px; border-radius: 6px; margin-bottom: 15px;">
+              <div style="font-size: 12px; color: var(--color-text-light); margin-bottom: 4px;">Current Task</div>
+              <div style="font-weight: 500; font-size: 13px;">Attaching Zari borders to skirt</div>
+            </div>
+            
+            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--color-border); padding-top: 15px;">
+              <div style="font-size: 12px; color: var(--color-text-light); display: flex; align-items: center; gap: 4px;">
+                <i data-lucide="calendar" style="width: 12px;"></i> Due: Nov 15
+              </div>
+              <button class="action-btn" style="background: var(--color-ivory); color: var(--color-gold); padding: 6px 12px; width: auto; font-size: 12px; font-weight: 600; border-radius: 4px;">Update Status</button>
+            </div>
+          </div>
+          
+          <!-- Project 2 -->
+          <div class="card" style="padding: 20px;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+              <div>
+                <div style="font-weight: 700; font-size: 16px; color: var(--color-navy); margin-bottom: 4px;">#ST-8991</div>
+                <div style="font-size: 13px; color: var(--color-text-light);">Custom Silk Blouse</div>
+              </div>
+              <span class="status-badge" style="height: fit-content; background: #fee2e2; color: #ef4444;"><i data-lucide="ruler" style="width: 12px; display: inline-block;"></i> Cutting</span>
+            </div>
+            
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+              <img src="https://ui-avatars.com/api/?name=Maria+Garcia&background=eee7dc" style="width: 24px; height: 24px; border-radius: 50%;">
+              <span style="font-size: 14px;">Maria Garcia</span>
+            </div>
+            
+            <div style="margin-bottom: 15px;">
+              <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 6px; color: var(--color-text-light);">
+                <span>Progress</span>
+                <span style="font-weight: 600; color: var(--color-text-primary);">20%</span>
+              </div>
+              <div style="width: 100%; background: var(--color-border); height: 6px; border-radius: 3px;">
+                <div style="width: 20%; background: #ef4444; height: 100%; border-radius: 3px;"></div>
+              </div>
+            </div>
+            
+            <div style="background: rgba(0,0,0,0.02); padding: 12px; border-radius: 6px; margin-bottom: 15px;">
+              <div style="font-size: 12px; color: var(--color-text-light); margin-bottom: 4px;">Current Task</div>
+              <div style="font-weight: 500; font-size: 13px;">Pattern drafting & fabric layout</div>
+            </div>
+            
+            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--color-border); padding-top: 15px;">
+              <div style="font-size: 12px; color: var(--color-text-light); display: flex; align-items: center; gap: 4px;">
+                <i data-lucide="calendar" style="width: 12px;"></i> Due: Oct 30
+              </div>
+              <button class="action-btn" style="background: var(--color-ivory); color: var(--color-gold); padding: 6px 12px; width: auto; font-size: 12px; font-weight: 600; border-radius: 4px;">Update Status</button>
+            </div>
+          </div>
+          
+          <!-- Project 3 -->
+          <div class="card" style="padding: 20px;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+              <div>
+                <div style="font-weight: 700; font-size: 16px; color: var(--color-navy); margin-bottom: 4px;">#ST-8988</div>
+                <div style="font-size: 13px; color: var(--color-text-light);">Anarkali Suit</div>
+              </div>
+              <span class="status-badge" style="height: fit-content; background: #e0e7ff; color: #4f46e5;"><i data-lucide="star" style="width: 12px; display: inline-block;"></i> Embroidery</span>
+            </div>
+            
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+              <img src="https://ui-avatars.com/api/?name=Priya+Patel&background=eee7dc" style="width: 24px; height: 24px; border-radius: 50%;">
+              <span style="font-size: 14px;">Priya Patel</span>
+            </div>
+            
+            <div style="margin-bottom: 15px;">
+              <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 6px; color: var(--color-text-light);">
+                <span>Progress</span>
+                <span style="font-weight: 600; color: var(--color-text-primary);">45%</span>
+              </div>
+              <div style="width: 100%; background: var(--color-border); height: 6px; border-radius: 3px;">
+                <div style="width: 45%; background: #4f46e5; height: 100%; border-radius: 3px;"></div>
+              </div>
+            </div>
+            
+            <div style="background: rgba(0,0,0,0.02); padding: 12px; border-radius: 6px; margin-bottom: 15px;">
+              <div style="font-size: 12px; color: var(--color-text-light); margin-bottom: 4px;">Current Task</div>
+              <div style="font-weight: 500; font-size: 13px;">Hand-stitched sequence work on bodice</div>
+            </div>
+            
+            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--color-border); padding-top: 15px;">
+              <div style="font-size: 12px; color: var(--color-text-light); display: flex; align-items: center; gap: 4px;">
+                <i data-lucide="calendar" style="width: 12px;"></i> Due: Nov 05
+              </div>
+              <button class="action-btn" style="background: var(--color-ivory); color: var(--color-gold); padding: 6px 12px; width: auto; font-size: 12px; font-weight: 600; border-radius: 4px;">Update Status</button>
+            </div>
+          </div>
+          
+          <!-- Project 4 -->
+          <div class="card" style="padding: 20px;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+              <div>
+                <div style="font-weight: 700; font-size: 16px; color: var(--color-navy); margin-bottom: 4px;">#ST-8980</div>
+                <div style="font-size: 13px; color: var(--color-text-light);">Custom Men's Suit</div>
+              </div>
+              <span class="status-badge" style="height: fit-content; background: #fef3c7; color: #d97706;"><i data-lucide="shield-check" style="width: 12px; display: inline-block;"></i> QC Review</span>
+            </div>
+            
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+              <img src="https://ui-avatars.com/api/?name=David+Chen&background=eee7dc" style="width: 24px; height: 24px; border-radius: 50%;">
+              <span style="font-size: 14px;">David Chen</span>
+            </div>
+            
+            <div style="margin-bottom: 15px;">
+              <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 6px; color: var(--color-text-light);">
+                <span>Progress</span>
+                <span style="font-weight: 600; color: var(--color-text-primary);">95%</span>
+              </div>
+              <div style="width: 100%; background: var(--color-border); height: 6px; border-radius: 3px;">
+                <div style="width: 95%; background: #d97706; height: 100%; border-radius: 3px;"></div>
+              </div>
+            </div>
+            
+            <div style="background: rgba(0,0,0,0.02); padding: 12px; border-radius: 6px; margin-bottom: 15px;">
+              <div style="font-size: 12px; color: var(--color-text-light); margin-bottom: 4px;">Current Task</div>
+              <div style="font-weight: 500; font-size: 13px;">Final pressing and seam inspection</div>
+            </div>
+            
+            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--color-border); padding-top: 15px;">
+              <div style="font-size: 12px; color: var(--color-text-light); display: flex; align-items: center; gap: 4px;">
+                <i data-lucide="calendar" style="width: 12px; color: #ef4444;"></i> <span style="color: #ef4444;">Due: Today</span>
+              </div>
+              <button class="action-btn" style="background: var(--color-ivory); color: var(--color-gold); padding: 6px 12px; width: auto; font-size: 12px; font-weight: 600; border-radius: 4px;">Update Status</button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="js/admin.js"></script>
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+  </script>
+</body>
+</html>

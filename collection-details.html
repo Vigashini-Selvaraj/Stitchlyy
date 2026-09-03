@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="STITCHLY Collection Details — Explore individual pieces and dresses in detail.">
+  <title>STITCHLY | Collection Details</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest" defer></script>
+
+  <!-- Main Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  
+  <style>
+    .details-hero {
+      padding: 150px 20px 80px;
+      text-align: center;
+      background-color: var(--color-surface, #fcfcfc);
+      transition: background-color 0.3s ease;
+    }
+    
+    .dark-mode .details-hero {
+      background-color: #0a0a0a;
+    }
+    
+    .details-hero h1 {
+      font-family: var(--font-primary, 'Fraunces', serif);
+      font-size: 4rem;
+      margin-bottom: 20px;
+      color: var(--color-text-primary, #111);
+    }
+    
+    .details-hero p {
+      font-family: var(--font-secondary, 'Manrope', sans-serif);
+      font-size: 1.1rem;
+      color: var(--color-text-secondary, #666);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 40px;
+      padding: 40px;
+      max-width: 1400px;
+      margin: 0 auto 100px;
+    }
+    
+    .catalog-item {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      cursor: pointer;
+      group: catalog;
+    }
+    
+    .catalog-image-wrapper {
+      position: relative;
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    }
+    
+    .catalog-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .catalog-item:hover .catalog-image-wrapper img {
+      transform: scale(1.05);
+    }
+    
+    .catalog-info {
+      text-align: left;
+    }
+    
+    html[dir="rtl"] .catalog-info {
+      text-align: right;
+    }
+    
+    .catalog-title {
+      font-family: var(--font-primary, 'Fraunces', serif);
+      font-size: 1.5rem;
+      color: var(--color-text-primary, #111);
+      margin-bottom: 5px;
+    }
+    
+    .catalog-price {
+      font-family: var(--font-secondary, 'Manrope', sans-serif);
+      font-size: 1.1rem;
+      color: var(--color-primary, #a38258);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    
+    .catalog-desc {
+      font-family: var(--font-secondary, 'Manrope', sans-serif);
+      font-size: 0.95rem;
+      color: var(--color-text-secondary, #666);
+      line-height: 1.5;
+    }
+
+    /* Modal Styles */
+    .product-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(5px);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .product-modal-overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .product-modal {
+      background: var(--color-background, #fff);
+      width: 90%;
+      max-width: 1000px;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: row;
+      overflow: hidden;
+      transform: translateY(20px);
+      transition: transform 0.3s ease;
+      position: relative;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+    }
+    
+    /* Dark Mode Text Fixes */
+    body.dark-mode .details-hero h1,
+    body.dark-mode .catalog-title,
+    body.dark-mode .modal-title,
+    body.dark-mode .modal-specs li,
+    body.dark-mode .close-modal {
+      color: #fff !important;
+    }
+
+    body.dark-mode .details-hero p,
+    body.dark-mode .catalog-desc,
+    body.dark-mode .modal-details,
+    body.dark-mode .modal-specs li span:first-child {
+      color: #ccc !important;
+    }
+
+
+    .dark-mode .product-modal {
+      background: #111;
+      border: 1px solid #333;
+    }
+
+    .product-modal-overlay.active .product-modal {
+      transform: translateY(0);
+    }
+
+    .modal-image {
+      width: 50%;
+      object-fit: cover;
+    }
+
+    .modal-content {
+      width: 50%;
+      padding: 50px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    html[dir="rtl"] .modal-content {
+      text-align: right;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      color: var(--color-text-primary, #111);
+      cursor: pointer;
+      z-index: 10;
+    }
+    
+    html[dir="rtl"] .close-modal {
+      right: auto;
+      left: 20px;
+    }
+
+    .modal-title {
+      font-family: var(--font-primary, 'Fraunces', serif);
+      font-size: 2.5rem;
+      color: var(--color-text-primary, #111);
+      margin-bottom: 10px;
+      line-height: 1.1;
+    }
+
+    .modal-price {
+      font-family: var(--font-secondary, 'Manrope', sans-serif);
+      font-size: 1.5rem;
+      color: var(--color-primary, #a38258);
+      font-weight: 600;
+      margin-bottom: 25px;
+    }
+
+    .modal-details {
+      font-family: var(--font-secondary, 'Manrope', sans-serif);
+      font-size: 1.05rem;
+      color: var(--color-text-secondary, #555);
+      line-height: 1.7;
+      margin-bottom: 30px;
+    }
+
+    .modal-specs {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      border-top: 1px solid var(--border-color, #eee);
+      padding-top: 20px;
+    }
+
+    .modal-specs li {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      font-family: var(--font-secondary, 'Manrope', sans-serif);
+      font-size: 0.95rem;
+      color: var(--color-text-primary, #111);
+    }
+    
+    .modal-specs li span:first-child {
+      color: var(--color-text-secondary, #777);
+    }
+
+    .btn-purchase {
+      margin-top: 30px;
+      background: var(--color-text-primary, #111);
+      color: var(--color-background, #fff);
+      padding: 15px 30px;
+      border: none;
+      border-radius: 4px;
+      font-family: var(--font-secondary, 'Manrope', sans-serif);
+      font-weight: 600;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: background 0.3s ease;
+    }
+
+    .dark-mode .btn-purchase {
+      background: #fff;
+      color: #111;
+    }
+
+    .btn-purchase:hover {
+      background: var(--color-primary, #a38258);
+      color: #fff;
+    }
+
+    @media (max-width: 768px) {
+      .product-modal {
+        flex-direction: column;
+        height: 90vh;
+        overflow-y: auto;
+      }
+      .modal-image, .modal-content {
+        width: 100%;
+      }
+      .modal-image {
+        height: 40vh;
+      }
+      .modal-content {
+        padding: 30px 20px;
+      }
+      .modal-title {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar Injected -->
+  <div id="navbar"></div>
+
+  <main class="details-wrapper">
+    
+    <section class="details-hero">
+      <h1>The <span style="color: var(--color-gold);">Collection</span> Details</h1>
+      <p>Dive deep into our curated selections. View every exquisite piece, designed with unparalleled craftsmanship and attention to detail.</p>
+    </section>
+
+    <section class="catalog-section">
+      <div class="catalog-grid">
+               <!-- Dress 1 -->
+        <div class="catalog-item" onclick="openModal('assets/images/collections/anarkali.png', 'Royal Anarkali', '₹45,000', 'Traditional craftsmanship meets modern elegance. A beautifully flowing Anarkali designed for grand celebrations.', 'Georgette Silk', 'Emerald Green', 'Dry Clean Only', 'Made to Measure')">
+          <div class="catalog-image-wrapper">
+            <img src="assets/images/collections/anarkali.png" alt="Royal Anarkali">
+          </div>
+          <div class="catalog-info">
+            <h3 class="catalog-title">Royal <span style="color: var(--color-gold);">Anarkali</span></h3>
+            <div class="catalog-price">₹45,000</div>
+            <p class="catalog-desc">Traditional craftsmanship meets modern elegance. A beautifully flowing...</p>
+          </div>
+        </div>
+
+        <!-- Kids 1 -->
+        <div class="catalog-item" onclick="openModal('assets/images/collections/boycoat.png', 'Boys Winter Coat', '₹18,000', 'Sharp, tailored winter coats for the young gentleman. Combining heritage warmth with contemporary styling.', 'Wool Blend', 'Navy Blue', 'Dry Clean Only', 'Ages 4-12')">
+          <div class="catalog-image-wrapper">
+            <img src="assets/images/collections/boycoat.png" alt="Boys Winter Coat">
+          </div>
+          <div class="catalog-info">
+            <h3 class="catalog-title">Boys <span style="color: var(--color-gold);">Winter Coat</span></h3>
+            <div class="catalog-price">₹18,000</div>
+            <p class="catalog-desc">Sharp, tailored winter coats for the young gentleman. Combining heritage...</p>
+          </div>
+        </div>
+
+        <!-- Dress 2 -->
+        <div class="catalog-item" onclick="openModal('assets/images/collections/co ord.png', 'Chic Co-ord Set', '₹22,000', 'Effortless synchronization. A stylish co-ord set that transitions smoothly from daytime chic to evening glamour.', 'Premium Crepe', 'Dusty Rose', 'Hand Wash / Dry Clean', 'Standard / Custom')">
+          <div class="catalog-image-wrapper">
+            <img src="assets/images/collections/co ord.png" alt="Co-ord Set">
+          </div>
+          <div class="catalog-info">
+            <h3 class="catalog-title">Chic <span style="color: var(--color-gold);">Co-ord</span></h3>
+            <div class="catalog-price">₹22,000</div>
+            <p class="catalog-desc">Effortless synchronization. A stylish co-ord set that transitions smoothly...</p>
+          </div>
+        </div>
+
+        <!-- Dress 3 -->
+        <div class="catalog-item" onclick="openModal('assets/images/collections/coat.png', 'Classic Winter Coat', '₹35,000', 'Structured outerwear designed to command attention. Impeccable tailoring and premium fabrics for the colder seasons.', 'Cashmere Blend', 'Camel', 'Dry Clean Only', 'Standard Fit')">
+          <div class="catalog-image-wrapper">
+            <img src="assets/images/collections/coat.png" alt="Winter Coat">
+          </div>
+          <div class="catalog-info">
+            <h3 class="catalog-title">Classic <span style="color: var(--color-gold);">Winter Coat</span></h3>
+            <div class="catalog-price">₹35,000</div>
+            <p class="catalog-desc">Structured outerwear designed to command attention. Impeccable tailoring...</p>
+          </div>
+        </div>
+
+        <!-- Dress 4 -->
+        <div class="catalog-item" onclick="openModal('assets/images/collections/kurttii.png', 'Elegant Kurti', '₹12,500', 'A fresh take on the classic Kurti. Fluid silhouettes and intricate detailing perfect for everyday sophistication.', 'Cotton Silk', 'Mustard Yellow', 'Machine Wash Gentle', 'Standard Fit')">
+          <div class="catalog-image-wrapper">
+            <img src="assets/images/collections/kurttii.png" alt="Elegant Kurti">
+          </div>
+          <div class="catalog-info">
+            <h3 class="catalog-title">Elegant <span style="color: var(--color-gold);">Kurti</span></h3>
+            <div class="catalog-price">₹12,500</div>
+            <p class="catalog-desc">A fresh take on the classic Kurti. Fluid silhouettes and intricate detailing...</p>
+          </div>
+        </div>
+
+        <!-- Dress 5 -->
+        <div class="catalog-item" onclick="openModal('assets/images/collections/saree gown.png', 'Fusion Saree Gown', '₹55,000', 'The timeless grace of a saree seamlessly integrated into a modern gown silhouette. A masterpiece of fusion wear.', 'Georgette & Satin', 'Midnight Blue', 'Specialist Dry Clean', 'Made to Measure')">
+          <div class="catalog-image-wrapper">
+            <img src="assets/images/collections/saree gown.png" alt="Saree Gown">
+          </div>
+          <div class="catalog-info">
+            <h3 class="catalog-title">Fusion <span style="color: var(--color-gold);">Saree Gown</span></h3>
+            <div class="catalog-price">₹55,000</div>
+            <p class="catalog-desc">The timeless grace of a saree seamlessly integrated into a modern gown...</p>
+          </div>
+        </div>
+
+        <!-- Formal -->
+        <div class="catalog-item" onclick="openModal('assets/images/collections/formal.png', 'Modern Formal Set', '₹42,000', 'Elevated formalwear redefining power dressing. Sharp tailoring and contemporary silhouettes for the modern professional.', 'Premium Crepe', 'Charcoal Grey', 'Dry Clean Only', 'Tailored Fit')">
+          <div class="catalog-image-wrapper">
+            <img src="assets/images/collections/formal.png" alt="Formal Wear">
+          </div>
+          <div class="catalog-info">
+            <h3 class="catalog-title">Modern Formal Set</h3>
+            <div class="catalog-price">₹42,000</div>
+            <p class="catalog-desc">Elevated formalwear redefining power dressing. Sharp tailoring...</p>
+          </div>
+        </div>
+
+        <!-- Office -->
+        <div class="catalog-item" onclick="openModal('assets/images/collections/office.png', 'Corporate Chic Dress', '₹15,500', 'Effortlessly stylish office wear. Transition from desk to dinner with tailored pieces that prioritize comfort and class.', 'Cotton Blend', 'Navy Blue', 'Machine Wash Gentle', 'Standard Fit')">
+          <div class="catalog-image-wrapper">
+            <img src="assets/images/collections/office.png" alt="Office Wear">
+          </div>
+          <div class="catalog-info">
+            <h3 class="catalog-title">Corporate Chic Dress</h3>
+            <div class="catalog-price">₹15,500</div>
+            <p class="catalog-desc">Effortlessly stylish office wear. Transition from desk to dinner...</p>
+          </div>
+        </div>
+
+        <!-- Saree -->
+        <div class="catalog-item" onclick="openModal('assets/images/collections/saree.png', 'Timeless Drape Saree', '₹28,000', 'The quintessential Indian drape, reimagined. A collection of bespoke sarees featuring contemporary motifs and classic borders.', 'Pure Silk', 'Emerald Green', 'Dry Clean Only', 'Free Size')">
+          <div class="catalog-image-wrapper">
+            <img src="assets/images/collections/saree.png" alt="Saree Collection">
+          </div>
+          <div class="catalog-info">
+            <h3 class="catalog-title">Timeless Drape Saree</h3>
+            <div class="catalog-price">₹28,000</div>
+            <p class="catalog-desc">The quintessential Indian drape, reimagined. A collection of bespoke...</p>
+          </div>
+        </div>
+
+        <!-- Western -->
+        <div class="catalog-item" onclick="openModal('assets/images/collections/western.png', 'Urban Western Jumpsuit', '₹22,000', 'Chic, modern western wear designed for the cosmopolitan lifestyle. Fluid lines and premium materials.', 'Satin Blend', 'Black', 'Hand Wash', 'Tailored Fit')">
+          <div class="catalog-image-wrapper">
+            <img src="assets/images/collections/western.png" alt="Western Wear">
+          </div>
+          <div class="catalog-info">
+            <h3 class="catalog-title">Urban Western Jumpsuit</h3>
+            <div class="catalog-price">₹22,000</div>
+            <p class="catalog-desc">Chic, modern western wear designed for the cosmopolitan lifestyle...</p>
+          </div>
+        </div>
+
+        <!-- Dress Manu -->
+        <div class="catalog-item" onclick="openModal('assets/images/collections/dress_manu.png', 'Signature Manu Dress', '₹55,000', 'A masterclass in bespoke design. The signature Manu collection brings exclusive artisanal detailing to the forefront.', 'Organza Silk', 'Pastel Peach', 'Dry Clean Only', 'Custom Fit')">
+          <div class="catalog-image-wrapper">
+            <img src="assets/images/collections/dress_manu.png" alt="Manu Signature Dress">
+          </div>
+          <div class="catalog-info">
+            <h3 class="catalog-title">Signature Manu Dress</h3>
+            <div class="catalog-price">₹55,000</div>
+            <p class="catalog-desc">A masterclass in bespoke design. The signature Manu collection...</p>
+          </div>
+        </div>
+
+        <!-- Bridal & Wedding -->
+        <div class="catalog-item" onclick="openModal('assets/images/collections/1.jpg', 'Bridal & Wedding', '₹85,000', 'Extraordinary pieces for unforgettable beginnings.', 'Premium Silk', 'Red/Gold', 'Dry Clean Only', 'Custom Fit')">
+          <div class="catalog-image-wrapper">
+            <img src="assets/images/collections/1.jpg" alt="Bridal & Wedding">
+          </div>
+          <div class="catalog-info">
+            <h3 class="catalog-title">Bridal & <span style="color: var(--color-gold);">Wedding</span></h3>
+            <div class="catalog-price">₹85,000</div>
+            <p class="catalog-desc">Extraordinary pieces for unforgettable beginnings...</p>
+          </div>
+        </div>
+
+        <!-- Festive & Traditional -->
+        <div class="catalog-item" onclick="openModal('assets/images/collections/2.jpg', 'Festive & Traditional', '₹35,000', 'Timeless craftsmanship with a contemporary touch.', 'Georgette', 'Maroon', 'Dry Clean Only', 'Tailored Fit')">
+          <div class="catalog-image-wrapper">
+            <img src="assets/images/collections/2.jpg" alt="Festive & Traditional">
+          </div>
+          <div class="catalog-info">
+            <h3 class="catalog-title">Festive & <span style="color: var(--color-gold);">Traditional</span></h3>
+            <div class="catalog-price">₹35,000</div>
+            <p class="catalog-desc">Timeless craftsmanship with a contemporary touch...</p>
+          </div>
+        </div>
+
+        <!-- Office & Occasion -->
+        <div class="catalog-item" onclick="openModal('assets/images/collections/3.jpg', 'Office & Occasion', '₹18,500', 'Refined tailoring that makes every room yours.', 'Cotton Blend', 'Beige', 'Machine Wash Gentle', 'Standard Fit')">
+          <div class="catalog-image-wrapper">
+            <img src="assets/images/collections/3.jpg" alt="Office & Occasion">
+          </div>
+          <div class="catalog-info">
+            <h3 class="catalog-title">Office & Occasion</h3>
+            <div class="catalog-price">₹18,500</div>
+            <p class="catalog-desc">Refined tailoring that makes every room yours...</p>
+          </div>
+        </div>
+
+        <!-- Everyday Luxury -->
+        <div class="catalog-item" onclick="openModal('assets/images/collections/4.jpg', 'Everyday Luxury', '₹12,000', 'Beautifully tailored essentials made for real life.', 'Linen Blend', 'White', 'Machine Wash', 'Relaxed Fit')">
+          <div class="catalog-image-wrapper">
+            <img src="assets/images/collections/4.jpg" alt="Everyday Luxury">
+          </div>
+          <div class="catalog-info">
+            <h3 class="catalog-title">Everyday Luxury</h3>
+            <div class="catalog-price">₹12,000</div>
+            <p class="catalog-desc">Beautifully tailored essentials made for real life...</p>
+          </div>
+        </div>
+
+        <!-- Urban Winter (kids_3) -->
+        <div class="catalog-item" onclick="openModal('assets/images/collections/kids_3.jpg', 'Urban Winter', '₹16,000', 'Avant-garde outerwear built for the elements.', 'Wool Blend', 'Grey', 'Dry Clean Only', 'Ages 4-12')">
+          <div class="catalog-image-wrapper">
+            <img src="assets/images/collections/kids_3.jpg" alt="Urban Winter">
+          </div>
+          <div class="catalog-info">
+            <h3 class="catalog-title">Urban <span style="color: var(--color-gold);">Winter</span></h3>
+            <div class="catalog-price">₹16,000</div>
+            <p class="catalog-desc">Avant-garde outerwear built for the elements...</p>
+          </div>
+        </div>
+
+        <!-- Burgundy Elegance (5) -->
+        <div class="catalog-item" onclick="openModal('assets/images/collections/5.jpg', 'Burgundy Elegance', '₹38,000', 'Structured tailoring meets luxurious texture.', 'Velvet', 'Burgundy', 'Dry Clean Only', 'Tailored Fit')">
+          <div class="catalog-image-wrapper">
+            <img src="assets/images/collections/5.jpg" alt="Burgundy Elegance">
+          </div>
+          <div class="catalog-info">
+            <h3 class="catalog-title">Burgundy <span style="color: var(--color-gold);">Elegance</span></h3>
+            <div class="catalog-price">₹38,000</div>
+            <p class="catalog-desc">Structured tailoring meets luxurious texture...</p>
+          </div>
+        </div>
+
+        <!-- Festive Radiance (6) -->
+        <div class="catalog-item" onclick="openModal('assets/images/collections/6.jpg', 'Festive Radiance', '₹29,000', 'Embrace the celebrations with vibrant colors.', 'Silk Blend', 'Multi', 'Dry Clean Only', 'Standard Fit')">
+          <div class="catalog-image-wrapper">
+            <img src="assets/images/collections/6.jpg" alt="Festive Radiance">
+          </div>
+          <div class="catalog-info">
+            <h3 class="catalog-title">Festive <span style="color: var(--color-gold);">Radiance</span></h3>
+            <div class="catalog-price">₹29,000</div>
+            <p class="catalog-desc">Embrace the celebrations with vibrant colors...</p>
+          </div>
+        </div>
+
+        <!-- Playful Kids (kids_1) -->
+        <div class="catalog-item" onclick="openModal('assets/images/collections/kids_1.jpg', 'Playful Kids', '₹8,500', 'Adorable and comfortable designs for the little ones.', 'Cotton', 'Pastel', 'Machine Wash', 'Ages 2-8')">
+          <div class="catalog-image-wrapper">
+            <img src="assets/images/collections/kids_1.jpg" alt="Playful Kids">
+          </div>
+          <div class="catalog-info">
+            <h3 class="catalog-title">Playful <span style="color: var(--color-gold);">Kids</span></h3>
+            <div class="catalog-price">₹8,500</div>
+            <p class="catalog-desc">Adorable and comfortable designs for the little ones...</p>
+          </div>
+        </div>
+
+        <!-- Trendy Tots (kids_2) -->
+        <div class="catalog-item" onclick="openModal('assets/images/collections/kids_2.jpg', 'Trendy Tots', '₹10,500', 'Modern fashion tailored specially for children.', 'Denim Blend', 'Blue', 'Machine Wash Gentle', 'Ages 3-10')">
+          <div class="catalog-image-wrapper">
+            <img src="assets/images/collections/kids_2.jpg" alt="Trendy Tots">
+          </div>
+          <div class="catalog-info">
+            <h3 class="catalog-title">Trendy Tots</h3>
+            <div class="catalog-price">₹10,500</div>
+            <p class="catalog-desc">Modern fashion tailored specially for children...</p>
+          </div>
+        </div>
+
+        <!-- Grand Festivals (festive) -->
+        <div class="catalog-item" onclick="openModal('assets/images/collections/festive.png', 'Grand Festivals', '₹45,000', 'Immaculate festive wear that steals the spotlight.', 'Premium Georgette', 'Gold/Red', 'Dry Clean Only', 'Custom Fit')">
+          <div class="catalog-image-wrapper">
+            <img src="assets/images/collections/festive.png" alt="Grand Festivals">
+          </div>
+          <div class="catalog-info">
+            <h3 class="catalog-title">Grand <span style="color: var(--color-gold);">Festivals</span></h3>
+            <div class="catalog-price">₹45,000</div>
+            <p class="catalog-desc">Immaculate festive wear that steals the spotlight...</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  
+
+
+    <!-- ===================================================
+         TESTIMONIAL
+    ==================================================== -->
+    <section class="testimonial-section section-padding" style="background: var(--color-navy); color: white;">
+      <div class="section-container" style="text-align: center;">
+        <i data-lucide="quote" style="width: 48px; height: 48px; color: var(--color-gold); margin-bottom: 2rem;"></i>
+        <h2 style="font-family: 'Fraunces', serif; font-size: 2rem; font-weight: 500; font-style: italic; max-width: 800px; margin: 0 auto; line-height: 1.4;">"STITCHLY completely transformed my wardrobe. The fit is impeccable, and the attention to detail is truly unmatched. I've never felt more confident."</h2>
+        <p style="margin-top: 2rem; color: var(--color-gold); text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem;">— Ananya S., Loyal Client</p>
+      </div>
+    </section>
+
+
+
+    <!-- ===================================================
+         FAQ MINI
+    ==================================================== -->
+    <section class="faq-mini-section section-padding" style="background: var(--surface-color);">
+      <div class="section-container">
+        <div style="text-align: center; margin-bottom: 3rem;">
+          <span class="section-eyebrow">FAQ</span>
+          <h2 class="section-title">Common <span>Questions</span></h2>
+        </div>
+        <div style="max-width: 800px; margin: 0 auto; display: grid; gap: 2rem; text-align: left;">
+          <div style="border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
+            <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; font-family: 'Fraunces', serif;">How long does custom stitching take?</h3>
+            <p style="color: var(--text-secondary); font-family: 'Manrope', sans-serif;">Typically, our bespoke process takes 2-3 weeks from the initial measurement to the final fitting.</p>
+          </div>
+          <div style="border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
+            <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; font-family: 'Fraunces', serif;">Can I provide my own fabric?</h3>
+            <p style="color: var(--text-secondary); font-family: 'Manrope', sans-serif;">Yes! While we offer a curated selection of premium fabrics, we are happy to craft garments using materials you provide.</p>
+          </div>
+        </div>
+        <div style="text-align: center; margin-top: 3rem;">
+          <a href="faq.html" class="btn btn-secondary">Read All FAQs</a>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- ===================================================
+         OUR PROMISE
+    ==================================================== -->
+    <section class="process-section section-padding" style="text-align: center;">
+      <div class="section-container">
+        <span class="section-eyebrow">OUR PROMISE</span>
+        <h2 class="section-title">The STITCHLY <span>Standard.</span></h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem;">
+          <div>
+            <i data-lucide="ruler" style="width: 32px; height: 32px; color: var(--color-gold); margin-bottom: 1rem;"></i>
+            <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; font-family: 'Fraunces', serif;">Precision Fit</h3>
+            <p style="color: var(--text-secondary); font-size: 0.9rem;">Tailored to your exact measurements.</p>
+          </div>
+          <div>
+            <i data-lucide="star" style="width: 32px; height: 32px; color: var(--color-gold); margin-bottom: 1rem;"></i>
+            <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; font-family: 'Fraunces', serif;">Premium Quality</h3>
+            <p style="color: var(--text-secondary); font-size: 0.9rem;">The finest fabrics and thread.</p>
+          </div>
+          <div>
+            <i data-lucide="truck" style="width: 32px; height: 32px; color: var(--color-gold); margin-bottom: 1rem;"></i>
+            <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; font-family: 'Fraunces', serif;">Timely Delivery</h3>
+            <p style="color: var(--text-secondary); font-size: 0.9rem;">Delivered on schedule, every time.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- ===================================================
+         CONTACT SUPPORT
+    ==================================================== -->
+    <section class="contact-support-section section-padding" style="text-align: center;">
+      <div class="section-container">
+        <span class="section-eyebrow">NEED HELP?</span>
+        <h2 class="section-title">We're here for <span>you.</span></h2>
+        <p style="margin-top: 1rem; color: var(--text-secondary); max-width: 600px; margin-left: auto; margin-right: auto;">Whether you have a question about your order, need sizing advice, or just want to chat about fabrics, our team is ready to assist.</p>
+        <div style="margin-top: 2rem;">
+          <a href="contact.html" class="btn btn-primary">Contact Us</a>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- ===================================================
+         NEWSLETTER
+    ==================================================== -->
+    <section class="newsletter-section section-padding" style="background: var(--surface-hover); text-align: center;">
+      <div class="section-container">
+        <span class="section-eyebrow">STAY UPDATED</span>
+        <h2 class="section-title">Join the <span>STITCHLY</span> family.</h2>
+        <p style="margin-top: 1rem; color: var(--text-secondary); max-width: 500px; margin-left: auto; margin-right: auto;">Subscribe to our newsletter for the latest styling tips, exclusive offers, and behind-the-scenes looks.</p>
+        <form style="margin-top: 2rem; display: flex; justify-content: center; gap: 1rem; max-width: 500px; margin-left: auto; margin-right: auto;">
+          <input type="email" placeholder="Enter your email" style="padding: 1rem; flex: 1; border: 1px solid var(--border-color); border-radius: 4px; font-family: 'Manrope', sans-serif;">
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+      </div>
+    </section>
+
+
+  </main>
+
+  <!-- Modal -->
+  <div class="product-modal-overlay" id="productModal" onclick="closeModal(event)">
+    <div class="product-modal" onclick="event.stopPropagation()">
+      <button class="close-modal" onclick="closeModal(event)"><i data-lucide="x" style="width:30px; height:30px;"></i></button>
+      <img src="" alt="Product" class="modal-image" id="modalImg">
+      <div class="modal-content">
+        <h2 class="modal-title" id="modalTitle">Title</h2>
+        <div class="modal-price" id="modalPrice">Price</div>
+        <p class="modal-details" id="modalDesc">Desc</p>
+        
+        <ul class="modal-specs">
+          <li><span>Fabric:</span> <span id="modalFabric">Silk</span></li>
+          <li><span>Color:</span> <span id="modalColor">Red</span></li>
+          <li><span>Care:</span> <span id="modalCare">Dry Clean</span></li>
+          <li><span>Fit:</span> <span id="modalFit">Custom</span></li>
+        </ul>
+
+        <button class="btn-purchase" onclick="window.location.href='custom-stitching.html'">Inquire Now</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Injected -->
+  <div id="footer"></div>
+
+  <!-- Page Scripts -->
+  <script src="js/main.js"></script>
+  <script>
+    function openModal(imgSrc, title, price, desc, fabric, color, care, fit) {
+      // Dynamically add golden styling to the last word of the title for a premium look
+      if (!title.includes('<span')) {
+        let words = title.split(' ');
+        if(words.length > 1) {
+          let lastWord = words.pop();
+          title = words.join(' ') + ' <span style="color: var(--color-gold);">' + lastWord + '</span>';
+        }
+      }
+      
+      document.getElementById('modalImg').src = imgSrc;
+      document.getElementById('modalTitle').innerHTML = title;
+      document.getElementById('modalPrice').innerText = price;
+      document.getElementById('modalDesc').innerText = desc;
+      
+      document.getElementById('modalFabric').innerText = fabric;
+      document.getElementById('modalColor').innerText = color;
+      document.getElementById('modalCare').innerText = care;
+      document.getElementById('modalFit').innerText = fit;
+
+      document.getElementById('productModal').classList.add('active');
+    }
+
+    function closeModal(e) {
+      if(e) e.preventDefault();
+      document.getElementById('productModal').classList.remove('active');
+    }
+  </script>
+</body>
+</html>

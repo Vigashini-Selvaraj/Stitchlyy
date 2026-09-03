@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STITCHLY Admin - Reports & Analytics</title>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="css/admin-responsive.css">
+  
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <style>
+    /* Specific CSS for Analytics Charts */
+    .analytics-chart-container {
+      height: 250px;
+      display: flex;
+      align-items: flex-end;
+      gap: 12px;
+      padding-top: 20px;
+      border-bottom: 1px solid var(--color-border);
+      border-left: 1px solid var(--color-border);
+      padding-left: 10px;
+      margin-bottom: 20px;
+    }
+    .chart-col {
+      flex: 1;
+      background: var(--color-gold);
+      border-radius: 4px 4px 0 0;
+      min-width: 20px;
+      position: relative;
+      transition: height 0.5s ease-out;
+    }
+    .chart-col:hover {
+      background: var(--color-navy);
+      cursor: pointer;
+    }
+    .chart-col::after {
+      content: attr(data-val);
+      position: absolute;
+      top: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 11px;
+      color: var(--color-text-light);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .chart-col:hover::after {
+      opacity: 1;
+    }
+    .chart-labels {
+      display: flex;
+      gap: 12px;
+      padding-left: 10px;
+    }
+    .chart-label {
+      flex: 1;
+      text-align: center;
+      font-size: 12px;
+      color: var(--color-text-light);
+    }
+    
+    .metric-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px dashed var(--color-border);
+    }
+    .metric-row:last-child {
+      border-bottom: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="admin-layout">
+    
+    <!-- SIDEBAR -->
+    <aside class="admin-sidebar" id="admin-sidebar">
+      <div class="sidebar-header" style="padding-top: 30px; padding-bottom: 20px; height: auto;">
+        <a href="index.html">
+          <img src="../assets/logoo1.png" alt="STITCHLY" class="logo-light" style="max-width:140px;">
+          <img src="../assets/logoo1_dark.png" alt="STITCHLY" class="logo-dark" style="max-width:140px;">
+        </a>
+      </div>
+      
+      <div class="sidebar-settings" style="display:flex; justify-content:space-around; margin-bottom:20px; padding-bottom:20px; border-bottom:1px solid var(--color-border);">
+        <button type="button" class="nav-icon-button direction-toggle" id="sidebarDirectionToggle" title="Change text direction" style="font-size:0.85rem; font-weight:bold; background:transparent; border:none; color:inherit; cursor:pointer;">
+          <span id="sidebarDirectionText">RTL</span>
+        </button>
+        <button type="button" class="nav-icon-button theme-toggle" id="sidebarThemeToggle" title="Toggle theme" style="background:transparent; border:none; color:inherit; cursor:pointer;">
+          <i data-lucide="moon" id="sidebarThemeIcon"></i>
+        </button>
+      </div>
+      
+      <ul class="sidebar-nav">
+        <li class="nav-item">
+          <a href="index.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="layout-dashboard"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="orders.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="shopping-bag"></i>
+            <span>Orders</span>
+            <span class="nav-badge">12</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="customers.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="users"></i>
+            <span>Customers</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="measurements.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="ruler"></i>
+            <span>Measurements</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="appointments.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="calendar"></i>
+            <span>Appointments</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="stitching.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="scissors"></i>
+            <span>Custom Stitching</span>
+            <span class="nav-badge">5</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="collections.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="layers"></i>
+            <span>Collections</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="fabrics.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="palette"></i>
+            <span>Fabrics</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="gallery.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="image"></i>
+            <span>Design Gallery</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="pricing.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="tag"></i>
+            <span>Pricing</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="invoices.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="file-text"></i>
+            <span>Invoices</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="reviews.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="star"></i>
+            <span>Reviews</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="messages.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="message-square"></i>
+            <span>Messages</span>
+            <span class="nav-badge">3</span>
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a href="analytics.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="bar-chart-2"></i>
+            <span>Reports & Analytics</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="notifications.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="bell"></i>
+            <span>Notifications</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="../login.html" style="display: flex; align-items: center; gap: 16px; width: 100%; margin-top: 20px;">
+            <i data-lucide="log-out"></i>
+            <span>Logout</span>
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="admin-main">
+      
+      <!-- TOP HEADER -->
+      <header class="admin-header">
+        <div class="header-left">
+          <button class="toggle-sidebar" id="toggle-sidebar">
+            <i data-lucide="menu"></i>
+          </button>
+          <div class="page-title">
+            <h1>Reports & Analytics</h1>
+            <div class="breadcrumb">Admin / Analytics</div>
+          </div>
+        </div>
+
+        <div class="header-right">
+          
+          <button class="btn-primary" style="background: transparent; color: var(--color-navy); border: 1px solid var(--color-border);">
+            <i data-lucide="download"></i> Export Report
+          </button>
+          
+          <button class="header-icon" id="theme-toggle">
+            <i data-lucide="moon"></i>
+          </button>
+          
+          <button class="header-icon">
+            <i data-lucide="bell"></i>
+            <span class="badge">4</span>
+          </button>
+
+          <div class="admin-profile">
+            <img src="../assets/team-1.jpg" alt="Admin" class="admin-avatar" onerror="this.src='https://ui-avatars.com/api/?name=Admin+User&background=c8a96b&color=fff'">
+            <div class="admin-info">
+              <h4>Eleanor Vance</h4>
+              <span>Administrator</span>
+            </div>
+            <i data-lucide="chevron-down" style="color: var(--color-text-light); width: 16px;"></i>
+          </div>
+        </div>
+      </header>
+
+      <!-- PAGE CONTENT -->
+      <div class="admin-content">
+        
+        <!-- Analytics Header Filters -->
+        <div class="card" style="margin-bottom: 24px; padding: 15px 20px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+            <div style="display: flex; gap: 10px;">
+              <button class="btn-primary" style="background: var(--color-gold); color: #fff; border: none; padding: 6px 16px; border-radius: 4px; cursor: pointer;">This Year</button>
+              <button style="background: transparent; border: 1px solid var(--color-border); padding: 6px 16px; border-radius: 4px; cursor: pointer; color: var(--color-text-primary);">Last Year</button>
+              <button style="background: transparent; border: 1px solid var(--color-border); padding: 6px 16px; border-radius: 4px; cursor: pointer; color: var(--color-text-primary);">Q3 2026</button>
+              <button style="background: transparent; border: 1px solid var(--color-border); padding: 6px 16px; border-radius: 4px; cursor: pointer; color: var(--color-text-primary);">Custom Date</button>
+            </div>
+            <select style="border: 1px solid var(--color-border); padding: 8px 16px; border-radius: 4px; outline: none; background: transparent; color: var(--color-text-primary);">
+              <option>Currency: USD ($)</option>
+              <option>Currency: INR (₹)</option>
+              <option>Currency: GBP (£)</option>
+            </select>
+          </div>
+        </div>
+        
+        <!-- KPI Cards -->
+        <div class="kpi-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+          <div class="kpi-card">
+            <div class="kpi-header">
+              <h3>Total Revenue</h3>
+              <div class="kpi-icon"><i data-lucide="dollar-sign"></i></div>
+            </div>
+            <div class="kpi-value">$24,500</div>
+            <div class="kpi-meta">
+              <span class="kpi-change positive"><i data-lucide="trending-up" style="width: 12px; height: 12px; margin-right: 4px; display: inline-block; vertical-align: middle;"></i> +12.5%</span>
+            </div>
+          </div>
+          
+          <div class="kpi-card">
+            <div class="kpi-header">
+              <h3>Avg Order Value</h3>
+              <div class="kpi-icon"><i data-lucide="shopping-cart"></i></div>
+            </div>
+            <div class="kpi-value">$342.50</div>
+            <div class="kpi-meta">
+              <span class="kpi-change positive"><i data-lucide="trending-up" style="width: 12px; height: 12px; margin-right: 4px; display: inline-block; vertical-align: middle;"></i> +5.1%</span>
+            </div>
+          </div>
+          
+          <div class="kpi-card">
+            <div class="kpi-header">
+              <h3>Total Orders</h3>
+              <div class="kpi-icon"><i data-lucide="shopping-bag"></i></div>
+            </div>
+            <div class="kpi-value">184</div>
+            <div class="kpi-meta">
+              <span class="kpi-change positive"><i data-lucide="trending-up" style="width: 12px; height: 12px; margin-right: 4px; display: inline-block; vertical-align: middle;"></i> +8.2%</span>
+            </div>
+          </div>
+          
+          <div class="kpi-card">
+            <div class="kpi-header">
+              <h3>Conversion Rate</h3>
+              <div class="kpi-icon"><i data-lucide="mouse-pointer-click"></i></div>
+            </div>
+            <div class="kpi-value">4.2%</div>
+            <div class="kpi-meta">
+              <span class="kpi-change negative"><i data-lucide="trending-down" style="width: 12px; height: 12px; margin-right: 4px; display: inline-block; vertical-align: middle;"></i> -0.5%</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Main Charts Area -->
+        <div class="dashboard-grid" style="grid-template-columns: 2fr 1fr; margin-top: 24px;">
+          
+          <!-- Revenue Chart -->
+          <div class="card">
+            <div class="card-header" style="margin-bottom: 20px;">
+              <h2>Revenue Over Time (2026)</h2>
+              <div style="font-size: 24px; font-weight: 700; color: var(--color-navy);">$142,800 <span style="font-size: 12px; color: #10b981; font-weight: 500;">YTD Total</span></div>
+            </div>
+            
+            <div class="analytics-chart-container">
+              <div class="chart-col" style="height: 40%;" data-val="$12.4k"></div>
+              <div class="chart-col" style="height: 35%;" data-val="$11.2k"></div>
+              <div class="chart-col" style="height: 55%;" data-val="$16.5k"></div>
+              <div class="chart-col" style="height: 60%;" data-val="$18.1k"></div>
+              <div class="chart-col" style="height: 80%;" data-val="$24.2k"></div>
+              <div class="chart-col" style="height: 75%;" data-val="$22.5k"></div>
+              <div class="chart-col" style="height: 45%;" data-val="$13.8k"></div>
+              <div class="chart-col" style="height: 50%;" data-val="$15.2k"></div>
+              <div class="chart-col" style="height: 70%;" data-val="$21.4k"></div>
+              <div class="chart-col" style="height: 90%; background: var(--color-navy);" data-val="$27.5k"></div>
+              <div class="chart-col" style="height: 10%; background: #e5e7eb;" data-val="TBD"></div>
+              <div class="chart-col" style="height: 10%; background: #e5e7eb;" data-val="TBD"></div>
+            </div>
+            <div class="chart-labels">
+              <div class="chart-label">Jan</div>
+              <div class="chart-label">Feb</div>
+              <div class="chart-label">Mar</div>
+              <div class="chart-label">Apr</div>
+              <div class="chart-label">May</div>
+              <div class="chart-label">Jun</div>
+              <div class="chart-label">Jul</div>
+              <div class="chart-label">Aug</div>
+              <div class="chart-label">Sep</div>
+              <div class="chart-label" style="color: var(--color-navy); font-weight: 700;">Oct</div>
+              <div class="chart-label">Nov</div>
+              <div class="chart-label">Dec</div>
+            </div>
+          </div>
+          
+          <!-- Top Products / Breakdown -->
+          <div style="display: flex; flex-direction: column; gap: 24px;">
+            <div class="card">
+              <h3 style="font-size: 16px; margin-bottom: 20px; border-bottom: 1px solid var(--color-border); padding-bottom: 10px;">Sales by Category</h3>
+              
+              <div style="margin-bottom: 15px;">
+                <div style="display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 5px;">
+                  <span style="font-weight: 500;">Bridal Wear</span>
+                  <span style="font-weight: 600;">45%</span>
+                </div>
+                <div style="width: 100%; background: var(--color-border); height: 8px; border-radius: 4px;">
+                  <div style="width: 45%; background: var(--color-gold); height: 100%; border-radius: 4px;"></div>
+                </div>
+              </div>
+              
+              <div style="margin-bottom: 15px;">
+                <div style="display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 5px;">
+                  <span style="font-weight: 500;">Custom Blouses</span>
+                  <span style="font-weight: 600;">28%</span>
+                </div>
+                <div style="width: 100%; background: var(--color-border); height: 8px; border-radius: 4px;">
+                  <div style="width: 28%; background: var(--color-navy); height: 100%; border-radius: 4px;"></div>
+                </div>
+              </div>
+              
+              <div style="margin-bottom: 15px;">
+                <div style="display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 5px;">
+                  <span style="font-weight: 500;">Salwar Suits</span>
+                  <span style="font-weight: 600;">17%</span>
+                </div>
+                <div style="width: 100%; background: var(--color-border); height: 8px; border-radius: 4px;">
+                  <div style="width: 17%; background: #4f46e5; height: 100%; border-radius: 4px;"></div>
+                </div>
+              </div>
+              
+              <div style="margin-bottom: 15px;">
+                <div style="display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 5px;">
+                  <span style="font-weight: 500;">Alterations</span>
+                  <span style="font-weight: 600;">10%</span>
+                </div>
+                <div style="width: 100%; background: var(--color-border); height: 8px; border-radius: 4px;">
+                  <div style="width: 10%; background: #10b981; height: 100%; border-radius: 4px;"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="card">
+              <h3 style="font-size: 16px; margin-bottom: 20px; border-bottom: 1px solid var(--color-border); padding-bottom: 10px;">Customer Demographics</h3>
+              <div class="metric-row">
+                <span style="font-size: 14px; color: var(--color-text-light);">Returning Customers</span>
+                <span style="font-size: 14px; font-weight: 600; color: var(--color-text-primary);">68%</span>
+              </div>
+              <div class="metric-row">
+                <span style="font-size: 14px; color: var(--color-text-light);">New Customers</span>
+                <span style="font-size: 14px; font-weight: 600; color: var(--color-text-primary);">32%</span>
+              </div>
+              <div class="metric-row">
+                <span style="font-size: 14px; color: var(--color-text-light);">Top Location</span>
+                <span style="font-size: 14px; font-weight: 600; color: var(--color-text-primary);">New York, NY</span>
+              </div>
+              <div class="metric-row">
+                <span style="font-size: 14px; color: var(--color-text-light);">Avg. Appointments / Order</span>
+                <span style="font-size: 14px; font-weight: 600; color: var(--color-text-primary);">2.4</span>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+
+        <!-- Top Selling Services Table -->
+        <div class="card" style="margin-top: 24px;">
+          <div class="card-header" style="margin-bottom: 20px;">
+            <h2>Top Performing Services</h2>
+            <button style="border: none; background: transparent; color: var(--color-gold); font-weight: 600; cursor: pointer;">View Full Report</button>
+          </div>
+          
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Service Name</th>
+                  <th>Total Orders (YTD)</th>
+                  <th>Revenue (YTD)</th>
+                  <th>Growth (YoY)</th>
+                  <th>Avg Turnaround Time</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div style="font-weight: 600;">Custom Bridal Lehenga</div>
+                    <div style="font-size: 12px; color: var(--color-text-light);">Category: Bridal Wear</div>
+                  </td>
+                  <td>142</td>
+                  <td><strong style="color: var(--color-navy);">$64,250</strong></td>
+                  <td><span style="color: #10b981; font-weight: 500;"><i data-lucide="arrow-up" style="width: 14px; display: inline-block; vertical-align: text-top;"></i> 24.5%</span></td>
+                  <td>18 Days</td>
+                </tr>
+                <tr>
+                  <td>
+                    <div style="font-weight: 600;">Designer Saree Blouse</div>
+                    <div style="font-size: 12px; color: var(--color-text-light);">Category: Custom Blouses</div>
+                  </td>
+                  <td>356</td>
+                  <td><strong style="color: var(--color-navy);">$38,400</strong></td>
+                  <td><span style="color: #10b981; font-weight: 500;"><i data-lucide="arrow-up" style="width: 14px; display: inline-block; vertical-align: text-top;"></i> 12.2%</span></td>
+                  <td>5 Days</td>
+                </tr>
+                <tr>
+                  <td>
+                    <div style="font-weight: 600;">Anarkali / Salwar Suit</div>
+                    <div style="font-size: 12px; color: var(--color-text-light);">Category: Salwar Suits</div>
+                  </td>
+                  <td>184</td>
+                  <td><strong style="color: var(--color-navy);">$24,380</strong></td>
+                  <td><span style="color: #10b981; font-weight: 500;"><i data-lucide="arrow-up" style="width: 14px; display: inline-block; vertical-align: text-top;"></i> 8.4%</span></td>
+                  <td>8 Days</td>
+                </tr>
+                <tr>
+                  <td>
+                    <div style="font-weight: 600;">Evening Gown Alteration</div>
+                    <div style="font-size: 12px; color: var(--color-text-light);">Category: Alterations</div>
+                  </td>
+                  <td>215</td>
+                  <td><strong style="color: var(--color-navy);">$12,400</strong></td>
+                  <td><span style="color: #ef4444; font-weight: 500;"><i data-lucide="arrow-down" style="width: 14px; display: inline-block; vertical-align: text-top;"></i> 2.1%</span></td>
+                  <td>3 Days</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="js/admin.js"></script>
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+  </script>
+</body>
+</html>

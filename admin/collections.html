@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STITCHLY Admin - Collections</title>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="css/admin-responsive.css">
+  
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <style>
+    .collection-card {
+      background: var(--color-bg-card);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .collection-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+    
+    .collection-img-wrapper {
+      position: relative;
+      height: 200px;
+      width: 100%;
+      background: #f3f4f6;
+    }
+    
+    .collection-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .collection-status {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: rgba(255,255,255,0.9);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--color-navy);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .collection-status.active {
+      color: #10b981;
+    }
+    
+    .collection-status.draft {
+      color: #f59e0b;
+    }
+    
+    .collection-content {
+      padding: 20px;
+    }
+    
+    .collection-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--color-navy);
+      margin-bottom: 8px;
+    }
+    
+    .collection-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+      font-size: 13px;
+      color: var(--color-text-light);
+    }
+    
+    .collection-actions {
+      display: flex;
+      gap: 10px;
+      border-top: 1px solid var(--color-border);
+      padding-top: 15px;
+    }
+    
+    .collection-btn {
+      flex: 1;
+      padding: 8px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    
+    .btn-edit {
+      background: transparent;
+      border: 1px solid var(--color-gold);
+      color: var(--color-gold);
+    }
+    .btn-edit:hover {
+      background: var(--color-gold);
+      color: white;
+    }
+    
+    .btn-view {
+      background: rgba(0,0,0,0.03);
+      border: 1px solid var(--color-border);
+      color: var(--color-text-primary);
+    }
+    .btn-view:hover {
+      background: rgba(0,0,0,0.08);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="admin-layout">
+    
+    <!-- SIDEBAR -->
+    <aside class="admin-sidebar" id="admin-sidebar">
+      <div class="sidebar-header" style="padding-top: 30px; padding-bottom: 20px; height: auto;">
+        <a href="index.html">
+          <img src="../assets/logoo1.png" alt="STITCHLY" class="logo-light" style="max-width:140px;">
+          <img src="../assets/logoo1_dark.png" alt="STITCHLY" class="logo-dark" style="max-width:140px;">
+        </a>
+      </div>
+      
+      <div class="sidebar-settings" style="display:flex; justify-content:space-around; margin-bottom:20px; padding-bottom:20px; border-bottom:1px solid var(--color-border);">
+        <button type="button" class="nav-icon-button direction-toggle" id="sidebarDirectionToggle" title="Change text direction" style="font-size:0.85rem; font-weight:bold; background:transparent; border:none; color:inherit; cursor:pointer;">
+          <span id="sidebarDirectionText">RTL</span>
+        </button>
+        <button type="button" class="nav-icon-button theme-toggle" id="sidebarThemeToggle" title="Toggle theme" style="background:transparent; border:none; color:inherit; cursor:pointer;">
+          <i data-lucide="moon" id="sidebarThemeIcon"></i>
+        </button>
+      </div>
+      
+      <ul class="sidebar-nav">
+        <li class="nav-item">
+          <a href="index.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="layout-dashboard"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="orders.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="shopping-bag"></i>
+            <span>Orders</span>
+            <span class="nav-badge">12</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="customers.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="users"></i>
+            <span>Customers</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="measurements.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="ruler"></i>
+            <span>Measurements</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="appointments.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="calendar"></i>
+            <span>Appointments</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="stitching.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="scissors"></i>
+            <span>Custom Stitching</span>
+            <span class="nav-badge">5</span>
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a href="collections.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="layers"></i>
+            <span>Collections</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="fabrics.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="palette"></i>
+            <span>Fabrics</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="gallery.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="image"></i>
+            <span>Design Gallery</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="pricing.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="tag"></i>
+            <span>Pricing</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="invoices.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="file-text"></i>
+            <span>Invoices</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="reviews.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="star"></i>
+            <span>Reviews</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="messages.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="message-square"></i>
+            <span>Messages</span>
+            <span class="nav-badge">3</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="analytics.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="bar-chart-2"></i>
+            <span>Reports & Analytics</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="notifications.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="bell"></i>
+            <span>Notifications</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="../login.html" style="display: flex; align-items: center; gap: 16px; width: 100%; margin-top: 20px;">
+            <i data-lucide="log-out"></i>
+            <span>Logout</span>
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="admin-main">
+      
+      <!-- TOP HEADER -->
+      <header class="admin-header">
+        <div class="header-left">
+          <button class="toggle-sidebar" id="toggle-sidebar">
+            <i data-lucide="menu"></i>
+          </button>
+          <div class="page-title">
+            <h1>Design Collections</h1>
+            <div class="breadcrumb">Admin / Collections</div>
+          </div>
+        </div>
+
+        <div class="header-right">
+          
+          
+          <button class="btn-primary">
+            <i data-lucide="plus"></i> New Collection
+          </button>
+          
+          <button class="header-icon" id="theme-toggle">
+            <i data-lucide="moon"></i>
+          </button>
+          
+          <button class="header-icon">
+            <i data-lucide="bell"></i>
+            <span class="badge">4</span>
+          </button>
+
+          <div class="admin-profile">
+            <img src="../assets/team-1.jpg" alt="Admin" class="admin-avatar" onerror="this.src='https://ui-avatars.com/api/?name=Admin+User&background=c8a96b&color=fff'">
+            <div class="admin-info">
+              <h4>Eleanor Vance</h4>
+              <span>Administrator</span>
+            </div>
+            <i data-lucide="chevron-down" style="color: var(--color-text-light); width: 16px;"></i>
+          </div>
+        </div>
+      </header>
+
+      <!-- PAGE CONTENT -->
+      <div class="admin-content">
+        
+        <!-- KPI Cards -->
+        <div class="kpi-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+          <div class="kpi-card">
+            <div class="kpi-header">
+              <h3>Total Collections</h3>
+              <div class="kpi-icon"><i data-lucide="layers"></i></div>
+            </div>
+            <div class="kpi-value">12</div>
+            <div class="kpi-meta">
+              <span>All time</span>
+            </div>
+          </div>
+          
+          <div class="kpi-card">
+            <div class="kpi-header">
+              <h3>Active on Website</h3>
+              <div class="kpi-icon"><i data-lucide="globe"></i></div>
+            </div>
+            <div class="kpi-value">8</div>
+            <div class="kpi-meta">
+              <span class="kpi-change positive">Live for customers</span>
+            </div>
+          </div>
+          
+          <div class="kpi-card">
+            <div class="kpi-header">
+              <h3>Total Garment Designs</h3>
+              <div class="kpi-icon"><i data-lucide="image"></i></div>
+            </div>
+            <div class="kpi-value">156</div>
+            <div class="kpi-meta">
+              <span class="kpi-change positive"><i data-lucide="trending-up" style="width: 12px; display: inline-block;"></i> +14 this month</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Filter Bar -->
+        <div class="card" style="margin-top: 24px; margin-bottom: 24px;">
+          <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center;">
+            <div style="display: flex; gap: 10px; overflow-x: auto;" id="collection-filters">
+              <button class="filter-btn btn-primary" data-filter="all" style="background: var(--color-gold); color: #fff; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer;">All Collections</button>
+              <button class="filter-btn" data-filter="Formal" style="background: transparent; border: 1px solid var(--color-border); padding: 8px 16px; border-radius: 6px; cursor: pointer; color: var(--color-text-primary);">Bridal</button>
+              <button class="filter-btn" data-filter="Festive" style="background: transparent; border: 1px solid var(--color-border); padding: 8px 16px; border-radius: 6px; cursor: pointer; color: var(--color-text-primary);">Festive</button>
+              <button class="filter-btn" data-filter="Casual" style="background: transparent; border: 1px solid var(--color-border); padding: 8px 16px; border-radius: 6px; cursor: pointer; color: var(--color-text-primary);">Casual</button>
+              <button class="filter-btn" data-filter="Kids" style="background: transparent; border: 1px solid var(--color-border); padding: 8px 16px; border-radius: 6px; cursor: pointer; color: var(--color-text-primary);">Kids</button>
+              <button class="filter-btn" data-filter="Bridal" style="background: transparent; border: 1px solid var(--color-border); padding: 8px 16px; border-radius: 6px; cursor: pointer; color: var(--color-text-primary);">Formal</button>
+            </div>
+            
+            <div style="display: flex; gap: 10px;">
+              <select style="border: 1px solid var(--color-border); padding: 8px 16px; border-radius: 6px; outline: none; background: transparent; color: var(--color-text-primary);">
+                <option>Sort by: Newest</option>
+                <option>Sort by: Oldest</option>
+                <option>Sort by: Popularity</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Collections Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px;">
+          
+          <div class="collection-card">
+            <div class="collection-img-wrapper">
+              <img src="../assets/images/collections/1.jpg" alt="Bridal">
+              <div class="collection-status active"><div style="width:6px; height:6px; border-radius:50%; background:#10b981;"></div> Published</div>
+            </div>
+            <div class="collection-content">
+              <h3 class="collection-title">Bridal & Wedding</h3>
+              <div class="collection-meta"><span><i data-lucide="image" style="width: 14px; display: inline-block; vertical-align: text-top; margin-right: 4px;"></i> 24 Items</span><span>Category: Bridal</span></div>
+              <div class="collection-actions">
+                <button class="collection-btn btn-view"><i data-lucide="eye" style="width: 16px;"></i> View</button>
+                <button class="collection-btn btn-edit"><i data-lucide="edit" style="width: 16px;"></i> Edit</button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="collection-card">
+            <div class="collection-img-wrapper">
+              <img src="../assets/images/collections/2.jpg" alt="Festive">
+              <div class="collection-status active"><div style="width:6px; height:6px; border-radius:50%; background:#10b981;"></div> Published</div>
+            </div>
+            <div class="collection-content">
+              <h3 class="collection-title">Festive & Traditional</h3>
+              <div class="collection-meta"><span><i data-lucide="image" style="width: 14px; display: inline-block; vertical-align: text-top; margin-right: 4px;"></i> 18 Items</span><span>Category: Festive</span></div>
+              <div class="collection-actions">
+                <button class="collection-btn btn-view"><i data-lucide="eye" style="width: 16px;"></i> View</button>
+                <button class="collection-btn btn-edit"><i data-lucide="edit" style="width: 16px;"></i> Edit</button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="collection-card">
+            <div class="collection-img-wrapper">
+              <img src="../assets/images/collections/3.jpg" alt="Office">
+              <div class="collection-status active"><div style="width:6px; height:6px; border-radius:50%; background:#10b981;"></div> Published</div>
+            </div>
+            <div class="collection-content">
+              <h3 class="collection-title">Office & Occasion</h3>
+              <div class="collection-meta"><span><i data-lucide="image" style="width: 14px; display: inline-block; vertical-align: text-top; margin-right: 4px;"></i> 15 Items</span><span>Category: Formal</span></div>
+              <div class="collection-actions">
+                <button class="collection-btn btn-view"><i data-lucide="eye" style="width: 16px;"></i> View</button>
+                <button class="collection-btn btn-edit"><i data-lucide="edit" style="width: 16px;"></i> Edit</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="collection-card">
+            <div class="collection-img-wrapper">
+              <img src="../assets/images/collections/4.jpg" alt="Everyday">
+              <div class="collection-status active"><div style="width:6px; height:6px; border-radius:50%; background:#10b981;"></div> Published</div>
+            </div>
+            <div class="collection-content">
+              <h3 class="collection-title">Everyday Luxury</h3>
+              <div class="collection-meta"><span><i data-lucide="image" style="width: 14px; display: inline-block; vertical-align: text-top; margin-right: 4px;"></i> 32 Items</span><span>Category: Casual</span></div>
+              <div class="collection-actions">
+                <button class="collection-btn btn-view"><i data-lucide="eye" style="width: 16px;"></i> View</button>
+                <button class="collection-btn btn-edit"><i data-lucide="edit" style="width: 16px;"></i> Edit</button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="collection-card">
+            <div class="collection-img-wrapper">
+              <img src="../assets/images/collections/5.jpg" alt="Burgundy">
+              <div class="collection-status active"><div style="width:6px; height:6px; border-radius:50%; background:#10b981;"></div> Published</div>
+            </div>
+            <div class="collection-content">
+              <h3 class="collection-title">Burgundy Elegance</h3>
+              <div class="collection-meta"><span><i data-lucide="image" style="width: 14px; display: inline-block; vertical-align: text-top; margin-right: 4px;"></i> 8 Items</span><span>Category: Occasion</span></div>
+              <div class="collection-actions">
+                <button class="collection-btn btn-view"><i data-lucide="eye" style="width: 16px;"></i> View</button>
+                <button class="collection-btn btn-edit"><i data-lucide="edit" style="width: 16px;"></i> Edit</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="collection-card">
+            <div class="collection-img-wrapper">
+              <img src="../assets/images/collections/6.jpg" alt="Festive Radiance">
+              <div class="collection-status active"><div style="width:6px; height:6px; border-radius:50%; background:#10b981;"></div> Published</div>
+            </div>
+            <div class="collection-content">
+              <h3 class="collection-title">Festive Radiance</h3>
+              <div class="collection-meta"><span><i data-lucide="image" style="width: 14px; display: inline-block; vertical-align: text-top; margin-right: 4px;"></i> 12 Items</span><span>Category: Festive</span></div>
+              <div class="collection-actions">
+                <button class="collection-btn btn-view"><i data-lucide="eye" style="width: 16px;"></i> View</button>
+                <button class="collection-btn btn-edit"><i data-lucide="edit" style="width: 16px;"></i> Edit</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="collection-card">
+            <div class="collection-img-wrapper">
+              <img src="../assets/images/collections/anarkali.png" alt="Anarkali">
+              <div class="collection-status active"><div style="width:6px; height:6px; border-radius:50%; background:#10b981;"></div> Published</div>
+            </div>
+            <div class="collection-content">
+              <h3 class="collection-title">Royal Anarkali</h3>
+              <div class="collection-meta"><span><i data-lucide="image" style="width: 14px; display: inline-block; vertical-align: text-top; margin-right: 4px;"></i> 10 Items</span><span>Category: Traditional</span></div>
+              <div class="collection-actions">
+                <button class="collection-btn btn-view"><i data-lucide="eye" style="width: 16px;"></i> View</button>
+                <button class="collection-btn btn-edit"><i data-lucide="edit" style="width: 16px;"></i> Edit</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="collection-card">
+            <div class="collection-img-wrapper">
+              <img src="../assets/images/collections/boycoat.png" alt="Boys Coat">
+              <div class="collection-status active"><div style="width:6px; height:6px; border-radius:50%; background:#10b981;"></div> Published</div>
+            </div>
+            <div class="collection-content">
+              <h3 class="collection-title">Boys Winter Coat</h3>
+              <div class="collection-meta"><span><i data-lucide="image" style="width: 14px; display: inline-block; vertical-align: text-top; margin-right: 4px;"></i> 6 Items</span><span>Category: Kids</span></div>
+              <div class="collection-actions">
+                <button class="collection-btn btn-view"><i data-lucide="eye" style="width: 16px;"></i> View</button>
+                <button class="collection-btn btn-edit"><i data-lucide="edit" style="width: 16px;"></i> Edit</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="collection-card">
+            <div class="collection-img-wrapper">
+              <img src="../assets/images/collections/co ord.png" alt="Co-ord">
+              <div class="collection-status active"><div style="width:6px; height:6px; border-radius:50%; background:#10b981;"></div> Published</div>
+            </div>
+            <div class="collection-content">
+              <h3 class="collection-title">Chic Co-ord</h3>
+              <div class="collection-meta"><span><i data-lucide="image" style="width: 14px; display: inline-block; vertical-align: text-top; margin-right: 4px;"></i> 14 Items</span><span>Category: Western</span></div>
+              <div class="collection-actions">
+                <button class="collection-btn btn-view"><i data-lucide="eye" style="width: 16px;"></i> View</button>
+                <button class="collection-btn btn-edit"><i data-lucide="edit" style="width: 16px;"></i> Edit</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="collection-card">
+            <div class="collection-img-wrapper">
+              <img src="../assets/images/collections/coat.png" alt="Coat">
+              <div class="collection-status active"><div style="width:6px; height:6px; border-radius:50%; background:#10b981;"></div> Published</div>
+            </div>
+            <div class="collection-content">
+              <h3 class="collection-title">Classic Winter Coat</h3>
+              <div class="collection-meta"><span><i data-lucide="image" style="width: 14px; display: inline-block; vertical-align: text-top; margin-right: 4px;"></i> 8 Items</span><span>Category: Outerwear</span></div>
+              <div class="collection-actions">
+                <button class="collection-btn btn-view"><i data-lucide="eye" style="width: 16px;"></i> View</button>
+                <button class="collection-btn btn-edit"><i data-lucide="edit" style="width: 16px;"></i> Edit</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="collection-card">
+            <div class="collection-img-wrapper">
+              <img src="../assets/images/collections/kurttii.png" alt="Kurti">
+              <div class="collection-status active"><div style="width:6px; height:6px; border-radius:50%; background:#10b981;"></div> Published</div>
+            </div>
+            <div class="collection-content">
+              <h3 class="collection-title">Elegant Kurti</h3>
+              <div class="collection-meta"><span><i data-lucide="image" style="width: 14px; display: inline-block; vertical-align: text-top; margin-right: 4px;"></i> 20 Items</span><span>Category: Casual</span></div>
+              <div class="collection-actions">
+                <button class="collection-btn btn-view"><i data-lucide="eye" style="width: 16px;"></i> View</button>
+                <button class="collection-btn btn-edit"><i data-lucide="edit" style="width: 16px;"></i> Edit</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="collection-card">
+            <div class="collection-img-wrapper">
+              <img src="../assets/images/collections/saree gown.png" alt="Saree Gown">
+              <div class="collection-status active"><div style="width:6px; height:6px; border-radius:50%; background:#10b981;"></div> Published</div>
+            </div>
+            <div class="collection-content">
+              <h3 class="collection-title">Fusion Saree Gown</h3>
+              <div class="collection-meta"><span><i data-lucide="image" style="width: 14px; display: inline-block; vertical-align: text-top; margin-right: 4px;"></i> 9 Items</span><span>Category: Fusion</span></div>
+              <div class="collection-actions">
+                <button class="collection-btn btn-view"><i data-lucide="eye" style="width: 16px;"></i> View</button>
+                <button class="collection-btn btn-edit"><i data-lucide="edit" style="width: 16px;"></i> Edit</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="collection-card">
+            <div class="collection-img-wrapper">
+              <img src="../assets/images/collections/formal.png" alt="Formal">
+              <div class="collection-status draft"><div style="width:6px; height:6px; border-radius:50%; background:#f59e0b;"></div> Draft</div>
+            </div>
+            <div class="collection-content">
+              <h3 class="collection-title">Modern Formal</h3>
+              <div class="collection-meta"><span><i data-lucide="image" style="width: 14px; display: inline-block; vertical-align: text-top; margin-right: 4px;"></i> 12 Items</span><span>Category: Formal</span></div>
+              <div class="collection-actions">
+                <button class="collection-btn btn-view"><i data-lucide="eye" style="width: 16px;"></i> View</button>
+                <button class="collection-btn btn-edit"><i data-lucide="edit" style="width: 16px;"></i> Edit</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="collection-card">
+            <div class="collection-img-wrapper">
+              <img src="../assets/images/collections/office.png" alt="Office">
+              <div class="collection-status active"><div style="width:6px; height:6px; border-radius:50%; background:#10b981;"></div> Published</div>
+            </div>
+            <div class="collection-content">
+              <h3 class="collection-title">Corporate Chic</h3>
+              <div class="collection-meta"><span><i data-lucide="image" style="width: 14px; display: inline-block; vertical-align: text-top; margin-right: 4px;"></i> 16 Items</span><span>Category: Formal</span></div>
+              <div class="collection-actions">
+                <button class="collection-btn btn-view"><i data-lucide="eye" style="width: 16px;"></i> View</button>
+                <button class="collection-btn btn-edit"><i data-lucide="edit" style="width: 16px;"></i> Edit</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="collection-card">
+            <div class="collection-img-wrapper">
+              <img src="../assets/images/collections/saree.png" alt="Saree">
+              <div class="collection-status active"><div style="width:6px; height:6px; border-radius:50%; background:#10b981;"></div> Published</div>
+            </div>
+            <div class="collection-content">
+              <h3 class="collection-title">Timeless Drapes</h3>
+              <div class="collection-meta"><span><i data-lucide="image" style="width: 14px; display: inline-block; vertical-align: text-top; margin-right: 4px;"></i> 45 Items</span><span>Category: Traditional</span></div>
+              <div class="collection-actions">
+                <button class="collection-btn btn-view"><i data-lucide="eye" style="width: 16px;"></i> View</button>
+                <button class="collection-btn btn-edit"><i data-lucide="edit" style="width: 16px;"></i> Edit</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="collection-card">
+            <div class="collection-img-wrapper">
+              <img src="../assets/images/collections/western.png" alt="Western">
+              <div class="collection-status active"><div style="width:6px; height:6px; border-radius:50%; background:#10b981;"></div> Published</div>
+            </div>
+            <div class="collection-content">
+              <h3 class="collection-title">Urban Western</h3>
+              <div class="collection-meta"><span><i data-lucide="image" style="width: 14px; display: inline-block; vertical-align: text-top; margin-right: 4px;"></i> 22 Items</span><span>Category: Western</span></div>
+              <div class="collection-actions">
+                <button class="collection-btn btn-view"><i data-lucide="eye" style="width: 16px;"></i> View</button>
+                <button class="collection-btn btn-edit"><i data-lucide="edit" style="width: 16px;"></i> Edit</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="collection-card">
+            <div class="collection-img-wrapper">
+              <img src="../assets/images/collections/dress_manu.png" alt="Signature">
+              <div class="collection-status draft"><div style="width:6px; height:6px; border-radius:50%; background:#f59e0b;"></div> Draft</div>
+            </div>
+            <div class="collection-content">
+              <h3 class="collection-title">Signature Manu</h3>
+              <div class="collection-meta"><span><i data-lucide="image" style="width: 14px; display: inline-block; vertical-align: text-top; margin-right: 4px;"></i> 5 Items</span><span>Category: Bespoke</span></div>
+              <div class="collection-actions">
+                <button class="collection-btn btn-view"><i data-lucide="eye" style="width: 16px;"></i> View</button>
+                <button class="collection-btn btn-edit"><i data-lucide="edit" style="width: 16px;"></i> Edit</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="collection-card">
+            <div class="collection-img-wrapper">
+              <img src="../assets/images/collections/kids_1.jpg" alt="Kids 1">
+              <div class="collection-status active"><div style="width:6px; height:6px; border-radius:50%; background:#10b981;"></div> Published</div>
+            </div>
+            <div class="collection-content">
+              <h3 class="collection-title">Playful Kids</h3>
+              <div class="collection-meta"><span><i data-lucide="image" style="width: 14px; display: inline-block; vertical-align: text-top; margin-right: 4px;"></i> 12 Items</span><span>Category: Kids</span></div>
+              <div class="collection-actions">
+                <button class="collection-btn btn-view"><i data-lucide="eye" style="width: 16px;"></i> View</button>
+                <button class="collection-btn btn-edit"><i data-lucide="edit" style="width: 16px;"></i> Edit</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="collection-card">
+            <div class="collection-img-wrapper">
+              <img src="../assets/images/collections/kids_2.jpg" alt="Kids 2">
+              <div class="collection-status active"><div style="width:6px; height:6px; border-radius:50%; background:#10b981;"></div> Published</div>
+            </div>
+            <div class="collection-content">
+              <h3 class="collection-title">Trendy Tots</h3>
+              <div class="collection-meta"><span><i data-lucide="image" style="width: 14px; display: inline-block; vertical-align: text-top; margin-right: 4px;"></i> 14 Items</span><span>Category: Kids</span></div>
+              <div class="collection-actions">
+                <button class="collection-btn btn-view"><i data-lucide="eye" style="width: 16px;"></i> View</button>
+                <button class="collection-btn btn-edit"><i data-lucide="edit" style="width: 16px;"></i> Edit</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="collection-card">
+            <div class="collection-img-wrapper">
+              <img src="../assets/images/collections/kids_3.jpg" alt="Kids 3">
+              <div class="collection-status active"><div style="width:6px; height:6px; border-radius:50%; background:#10b981;"></div> Published</div>
+            </div>
+            <div class="collection-content">
+              <h3 class="collection-title">Urban Winter Kids</h3>
+              <div class="collection-meta"><span><i data-lucide="image" style="width: 14px; display: inline-block; vertical-align: text-top; margin-right: 4px;"></i> 8 Items</span><span>Category: Kids</span></div>
+              <div class="collection-actions">
+                <button class="collection-btn btn-view"><i data-lucide="eye" style="width: 16px;"></i> View</button>
+                <button class="collection-btn btn-edit"><i data-lucide="edit" style="width: 16px;"></i> Edit</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="collection-card">
+            <div class="collection-img-wrapper">
+              <img src="../assets/images/collections/festive.png" alt="Festivals">
+              <div class="collection-status active"><div style="width:6px; height:6px; border-radius:50%; background:#10b981;"></div> Published</div>
+            </div>
+            <div class="collection-content">
+              <h3 class="collection-title">Grand Festivals</h3>
+              <div class="collection-meta"><span><i data-lucide="image" style="width: 14px; display: inline-block; vertical-align: text-top; margin-right: 4px;"></i> 28 Items</span><span>Category: Festive</span></div>
+              <div class="collection-actions">
+                <button class="collection-btn btn-view"><i data-lucide="eye" style="width: 16px;"></i> View</button>
+                <button class="collection-btn btn-edit"><i data-lucide="edit" style="width: 16px;"></i> Edit</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Edit Modal Placeholder -->
+  <div id="editModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1000; align-items: center; justify-content: center;">
+    <div style="background-color: var(--color-bg, #ffffff); padding: 30px; border-radius: 12px; width: 90%; max-width: 500px; box-shadow: 0 20px 40px rgba(0,0,0,0.4); border: 1px solid var(--color-border);">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <h2 style="color: var(--color-text-primary); font-size: 20px;">Edit Collection</h2>
+        <button id="closeModal" style="background: transparent; border: none; cursor: pointer; color: var(--color-text-light);"><i data-lucide="x"></i></button>
+      </div>
+      <div style="margin-bottom: 15px;">
+        <label style="display: block; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Collection Title</label>
+        <input type="text" id="editTitleInput" style="width: 100%; padding: 10px; border: 1px solid var(--color-border); border-radius: 6px; background: transparent; color: var(--color-text-primary);">
+      </div>
+      <div style="margin-bottom: 20px;">
+        <label style="display: block; font-size: 13px; font-weight: 600; margin-bottom: 8px;">Status</label>
+        <select style="width: 100%; padding: 10px; border: 1px solid var(--color-border); border-radius: 6px; background: transparent; color: var(--color-text-primary);">
+          <option>Published</option>
+          <option>Draft</option>
+        </select>
+      </div>
+      <div style="display: flex; justify-content: flex-end; gap: 10px;">
+        <button id="cancelModal" style="padding: 10px 15px; border: 1px solid var(--color-border); background: transparent; color: var(--color-text-primary); border-radius: 6px; cursor: pointer;">Cancel</button>
+        <button id="saveModal" style="padding: 10px 15px; border: none; background: var(--color-gold); color: white; border-radius: 6px; cursor: pointer;">Save Changes</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- View Modal Placeholder -->
+  <div id="viewModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 1001; align-items: center; justify-content: center;">
+    <div style="position: relative; max-width: 90%; max-height: 90%; display: flex; flex-direction: column; align-items: center;">
+      <button id="closeViewModal" style="align-self: flex-end; margin-bottom: 10px; background: transparent; border: none; cursor: pointer; color: white; font-size: 30px;"><i data-lucide="x" style="width: 32px; height: 32px;"></i></button>
+      <img id="viewModalImg" src="" style="max-width: 100%; max-height: 80vh; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); object-fit: contain;">
+    </div>
+  </div>
+
+  <script src="js/admin.js"></script>
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Filtering Logic
+    document.addEventListener('DOMContentLoaded', () => {
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const collectionCards = document.querySelectorAll('.collection-card');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          // Reset styles on all buttons
+          filterBtns.forEach(b => {
+            b.classList.remove('btn-primary');
+            b.style.background = 'transparent';
+            b.style.color = 'var(--color-text-primary)';
+          });
+          
+          // Set active style on clicked button
+          btn.classList.add('btn-primary');
+          btn.style.background = 'var(--color-gold)';
+          btn.style.color = '#fff';
+
+          const filterValue = btn.getAttribute('data-filter');
+
+          // Filter the cards
+          collectionCards.forEach(card => {
+            // Find the category text inside the card
+            const metaSpans = card.querySelectorAll('.collection-meta span');
+            let categoryText = "";
+            metaSpans.forEach(span => {
+              if (span.innerText.includes('Category:')) {
+                categoryText = span.innerText;
+              }
+            });
+
+            if (filterValue === 'all') {
+              card.style.display = 'block';
+            } else {
+              if (categoryText.includes(filterValue)) {
+                card.style.display = 'block';
+              } else {
+                card.style.display = 'none';
+              }
+            }
+          });
+        });
+      });
+
+      // Edit Button Modal Logic
+      const editBtns = document.querySelectorAll('.btn-edit');
+      const editModal = document.getElementById('editModal');
+      const closeModal = document.getElementById('closeModal');
+      const cancelModal = document.getElementById('cancelModal');
+      const saveModal = document.getElementById('saveModal');
+      const editTitleInput = document.getElementById('editTitleInput');
+      let currentEditingTitleElement = null;
+
+      editBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const card = e.target.closest('.collection-card');
+          currentEditingTitleElement = card.querySelector('.collection-title');
+          editTitleInput.value = currentEditingTitleElement.innerText;
+          editModal.style.display = 'flex';
+        });
+      });
+
+      const hideModal = () => { editModal.style.display = 'none'; };
+      closeModal.addEventListener('click', hideModal);
+      cancelModal.addEventListener('click', hideModal);
+      
+      saveModal.addEventListener('click', () => {
+        if (currentEditingTitleElement) {
+          currentEditingTitleElement.innerText = editTitleInput.value;
+        }
+        hideModal();
+      });
+
+      // View Button Modal Logic
+      const viewBtns = document.querySelectorAll('.btn-view');
+      const viewModal = document.getElementById('viewModal');
+      const closeViewModal = document.getElementById('closeViewModal');
+      const viewModalImg = document.getElementById('viewModalImg');
+
+      viewBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const card = e.target.closest('.collection-card');
+          const imgSrc = card.querySelector('img').src;
+          viewModalImg.src = imgSrc;
+          viewModal.style.display = 'flex';
+        });
+      });
+
+      closeViewModal.addEventListener('click', () => {
+        viewModal.style.display = 'none';
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,309 @@
+/* =========================================================
+   COLLECTIONS PAGE - EDITORIAL LAYOUT
+========================================================= */
+
+.collections-wrapper {
+  background-color: var(--color-background, #fff);
+  color: var(--color-text-primary, #111);
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode .collections-wrapper {
+  background-color: #050505;
+  color: #f9f9f9;
+}
+
+/* HERO SECTION */
+.collections-hero {
+  min-height: 110vh;
+  height: auto;
+  padding-top: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 20px 40px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('../assets/images/collections_hero.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.dark-mode .collections-hero {
+  /* Inherit background image from above */
+}
+
+.hero-content h1 {
+  font-family: var(--font-primary, 'Fraunces', serif);
+  font-size: 5.5rem;
+  font-weight: 300;
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: #fff;
+  margin-bottom: 25px;
+}
+
+.hero-content p {
+  font-family: var(--font-secondary, 'Manrope', sans-serif);
+  font-size: 1.25rem;
+  color: #eaeaea;
+  letter-spacing: 2px;
+  font-weight: 300;
+}
+
+body.dark-mode .hero-content h1 {
+  color: #fff;
+}
+
+body.dark-mode .hero-content p {
+  color: #ccc;
+}
+
+/* EDITORIAL SECTIONS */
+.editorial-section {
+  padding: 120px 0;
+  position: relative;
+  width: 100%;
+}
+
+.editorial-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* Alignments */
+.editorial-container.right-align {
+  justify-content: flex-start;
+}
+
+.editorial-container.left-align {
+  flex-direction: row-reverse;
+}
+
+/* Image styling */
+.editorial-image-wrapper {
+  width: 55%;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+  border-radius: 4px;
+}
+
+.dark-mode .editorial-image-wrapper {
+  box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+}
+
+.editorial-image {
+  width: 100%;
+  height: 85vh;
+  object-fit: cover;
+  display: block;
+  transition: transform 1.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.dark-mode .editorial-image {
+  filter: contrast(1.1) brightness(0.9);
+}
+
+.editorial-image-wrapper:hover .editorial-image {
+  transform: scale(1.05);
+}
+
+/* Overlapping Text Styling */
+.editorial-text {
+  width: 55%;
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+/* LTR Default Alignments */
+html[dir="ltr"] .editorial-container.right-align .editorial-text {
+  right: 2%;
+  align-items: flex-end;
+  text-align: right;
+}
+
+html[dir="ltr"] .editorial-container.left-align .editorial-text {
+  left: 2%;
+  align-items: flex-start;
+  text-align: left;
+}
+
+/* RTL Alignments */
+html[dir="rtl"] .editorial-container.right-align .editorial-text {
+  left: 2%;
+  align-items: flex-end; /* In RTL, flex-end is the LEFT edge */
+  text-align: right; /* Natural reading direction for RTL */
+}
+
+html[dir="rtl"] .editorial-container.left-align .editorial-text {
+  right: 2%;
+  align-items: flex-start; /* In RTL, flex-start is the RIGHT edge */
+  text-align: right;
+}
+
+.overlap-title {
+  font-family: var(--font-primary, 'Fraunces', serif);
+  font-size: 7rem;
+  font-weight: 200;
+  line-height: 0.85;
+  color: #111;
+  text-shadow: 5px 5px 30px rgba(255,255,255,0.9), -2px -2px 20px rgba(255,255,255,0.7);
+  margin-bottom: 40px;
+  letter-spacing: -3px;
+  z-index: 3;
+  position: relative;
+}
+
+.dark-mode .overlap-title {
+  color: #fff;
+  text-shadow: 5px 5px 30px rgba(0,0,0,0.9), -2px -2px 20px rgba(0,0,0,0.7);
+}
+
+.text-content {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  padding: 45px;
+  max-width: 480px;
+  border: 1px solid rgba(0,0,0,0.05);
+  border-radius: 2px;
+}
+
+.dark-mode .text-content {
+  background: rgba(15, 15, 15, 0.7);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.text-content p {
+  font-family: var(--font-secondary, 'Manrope', sans-serif);
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 35px;
+  font-weight: 300;
+}
+
+.dark-mode .text-content p {
+  color: #d0d0d0;
+}
+
+.explore-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-secondary, 'Manrope', sans-serif);
+  font-weight: 500;
+  font-size: 1.05rem;
+  color: #111;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: gap 0.3s ease, color 0.3s ease;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 4px;
+}
+
+.dark-mode .explore-link {
+  color: #fff;
+}
+
+.explore-link:hover {
+  gap: 18px;
+  color: #a38258;
+  border-bottom: 1px solid #a38258;
+}
+
+.dark-mode .explore-link:hover {
+  color: #d4af37;
+  border-bottom: 1px solid #d4af37;
+}
+
+html[dir="rtl"] .explore-link i {
+  transform: scaleX(-1);
+}
+
+.explore-link i {
+  width: 20px;
+  height: 20px;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1200px) {
+  .overlap-title {
+    font-size: 5.5rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero-content h1 {
+    font-size: 4rem;
+  }
+  
+  .overlap-title {
+    font-size: 4.5rem;
+  }
+  
+  .editorial-image-wrapper {
+    width: 65%;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 3.2rem;
+  }
+  
+  .editorial-section {
+    padding: 60px 0;
+  }
+  
+  .editorial-container {
+    flex-direction: column !important;
+    padding: 0 20px;
+  }
+  
+  .editorial-image-wrapper {
+    width: 100%;
+  }
+  
+  .editorial-image {
+    height: 65vh;
+  }
+  
+  .editorial-text {
+    width: 95%;
+    position: relative;
+    right: auto !important;
+    left: auto !important;
+    top: -100px;
+    align-items: center !important;
+    text-align: center !important;
+  }
+  
+  .overlap-title {
+    font-size: 3.8rem;
+    text-shadow: 2px 2px 15px rgba(255,255,255,0.8);
+    margin-bottom: 20px;
+  }
+
+  .dark-mode .overlap-title {
+    text-shadow: 2px 2px 15px rgba(0,0,0,0.8);
+  }
+  
+  .text-content {
+    max-width: 100%;
+    padding: 35px 25px;
+  }
+}

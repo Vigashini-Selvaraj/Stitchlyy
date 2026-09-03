@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="STITCHLY Fabrics — Discover the luxurious textiles tailored for your custom creations.">
+  <title>STITCHLY | Fabrics</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest" defer></script>
+
+  <!-- Main Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/fabrics.css">
+</head>
+
+<body class="dark-mode">
+
+  <!-- Navbar Injected -->
+  <div id="navbar"></div>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="fabrics-hero">
+      <h1>Choose the Fabric That <span style="color: var(--color-gold);">Defines Your Style</span></h1>
+      <p>From luxurious silks to breathable cottons, discover fabrics carefully selected for your custom creation.</p>
+      <div class="hero-ctas">
+        <a href="#collection" class="btn btn-primary">Explore Fabrics</a>
+        <a href="custom-stitching.html" class="btn btn-outline" style="color: #fff; border-color: #fff;">Start Custom Stitching</a>
+      </div>
+    </section>
+
+    <!-- Atelier Collection Section -->
+    <section id="collection" class="atelier-section">
+      
+      <!-- Filters -->
+      <div class="fabric-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="silk">Silk</button>
+        <button class="filter-btn" data-filter="cotton">Cotton</button>
+        <button class="filter-btn" data-filter="luxury">Luxury</button>
+        <button class="filter-btn" data-filter="traditional">Traditional</button>
+        <button class="filter-btn" data-filter="lightweight">Lightweight</button>
+      </div>
+
+      <!-- Fabric Grid -->
+      <div class="fabric-grid">
+        
+        <!-- Banarasi -->
+        <div class="fabric-card" data-category="silk traditional luxury">
+          <div class="fabric-image-wrapper">
+            <img src="assets/images/fabrics/banarasi.png" alt="Banarasi Silk">
+          </div>
+          <h3 class="fabric-title">Banarasi Silk</h3>
+          <div class="fabric-tags">Rich • Traditional • Heavy</div>
+          <p class="fabric-desc">A magnificent handwoven silk known for its intricate zari work and opulent feel. Perfect for sarees, lehengas, and grand festive wear.</p>
+          <a href="custom-stitching.html" class="fabric-link">Select for Custom Stitching <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></a>
+        </div>
+
+        <!-- Brocade -->
+        <div class="fabric-card" data-category="silk traditional luxury">
+          <div class="fabric-image-wrapper">
+            <img src="assets/images/fabrics/brocade.png" alt="Brocade">
+          </div>
+          <h3 class="fabric-title">Brocade</h3>
+          <div class="fabric-tags">Textured • Ornate • Structured</div>
+          <p class="fabric-desc">A richly decorative shuttle-woven fabric often made in colored silks with or without gold and silver threads. Ideal for structured jackets and blouses.</p>
+          <a href="custom-stitching.html" class="fabric-link">Select for Custom Stitching <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></a>
+        </div>
+
+        <!-- Chanderi -->
+        <div class="fabric-card" data-category="cotton traditional lightweight">
+          <div class="fabric-image-wrapper">
+            <img src="assets/images/fabrics/chanderi.png" alt="Chanderi">
+          </div>
+          <h3 class="fabric-title">Chanderi</h3>
+          <div class="fabric-tags">Sheer • Lightweight • Elegant</div>
+          <p class="fabric-desc">A traditional ethnic fabric characterized by its lightweight, sheer texture and fine luxurious feel. Perfect for summer festive wear and kurtis.</p>
+          <a href="custom-stitching.html" class="fabric-link">Select for Custom Stitching <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></a>
+        </div>
+
+        <!-- Chiffon -->
+        <div class="fabric-card" data-category="silk lightweight luxury">
+          <div class="fabric-image-wrapper">
+            <img src="assets/images/fabrics/chiffon.png" alt="Chiffon">
+          </div>
+          <h3 class="fabric-title">Chiffon</h3>
+          <div class="fabric-tags">Lightweight • Flowing • Elegant</div>
+          <p class="fabric-desc">A diaphanous, beautifully draping fabric that feels incredibly light. Ideal for flowing gowns, elegant sarees, and evening dresses.</p>
+          <a href="custom-stitching.html" class="fabric-link">Select for Custom Stitching <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></a>
+        </div>
+
+        <!-- Cotton -->
+        <div class="fabric-card" data-category="cotton lightweight">
+          <div class="fabric-image-wrapper">
+            <img src="assets/images/fabrics/cotton.png" alt="Cotton">
+          </div>
+          <h3 class="fabric-title">Premium Cotton</h3>
+          <div class="fabric-tags">Breathable • Natural • Comfortable</div>
+          <p class="fabric-desc">The ultimate everyday comfort. Our premium long-staple cotton is soft, crisp, and perfect for shirts, everyday dresses, and casual wear.</p>
+          <a href="custom-stitching.html" class="fabric-link">Select for Custom Stitching <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></a>
+        </div>
+
+        <!-- Georgette -->
+        <div class="fabric-card" data-category="silk lightweight">
+          <div class="fabric-image-wrapper">
+            <img src="assets/images/fabrics/georgrette.png" alt="Georgette">
+          </div>
+          <h3 class="fabric-title">Georgette</h3>
+          <div class="fabric-tags">Bouncy • Flowing • Versatile</div>
+          <p class="fabric-desc">A sheer, lightweight, dull-finished crepe fabric. It carries excellent drape, making it perfect for flared dresses, Anarkalis, and sarees.</p>
+          <a href="custom-stitching.html" class="fabric-link">Select for Custom Stitching <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></a>
+        </div>
+
+        <!-- Organza -->
+        <div class="fabric-card" data-category="silk lightweight luxury">
+          <div class="fabric-image-wrapper">
+            <img src="assets/images/fabrics/organza.png" alt="Organza">
+          </div>
+          <h3 class="fabric-title">Organza</h3>
+          <div class="fabric-tags">Sheer • Crisp • Structured</div>
+          <p class="fabric-desc">A thin, plain weave, sheer fabric traditionally made from silk. Its crispness gives incredible volume to gowns, sleeves, and statement pieces.</p>
+          <a href="custom-stitching.html" class="fabric-link">Select for Custom Stitching <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></a>
+        </div>
+
+        <!-- Satin -->
+        <div class="fabric-card" data-category="silk luxury">
+          <div class="fabric-image-wrapper">
+            <img src="assets/images/fabrics/satin.png" alt="Satin">
+          </div>
+          <h3 class="fabric-title">Satin</h3>
+          <div class="fabric-tags">Glossy • Smooth • Glamorous</div>
+          <p class="fabric-desc">Renowned for its brilliantly glossy surface and dull back, satin drapes flawlessly. Ideal for slip dresses, elegant evening wear, and luxurious linings.</p>
+          <a href="custom-stitching.html" class="fabric-link">Select for Custom Stitching <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></a>
+        </div>
+
+        <!-- Pure Silk -->
+        <div class="fabric-card" data-category="silk luxury traditional">
+          <div class="fabric-image-wrapper">
+            <img src="assets/images/fabrics/silk.png" alt="Pure Silk">
+          </div>
+          <h3 class="fabric-title">Pure Silk</h3>
+          <div class="fabric-tags">Smooth • Luminous • Timeless</div>
+          <p class="fabric-desc">The epitome of luxury. Pure silk offers a natural sheen, breathability, and unmatched elegance. Perfect for heritage sarees, gowns, and bespoke suits.</p>
+          <a href="custom-stitching.html" class="fabric-link">Select for Custom Stitching <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></a>
+        </div>
+
+        <!-- Velvet -->
+        <div class="fabric-card" data-category="luxury traditional">
+          <div class="fabric-image-wrapper">
+            <img src="assets/images/fabrics/velvet.png" alt="Velvet">
+          </div>
+          <h3 class="fabric-title">Plush Velvet</h3>
+          <div class="fabric-tags">Rich • Heavy • Plush</div>
+          <p class="fabric-desc">A closely woven fabric with a thick short pile on one side. Velvet brings depth, richness, and warmth, ideal for winter wear, sherwanis, and blazers.</p>
+          <a href="custom-stitching.html" class="fabric-link">Select for Custom Stitching <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Fabric Guide Table -->
+    <section class="fabric-guide-section">
+      <div class="guide-container">
+        <h2 style="font-family: var(--font-primary, 'Fraunces', serif); font-size: 2.5rem; text-align: center; margin-bottom: 10px; color: var(--color-text-primary);">Find the Perfect Fabric</h2>
+        <p style="text-align: center; color: var(--color-text-secondary); margin-bottom: 20px;">A quick reference guide for your custom creations.</p>
+        
+        <table class="guide-table">
+          <thead>
+            <tr>
+              <th>Fabric</th>
+              <th>Texture & Feel</th>
+              <th>Best Suited For</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="fabric-name">Silk (Banarasi / Pure)</td>
+              <td>Smooth, Luminous, Rich</td>
+              <td>Sarees, Bridal Lehengas, Gowns, Sherwanis</td>
+            </tr>
+            <tr>
+              <td class="fabric-name">Premium Cotton</td>
+              <td>Soft, Breathable, Crisp</td>
+              <td>Everyday Dresses, Shirts, Casual Kurtis</td>
+            </tr>
+            <tr>
+              <td class="fabric-name">Velvet</td>
+              <td>Rich, Plush, Heavy</td>
+              <td>Party Wear, Winter Outerwear, Blazers</td>
+            </tr>
+            <tr>
+              <td class="fabric-name">Chiffon / Georgette</td>
+              <td>Light, Flowing, Bouncy</td>
+              <td>Flowing Gowns, Sarees, Anarkalis, Dupattas</td>
+            </tr>
+            <tr>
+              <td class="fabric-name">Organza</td>
+              <td>Sheer, Crisp, Structured</td>
+              <td>Statement Gowns, Voluminous Sleeves, Overlays</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Outfit Recommendations (Visual Tree) -->
+    <section class="recommendation-section">
+      <h2 style="font-family: var(--font-primary, 'Fraunces', serif); font-size: 2.5rem; margin-bottom: 20px;">What Should You <span style="color: var(--color-gold);">Create?</span></h2>
+      <p style="color: #aaa; max-width: 600px; margin: 0 auto;">Discover the ideal silhouettes that complement the unique drape and fall of each textile family.</p>
+      
+      <div class="rec-grid">
+        <div class="rec-block">
+          <h3 class="rec-title">Silk & Satin</h3>
+          <ul class="rec-list">
+            <li>Heritage Sarees</li>
+            <li>Bridal Anarkalis</li>
+            <li>Evening Gowns</li>
+            <li>Bespoke Suits</li>
+          </ul>
+        </div>
+        
+        <div class="rec-block">
+          <h3 class="rec-title">Velvet & Brocade</h3>
+          <ul class="rec-list">
+            <li>Tailored Blazers</li>
+            <li>Royal Sherwanis</li>
+            <li>Winter Party Dresses</li>
+            <li>Structured Lehengas</li>
+          </ul>
+        </div>
+        
+        <div class="rec-block">
+          <h3 class="rec-title">Cotton & Linen</h3>
+          <ul class="rec-list">
+            <li>Tailored Shirts</li>
+            <li>Wide-leg Trousers</li>
+            <li>Casual Summer Dresses</li>
+            <li>Everyday Kurtis</li>
+          </ul>
+        </div>
+        
+        <div class="rec-block">
+          <h3 class="rec-title">Chiffon & Organza</h3>
+          <ul class="rec-list">
+            <li>Flowing Sarees</li>
+            <li>Embellished Dupattas</li>
+            <li>Voluminous Gowns</li>
+            <li>Ruffled Blouses</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose STITCHLY Fabrics -->
+    <section class="why-choose-section">
+      <div style="text-align: center;">
+        <span style="color: var(--color-gold); font-weight: 600; letter-spacing: 2px; font-size: 0.9rem;">THE ATELIER STANDARD</span>
+        <h2 style="font-family: var(--font-primary, 'Fraunces', serif); font-size: 2.5rem; margin-top: 15px; color: var(--color-text-primary);">Why Choose <span style="color: var(--color-gold);">STITCHLY?</span></h2>
+      </div>
+      
+      <div class="features-grid">
+        <div class="feature-box">
+          <i data-lucide="gem" style="width:40px; height:40px;"></i>
+          <h4>Premium Quality</h4>
+          <p>Every yard is carefully selected to meet our luxurious standards.</p>
+        </div>
+        <div class="feature-box">
+          <i data-lucide="scissors" style="width:40px; height:40px;"></i>
+          <h4>Tailor-Made</h4>
+          <p>Cut and stitched perfectly to flatter your unique silhouette.</p>
+        </div>
+        <div class="feature-box">
+          <i data-lucide="check-circle" style="width:40px; height:40px;"></i>
+          <h4>Expert Finishing</h4>
+          <p>Precise stitching and refined detailing by master tailors.</p>
+        </div>
+        <div class="feature-box">
+          <i data-lucide="shield" style="width:40px; height:40px;"></i>
+          <h4>Made to Last</h4>
+          <p>Durable craftsmanship that preserves the fabric’s beauty over time.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Custom Fabric CTA -->
+    <section class="luxury-cta">
+      <h2>Found Your Fabric?</h2>
+      <p>Now let's turn it into something uniquely yours.</p>
+      <a href="custom-stitching.html" class="btn btn-primary" style="padding: 18px 40px; font-size: 1.1rem;">Start Custom Stitching <i data-lucide="arrow-right" style="margin-left: 10px;"></i></a>
+    </section>
+
+  
+
+
+    <!-- ===================================================
+         TESTIMONIAL
+    ==================================================== -->
+    <section class="testimonial-section section-padding" style="background: var(--color-navy); color: white;">
+      <div class="section-container" style="text-align: center;">
+        <i data-lucide="quote" style="width: 48px; height: 48px; color: var(--color-gold); margin-bottom: 2rem;"></i>
+        <h2 style="font-family: 'Fraunces', serif; font-size: 2rem; font-weight: 500; font-style: italic; max-width: 800px; margin: 0 auto; line-height: 1.4;">"STITCHLY completely transformed my wardrobe. The fit is impeccable, and the attention to detail is truly unmatched. I've never felt more confident."</h2>
+        <p style="margin-top: 2rem; color: var(--color-gold); text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem;">— Ananya S., Loyal Client</p>
+      </div>
+    </section>
+
+
+
+    <!-- ===================================================
+         FAQ MINI
+    ==================================================== -->
+    <section class="faq-mini-section section-padding" style="background: var(--surface-color);">
+      <div class="section-container">
+        <div style="text-align: center; margin-bottom: 3rem;">
+          <span class="section-eyebrow">FAQ</span>
+          <h2 class="section-title">Common <span>Questions</span></h2>
+        </div>
+        <div style="max-width: 800px; margin: 0 auto; display: grid; gap: 2rem; text-align: left;">
+          <div style="border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
+            <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; font-family: 'Fraunces', serif;">How long does custom stitching take?</h3>
+            <p style="color: var(--text-secondary); font-family: 'Manrope', sans-serif;">Typically, our bespoke process takes 2-3 weeks from the initial measurement to the final fitting.</p>
+          </div>
+          <div style="border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
+            <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; font-family: 'Fraunces', serif;">Can I provide my own fabric?</h3>
+            <p style="color: var(--text-secondary); font-family: 'Manrope', sans-serif;">Yes! While we offer a curated selection of premium fabrics, we are happy to craft garments using materials you provide.</p>
+          </div>
+        </div>
+        <div style="text-align: center; margin-top: 3rem;">
+          <a href="faq.html" class="btn btn-secondary">Read All FAQs</a>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- ===================================================
+         OUR PROMISE
+    ==================================================== -->
+    <section class="process-section section-padding" style="text-align: center;">
+      <div class="section-container">
+        <span class="section-eyebrow">OUR PROMISE</span>
+        <h2 class="section-title">The STITCHLY <span>Standard.</span></h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem;">
+          <div>
+            <i data-lucide="ruler" style="width: 32px; height: 32px; color: var(--color-gold); margin-bottom: 1rem;"></i>
+            <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; font-family: 'Fraunces', serif;">Precision Fit</h3>
+            <p style="color: var(--text-secondary); font-size: 0.9rem;">Tailored to your exact measurements.</p>
+          </div>
+          <div>
+            <i data-lucide="star" style="width: 32px; height: 32px; color: var(--color-gold); margin-bottom: 1rem;"></i>
+            <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; font-family: 'Fraunces', serif;">Premium Quality</h3>
+            <p style="color: var(--text-secondary); font-size: 0.9rem;">The finest fabrics and thread.</p>
+          </div>
+          <div>
+            <i data-lucide="truck" style="width: 32px; height: 32px; color: var(--color-gold); margin-bottom: 1rem;"></i>
+            <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; font-family: 'Fraunces', serif;">Timely Delivery</h3>
+            <p style="color: var(--text-secondary); font-size: 0.9rem;">Delivered on schedule, every time.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- ===================================================
+         CONTACT SUPPORT
+    ==================================================== -->
+    <section class="contact-support-section section-padding" style="text-align: center;">
+      <div class="section-container">
+        <span class="section-eyebrow">NEED HELP?</span>
+        <h2 class="section-title">We're here for <span>you.</span></h2>
+        <p style="margin-top: 1rem; color: var(--text-secondary); max-width: 600px; margin-left: auto; margin-right: auto;">Whether you have a question about your order, need sizing advice, or just want to chat about fabrics, our team is ready to assist.</p>
+        <div style="margin-top: 2rem;">
+          <a href="contact.html" class="btn btn-primary">Contact Us</a>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- ===================================================
+         NEWSLETTER
+    ==================================================== -->
+    <section class="newsletter-section section-padding" style="background: var(--surface-hover); text-align: center;">
+      <div class="section-container">
+        <span class="section-eyebrow">STAY UPDATED</span>
+        <h2 class="section-title">Join the <span>STITCHLY</span> family.</h2>
+        <p style="margin-top: 1rem; color: var(--text-secondary); max-width: 500px; margin-left: auto; margin-right: auto;">Subscribe to our newsletter for the latest styling tips, exclusive offers, and behind-the-scenes looks.</p>
+        <form style="margin-top: 2rem; display: flex; justify-content: center; gap: 1rem; max-width: 500px; margin-left: auto; margin-right: auto;">
+          <input type="email" placeholder="Enter your email" style="padding: 1rem; flex: 1; border: 1px solid var(--border-color); border-radius: 4px; font-family: 'Manrope', sans-serif;">
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+      </div>
+    </section>
+
+
+  </main>
+
+  <!-- Footer Injected -->
+  <div id="footer"></div>
+
+  <!-- Page Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/fabrics.js"></script>
+</body>
+</html>

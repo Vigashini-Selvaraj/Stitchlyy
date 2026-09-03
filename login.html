@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | STITCHLY</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/auth.css">
+
+</head>
+<body class="dark-mode">
+
+  <div class="auth-page">
+    
+    <!-- Image Side -->
+    <div class="auth-image-side"></div>
+
+    <!-- Form Side -->
+    <div class="auth-form-side">
+      <div class="auth-container">
+        
+        <a href="index.html" class="back-link">
+          <i data-lucide="arrow-left"></i> Back to Home
+        </a>
+
+        <a href="index.html" class="auth-logo">
+          <img src="assets/logoo1.png" alt="STITCHLY Logo" class="logo-light">
+          <img src="assets/logoo1_dark.png" alt="STITCHLY Logo" class="logo-dark">
+        </a>
+        
+        <h1>Welcome Back to STITCHLY</h1>
+        <p>Sign in to continue to your account.</p>
+        
+        <div class="role-selector">
+          <button type="button" class="role-btn active" data-role="user" id="roleBtnUser">User</button>
+          <button type="button" class="role-btn" data-role="admin" id="roleBtnAdmin">Admin</button>
+        </div>
+
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="password">Password</label>
+            <div class="password-wrapper">
+              <input type="password" id="password" placeholder="Enter your password" required>
+              <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+                <i data-lucide="eye" class="icon-eye"></i>
+                <i data-lucide="eye-off" class="icon-eye-off hidden-element"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <div></div> <!-- Spacer -->
+            <a href="#" class="forgot-link">Forgot Password?</a>
+          </div>
+
+          <button type="submit" class="auth-submit-btn">Sign In</button>
+
+
+          
+        </form>
+
+        <div class="auth-footer">
+          <p>Don't have an account? <a href="register.html">Create Account</a></p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Javascript -->
+  <script src="js/auth.js"></script>
+
+</body>
+</html>

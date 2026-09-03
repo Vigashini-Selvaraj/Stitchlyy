@@ -1,0 +1,80 @@
+/* =========================================================
+   STITCHLY ADMIN DASHBOARD - RESPONSIVE STYLES
+========================================================= */
+
+@media (max-width: 1024px) {
+  /* Tablet Styles */
+  
+  :root {
+    --sidebar-width: 80px; /* Default collapsed on tablet */
+  }
+  
+  .sidebar-header h2,
+  .nav-item span,
+  .nav-badge {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Mobile Styles */
+  
+  :root {
+    --header-height: 70px;
+  }
+  
+  .admin-sidebar {
+    transform: translateX(-100%);
+    width: 260px;
+  }
+  
+  .admin-sidebar.mobile-open {
+    transform: translateX(0);
+    box-shadow: 0 0 0 1000px rgba(0,0,0,0.5); /* Backdrop */
+  }
+  
+  .admin-sidebar.mobile-open .sidebar-header h2,
+  .admin-sidebar.mobile-open .nav-item span,
+  .admin-sidebar.mobile-open .nav-badge {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
+  .admin-main,
+  .admin-sidebar.collapsed + .admin-main {
+    margin-left: 0;
+  }
+  
+  .admin-header {
+    padding: 0 20px;
+  }
+  
+  .header-right .search-bar {
+    display: none;
+  }
+  
+  .admin-profile {
+    padding-left: 12px;
+  }
+  
+  .admin-info {
+    display: none;
+  }
+  
+  .admin-content {
+    padding: 20px;
+  }
+  
+  .kpi-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .card {
+    padding: 20px;
+  }
+}

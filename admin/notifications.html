@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STITCHLY Admin - Notifications</title>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="css/admin-responsive.css">
+  
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <style>
+    .notifications-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .notif-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    
+    .notif-list {
+      background: var(--color-bg-card);
+      border-radius: 12px;
+      border: 1px solid var(--color-border);
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    }
+    
+    .notif-item {
+      display: flex;
+      gap: 20px;
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--color-border);
+      transition: background 0.2s;
+    }
+    
+    .notif-item:hover {
+      background: rgba(0,0,0,0.02);
+    }
+    
+    .dark-mode .notif-item:hover {
+      background: rgba(255,255,255,0.02);
+    }
+    
+    .notif-item.unread {
+      background: rgba(200, 169, 107, 0.05);
+    }
+    
+    .notif-item:last-child {
+      border-bottom: none;
+    }
+    
+    .notif-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    
+    .icon-order {
+      background: rgba(16, 185, 129, 0.1);
+      color: #10b981;
+    }
+    
+    .icon-message {
+      background: rgba(59, 130, 246, 0.1);
+      color: #3b82f6;
+    }
+    
+    .icon-alert {
+      background: rgba(239, 68, 68, 0.1);
+      color: #ef4444;
+    }
+    
+    .icon-system {
+      background: rgba(139, 92, 246, 0.1);
+      color: #8b5cf6;
+    }
+    
+    .notif-content {
+      flex: 1;
+    }
+    
+    .notif-title {
+      font-weight: 600;
+      color: var(--color-text-primary);
+      margin-bottom: 5px;
+      font-size: 15px;
+    }
+    
+    .notif-desc {
+      color: var(--color-text-secondary);
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+    
+    .notif-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .notif-time {
+      font-size: 12px;
+      color: var(--color-text-light);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    
+    .notif-action {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-gold);
+      text-decoration: none;
+      cursor: pointer;
+    }
+    
+    .notif-action:hover {
+      text-decoration: underline;
+    }
+    
+    .unread-indicator {
+      width: 10px;
+      height: 10px;
+      background: var(--color-gold);
+      border-radius: 50%;
+      margin-top: 19px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="admin-layout">
+    
+    <!-- SIDEBAR -->
+    <aside class="admin-sidebar" id="admin-sidebar">
+      <div class="sidebar-header" style="padding-top: 30px; padding-bottom: 20px; height: auto;">
+        <a href="index.html">
+          <img src="../assets/logoo1.png" alt="STITCHLY" class="logo-light" style="max-width:140px;">
+          <img src="../assets/logoo1_dark.png" alt="STITCHLY" class="logo-dark" style="max-width:140px;">
+        </a>
+      </div>
+      
+      <div class="sidebar-settings" style="display:flex; justify-content:space-around; margin-bottom:20px; padding-bottom:20px; border-bottom:1px solid var(--color-border);">
+        <button type="button" class="nav-icon-button direction-toggle" id="sidebarDirectionToggle" title="Change text direction" style="font-size:0.85rem; font-weight:bold; background:transparent; border:none; color:inherit; cursor:pointer;">
+          <span id="sidebarDirectionText">RTL</span>
+        </button>
+        <button type="button" class="nav-icon-button theme-toggle" id="sidebarThemeToggle" title="Toggle theme" style="background:transparent; border:none; color:inherit; cursor:pointer;">
+          <i data-lucide="moon" id="sidebarThemeIcon"></i>
+        </button>
+      </div>
+      
+      <ul class="sidebar-nav">
+        <li class="nav-item">
+          <a href="index.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="layout-dashboard"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="orders.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="shopping-bag"></i>
+            <span>Orders</span>
+            <span class="nav-badge">12</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="customers.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="users"></i>
+            <span>Customers</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="measurements.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="ruler"></i>
+            <span>Measurements</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="appointments.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="calendar"></i>
+            <span>Appointments</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="stitching.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="scissors"></i>
+            <span>Custom Stitching</span>
+            <span class="nav-badge">5</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="collections.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="layers"></i>
+            <span>Collections</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="fabrics.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="palette"></i>
+            <span>Fabrics</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="gallery.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="image"></i>
+            <span>Design Gallery</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="pricing.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="tag"></i>
+            <span>Pricing</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="invoices.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="file-text"></i>
+            <span>Invoices</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="reviews.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="star"></i>
+            <span>Reviews</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="messages.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="message-square"></i>
+            <span>Messages</span>
+            <span class="nav-badge">3</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="analytics.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="bar-chart-2"></i>
+            <span>Reports & Analytics</span>
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a href="notifications.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="bell"></i>
+            <span>Notifications</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="../login.html" style="display: flex; align-items: center; gap: 16px; width: 100%; margin-top: 20px;">
+            <i data-lucide="log-out"></i>
+            <span>Logout</span>
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="admin-main">
+      
+      <!-- TOP HEADER -->
+      <header class="admin-header">
+        <div class="header-left">
+          <button class="toggle-sidebar" id="toggle-sidebar">
+            <i data-lucide="menu"></i>
+          </button>
+          <div class="page-title">
+            <h1>Notifications</h1>
+            <div class="breadcrumb">Admin / Activity Logs</div>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <button class="header-icon" id="theme-toggle">
+            <i data-lucide="moon"></i>
+          </button>
+          
+          <button class="header-icon">
+            <i data-lucide="bell"></i>
+            <span class="badge">4</span>
+          </button>
+
+          <div class="admin-profile">
+            <img src="../assets/team-1.jpg" alt="Admin" class="admin-avatar" onerror="this.src='https://ui-avatars.com/api/?name=Admin+User&background=c8a96b&color=fff'">
+            <div class="admin-info">
+              <h4>Eleanor Vance</h4>
+              <span>Administrator</span>
+            </div>
+            <i data-lucide="chevron-down" style="color: var(--color-text-light); width: 16px;"></i>
+          </div>
+        </div>
+      </header>
+
+      <!-- PAGE CONTENT -->
+      <div class="admin-content">
+        
+        <div class="notifications-container">
+          
+          <div class="notif-header">
+            <div style="display: flex; gap: 10px;" id="notif-filters">
+              <button class="filter-btn btn-primary" data-filter="all" style="background: var(--color-gold); color: #fff; border: none; padding: 6px 15px; border-radius: 6px; cursor: pointer; font-size: 13px;">All</button>
+              <button class="filter-btn" data-filter="unread" style="background: transparent; border: 1px solid var(--color-border); padding: 6px 15px; border-radius: 6px; cursor: pointer; color: var(--color-text-primary); font-size: 13px;">Unread</button>
+              <button class="filter-btn" data-filter="orders" style="background: transparent; border: 1px solid var(--color-border); padding: 6px 15px; border-radius: 6px; cursor: pointer; color: var(--color-text-primary); font-size: 13px;">Orders</button>
+              <button class="filter-btn" data-filter="alerts" style="background: transparent; border: 1px solid var(--color-border); padding: 6px 15px; border-radius: 6px; cursor: pointer; color: var(--color-text-primary); font-size: 13px;">Alerts</button>
+            </div>
+            
+            <button style="background: transparent; border: none; color: var(--color-text-light); font-size: 13px; cursor: pointer; display: flex; align-items: center; gap: 5px;">
+              <i data-lucide="check-circle" style="width: 14px;"></i> Mark all as read
+            </button>
+          </div>
+
+          <div class="notif-list">
+            
+            <div class="notif-item unread" data-type="orders">
+              <div class="notif-icon icon-order"><i data-lucide="shopping-bag"></i></div>
+              <div class="notif-content">
+                <div class="notif-title">New Custom Order Received</div>
+                <div class="notif-desc">Sarah Jenkins has submitted a new bespoke Bridal Lehenga order (#ORD-4492) and uploaded her measurements.</div>
+                <div class="notif-meta">
+                  <span class="notif-time"><i data-lucide="clock" style="width: 12px;"></i> 10 mins ago</span>
+                  <a href="orders.html" class="notif-action">View Order</a>
+                </div>
+              </div>
+              <div class="unread-indicator"></div>
+            </div>
+
+            <div class="notif-item unread" data-type="message">
+              <div class="notif-icon icon-message"><i data-lucide="message-square"></i></div>
+              <div class="notif-content">
+                <div class="notif-title">New Message from Emma Watson</div>
+                <div class="notif-desc">"Can I change the fabric color for my evening gown order?"</div>
+                <div class="notif-meta">
+                  <span class="notif-time"><i data-lucide="clock" style="width: 12px;"></i> 1 hour ago</span>
+                  <a href="messages.html" class="notif-action">Reply</a>
+                </div>
+              </div>
+              <div class="unread-indicator"></div>
+            </div>
+
+            <div class="notif-item unread" data-type="alerts">
+              <div class="notif-icon icon-alert"><i data-lucide="alert-triangle"></i></div>
+              <div class="notif-content">
+                <div class="notif-title">Low Stock Alert: Pure Chiffon Fabric</div>
+                <div class="notif-desc">Inventory for Pure Chiffon Fabric (White) has reached 0 meters. Please restock immediately to prevent order delays.</div>
+                <div class="notif-meta">
+                  <span class="notif-time"><i data-lucide="clock" style="width: 12px;"></i> 3 hours ago</span>
+                  <a href="fabrics.html" class="notif-action">Manage Inventory</a>
+                </div>
+              </div>
+              <div class="unread-indicator"></div>
+            </div>
+
+            <div class="notif-item" data-type="system">
+              <div class="notif-icon icon-system"><i data-lucide="server"></i></div>
+              <div class="notif-content">
+                <div class="notif-title">System Update Completed</div>
+                <div class="notif-desc">The STITCHLY admin dashboard has been successfully updated to version 2.4. New features include improved dark mode contrast and faster image uploads.</div>
+                <div class="notif-meta">
+                  <span class="notif-time"><i data-lucide="clock" style="width: 12px;"></i> Yesterday, 2:00 PM</span>
+                  <a href="#" class="notif-action">View Changelog</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="notif-item" data-type="orders">
+              <div class="notif-icon icon-order" style="background: rgba(245, 158, 11, 0.1); color: #f59e0b;"><i data-lucide="credit-card"></i></div>
+              <div class="notif-content">
+                <div class="notif-title">Payment Pending</div>
+                <div class="notif-desc">Invoice #INV-2026-088 for Amanda Doe is currently pending. Due date is tomorrow.</div>
+                <div class="notif-meta">
+                  <span class="notif-time"><i data-lucide="clock" style="width: 12px;"></i> Yesterday, 11:30 AM</span>
+                  <a href="invoices.html" class="notif-action">Send Reminder</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="js/admin.js"></script>
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Notification Filtering
+    document.addEventListener('DOMContentLoaded', () => {
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const notifItems = document.querySelectorAll('.notif-item');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          // Reset styles
+          filterBtns.forEach(b => {
+            b.classList.remove('btn-primary');
+            b.style.background = 'transparent';
+            b.style.color = 'var(--color-text-primary)';
+          });
+          
+          // Set active style
+          btn.classList.add('btn-primary');
+          btn.style.background = 'var(--color-gold)';
+          btn.style.color = '#fff';
+
+          const filterValue = btn.getAttribute('data-filter');
+
+          // Filter items
+          notifItems.forEach(item => {
+            const isUnread = item.classList.contains('unread');
+            const type = item.getAttribute('data-type');
+
+            if (filterValue === 'all') {
+              item.style.display = 'flex';
+            } else if (filterValue === 'unread' && isUnread) {
+              item.style.display = 'flex';
+            } else if (filterValue === 'orders' && type === 'orders') {
+              item.style.display = 'flex';
+            } else if (filterValue === 'alerts' && type === 'alerts') {
+              item.style.display = 'flex';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>

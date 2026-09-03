@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STITCHLY Admin - Invoices</title>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="css/admin-responsive.css">
+  
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <style>
+    .invoice-container {
+      background: #ffffff; /* Explicitly white for invoice look */
+      border-radius: 12px;
+      padding: 50px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+      margin: 0 auto;
+      max-width: 900px;
+      color: #333333; /* Dark text for printability */
+    }
+    
+    .dark-mode .invoice-container {
+      background: var(--color-bg-card);
+      color: var(--color-text-primary);
+    }
+    
+    .invoice-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 50px;
+      border-bottom: 2px solid rgba(200, 169, 107, 0.3);
+      padding-bottom: 30px;
+    }
+    
+    .invoice-brand h1 {
+      font-size: 32px;
+      font-family: var(--font-primary, serif);
+      color: var(--color-navy);
+      margin-bottom: 5px;
+    }
+    
+    .dark-mode .invoice-brand h1 {
+      color: var(--color-gold);
+    }
+    
+    .invoice-brand p {
+      font-size: 13px;
+      color: #666;
+      line-height: 1.6;
+    }
+    
+    .dark-mode .invoice-brand p {
+      color: var(--color-text-light);
+    }
+    
+    .invoice-meta {
+      text-align: right;
+    }
+    
+    .invoice-title {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #999;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    
+    .invoice-meta-table {
+      margin-left: auto;
+      font-size: 14px;
+    }
+    
+    .invoice-meta-table td {
+      padding: 4px 15px 4px 0;
+    }
+    
+    .invoice-meta-table td:last-child {
+      font-weight: 600;
+      padding-right: 0;
+      text-align: right;
+    }
+    
+    .invoice-parties {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 40px;
+    }
+    
+    .party-block h3 {
+      font-size: 13px;
+      color: var(--color-gold);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+    
+    .party-block strong {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+    
+    .party-block p {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.6;
+    }
+    
+    .dark-mode .party-block p {
+      color: var(--color-text-light);
+    }
+    
+    .invoice-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 40px;
+    }
+    
+    .invoice-table th {
+      background: rgba(200, 169, 107, 0.1);
+      color: var(--color-navy);
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 1px;
+      padding: 15px;
+      text-align: left;
+    }
+    
+    .dark-mode .invoice-table th {
+      color: var(--color-gold);
+    }
+    
+    .invoice-table th:last-child,
+    .invoice-table td:last-child {
+      text-align: right;
+    }
+    
+    .invoice-table td {
+      padding: 15px;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      font-size: 14px;
+    }
+    
+    .dark-mode .invoice-table td {
+      border-bottom: 1px solid var(--color-border);
+    }
+    
+    .invoice-totals {
+      width: 350px;
+      margin-left: auto;
+      margin-bottom: 50px;
+    }
+    
+    .totals-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      font-size: 14px;
+    }
+    
+    .totals-row.grand-total {
+      border-top: 2px solid var(--color-gold);
+      margin-top: 10px;
+      padding-top: 15px;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-navy);
+    }
+    
+    .dark-mode .totals-row.grand-total {
+      color: var(--color-text-primary);
+    }
+    
+    .invoice-footer {
+      text-align: center;
+      border-top: 1px solid rgba(0,0,0,0.05);
+      padding-top: 30px;
+      font-size: 13px;
+      color: #888;
+    }
+    
+    .dark-mode .invoice-footer {
+      border-top: 1px solid var(--color-border);
+    }
+    
+    .invoice-actions-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 900px;
+      margin: 0 auto 24px auto;
+      background: var(--color-bg-card);
+      padding: 15px 24px;
+      border-radius: 12px;
+      border: 1px solid var(--color-border);
+    }
+    
+    @media (max-width: 768px) {
+      .invoice-header, .invoice-parties {
+        flex-direction: column;
+        gap: 30px;
+      }
+      .invoice-meta {
+        text-align: left;
+      }
+      .invoice-meta-table {
+        margin-left: 0;
+      }
+      .invoice-table {
+        display: block;
+        overflow-x: auto;
+      }
+      .invoice-container {
+        padding: 30px 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="admin-layout">
+    
+    <!-- SIDEBAR -->
+    <aside class="admin-sidebar" id="admin-sidebar">
+      <div class="sidebar-header" style="padding-top: 30px; padding-bottom: 20px; height: auto;">
+        <a href="index.html">
+          <img src="../assets/logoo1.png" alt="STITCHLY" class="logo-light" style="max-width:140px;">
+          <img src="../assets/logoo1_dark.png" alt="STITCHLY" class="logo-dark" style="max-width:140px;">
+        </a>
+      </div>
+      
+      <div class="sidebar-settings" style="display:flex; justify-content:space-around; margin-bottom:20px; padding-bottom:20px; border-bottom:1px solid var(--color-border);">
+        <button type="button" class="nav-icon-button direction-toggle" id="sidebarDirectionToggle" title="Change text direction" style="font-size:0.85rem; font-weight:bold; background:transparent; border:none; color:inherit; cursor:pointer;">
+          <span id="sidebarDirectionText">RTL</span>
+        </button>
+        <button type="button" class="nav-icon-button theme-toggle" id="sidebarThemeToggle" title="Toggle theme" style="background:transparent; border:none; color:inherit; cursor:pointer;">
+          <i data-lucide="moon" id="sidebarThemeIcon"></i>
+        </button>
+      </div>
+      
+      <ul class="sidebar-nav">
+        <li class="nav-item">
+          <a href="index.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="layout-dashboard"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="orders.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="shopping-bag"></i>
+            <span>Orders</span>
+            <span class="nav-badge">12</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="customers.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="users"></i>
+            <span>Customers</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="measurements.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="ruler"></i>
+            <span>Measurements</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="appointments.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="calendar"></i>
+            <span>Appointments</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="stitching.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="scissors"></i>
+            <span>Custom Stitching</span>
+            <span class="nav-badge">5</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="collections.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="layers"></i>
+            <span>Collections</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="fabrics.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="palette"></i>
+            <span>Fabrics</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="gallery.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="image"></i>
+            <span>Design Gallery</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="pricing.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="tag"></i>
+            <span>Pricing</span>
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a href="invoices.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="file-text"></i>
+            <span>Invoices</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="reviews.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="star"></i>
+            <span>Reviews</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="messages.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="message-square"></i>
+            <span>Messages</span>
+            <span class="nav-badge">3</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="analytics.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="bar-chart-2"></i>
+            <span>Reports & Analytics</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="notifications.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="bell"></i>
+            <span>Notifications</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="../login.html" style="display: flex; align-items: center; gap: 16px; width: 100%; margin-top: 20px;">
+            <i data-lucide="log-out"></i>
+            <span>Logout</span>
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="admin-main">
+      
+      <!-- TOP HEADER -->
+      <header class="admin-header">
+        <div class="header-left">
+          <button class="toggle-sidebar" id="toggle-sidebar">
+            <i data-lucide="menu"></i>
+          </button>
+          <div class="page-title">
+            <h1>Invoices</h1>
+            <div class="breadcrumb">Admin / Invoices / Preview</div>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <button class="header-icon" id="theme-toggle">
+            <i data-lucide="moon"></i>
+          </button>
+          <div class="admin-profile">
+            <img src="../assets/team-1.jpg" alt="Admin" class="admin-avatar" onerror="this.src='https://ui-avatars.com/api/?name=Admin+User&background=c8a96b&color=fff'">
+            <div class="admin-info">
+              <h4>Eleanor Vance</h4>
+              <span>Administrator</span>
+            </div>
+            <i data-lucide="chevron-down" style="color: var(--color-text-light); width: 16px;"></i>
+          </div>
+        </div>
+      </header>
+
+      <!-- PAGE CONTENT -->
+      <div class="admin-content">
+        
+        <!-- Action Bar -->
+        <div class="invoice-actions-bar">
+          <div style="display: flex; gap: 10px; align-items: center;">
+            <button style="background: transparent; border: none; cursor: pointer; color: var(--color-text-light); display: flex; align-items: center; gap: 5px;">
+              <i data-lucide="arrow-left" style="width: 16px;"></i> Back to List
+            </button>
+            <span style="color: var(--color-border);">|</span>
+            <span style="font-weight: 600; font-size: 14px;">Draft Invoice #INV-2026-089</span>
+          </div>
+          <div style="display: flex; gap: 10px;">
+            <button style="background: transparent; border: 1px solid var(--color-border); padding: 8px 15px; border-radius: 6px; cursor: pointer; color: var(--color-text-primary); display: flex; align-items: center; gap: 6px;">
+              <i data-lucide="printer" style="width: 16px;"></i> Print
+            </button>
+            <button style="background: transparent; border: 1px solid var(--color-border); padding: 8px 15px; border-radius: 6px; cursor: pointer; color: var(--color-text-primary); display: flex; align-items: center; gap: 6px;">
+              <i data-lucide="download" style="width: 16px;"></i> PDF
+            </button>
+            <button class="btn-primary" style="background: var(--color-gold); border: none; padding: 8px 15px; border-radius: 6px; cursor: pointer; color: white; display: flex; align-items: center; gap: 6px;" onclick="alert('Invoice successfully sent to amanda.doe@email.com')">
+              <i data-lucide="send" style="width: 16px;"></i> Send to Customer
+            </button>
+          </div>
+        </div>
+
+        <!-- Invoice Document -->
+        <div class="invoice-container">
+          
+          <div class="invoice-header">
+            <div class="invoice-brand">
+              <h1>STITCHLY.</h1>
+              <p>
+                123 Fashion Avenue, Design District<br>
+                New York, NY 10012<br>
+                hello@stitchly.com<br>
+                +1 (555) 123-4567
+              </p>
+            </div>
+            
+            <div class="invoice-meta">
+              <div class="invoice-title">INVOICE</div>
+              <table class="invoice-meta-table">
+                <tr>
+                  <td>Invoice Number:</td>
+                  <td>INV-2026-089</td>
+                </tr>
+                <tr>
+                  <td>Date of Issue:</td>
+                  <td>Sep 03, 2026</td>
+                </tr>
+                <tr>
+                  <td>Due Date:</td>
+                  <td>Sep 10, 2026</td>
+                </tr>
+                <tr>
+                  <td>Reference Order:</td>
+                  <td>#ORD-4492</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          
+          <div class="invoice-parties">
+            <div class="party-block">
+              <h3>Billed To</h3>
+              <strong>Amanda Doe</strong>
+              <p>
+                456 Maple Street, Apt 4B<br>
+                Brooklyn, NY 11201<br>
+                amanda.doe@email.com<br>
+                +1 (555) 987-6543
+              </p>
+            </div>
+            
+            <div class="party-block" style="text-align: right;">
+              <h3>Payment Status</h3>
+              <div style="display: inline-block; padding: 5px 12px; background: rgba(245, 158, 11, 0.1); color: #f59e0b; font-weight: 700; border-radius: 20px; font-size: 13px;">
+                Pending
+              </div>
+            </div>
+          </div>
+          
+          <table class="invoice-table">
+            <thead>
+              <tr>
+                <th style="width: 50%;">Description</th>
+                <th>Qty</th>
+                <th>Rate</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <strong>Bespoke Bridal Lehenga</strong><br>
+                  <span style="font-size: 12px; color: #777;">Base garment construction, fitting sessions, and final tailoring.</span>
+                </td>
+                <td>1</td>
+                <td>$150.00</td>
+                <td>$150.00</td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Pure Raw Silk Fabric (Red)</strong><br>
+                  <span style="font-size: 12px; color: #777;">Sourced from premium collection. 5 meters.</span>
+                </td>
+                <td>5</td>
+                <td>$120.00</td>
+                <td>$600.00</td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Zari Hand Embroidery</strong><br>
+                  <span style="font-size: 12px; color: #777;">Intricate handwork on skirt border and blouse sleeves. 15 hours.</span>
+                </td>
+                <td>15</td>
+                <td>$12.00</td>
+                <td>$180.00</td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Priority Rush Service</strong><br>
+                  <span style="font-size: 12px; color: #777;">Expedited 7-day turnaround delivery fee (15% markup).</span>
+                </td>
+                <td>1</td>
+                <td>$139.50</td>
+                <td>$139.50</td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <div class="invoice-totals">
+            <div class="totals-row">
+              <span>Subtotal</span>
+              <span>$1,069.50</span>
+            </div>
+            <div class="totals-row">
+              <span>Tax (8.875%)</span>
+              <span>$94.92</span>
+            </div>
+            <div class="totals-row">
+              <span>Discount</span>
+              <span>-$0.00</span>
+            </div>
+            <div class="totals-row grand-total">
+              <span>Total Due</span>
+              <span>$1,164.42</span>
+            </div>
+          </div>
+          
+          <div class="invoice-footer">
+            <h4 style="color: var(--color-navy); margin-bottom: 5px;">Thank you for your business!</h4>
+            <p>Payment is due within 7 days of invoice date. Please make checks payable to STITCHLY LLC or pay securely online via the link sent to your email.</p>
+          </div>
+          
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="js/admin.js"></script>
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+  </script>
+</body>
+</html>

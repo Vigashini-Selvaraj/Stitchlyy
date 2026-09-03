@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Dashboard | STITCHLY</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+
+</head>
+<body class="dark-mode dashboard-body">
+
+  <!-- ==============================================
+       DASHBOARD LAYOUT
+  =============================================== -->
+  <div class="dashboard-layout">
+    
+    <!-- Mobile Sidebar Toggle -->
+    <button class="sidebar-toggle" id="sidebarToggle">
+      <i data-lucide="menu"></i> Dashboard Menu
+    </button>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="dashboardSidebar">
+      <div style="margin-bottom:30px; text-align:center;">
+        <a href="index.html">
+          <img src="assets/logoo1.png" alt="STITCHLY" class="logo-light" style="max-width:140px;">
+          <img src="assets/logoo1_dark.png" alt="STITCHLY" class="logo-dark" style="max-width:140px;">
+        </a>
+      </div>
+      
+      <div class="sidebar-user">
+        <div class="avatar"><i data-lucide="user"></i></div>
+        <div>
+          <h3>Priya Sharma</h3>
+          <p>Premium Member</p>
+        </div>
+      </div>
+
+      <div class="sidebar-settings" style="display:flex; justify-content:space-around; margin-bottom:20px; padding-bottom:20px; border-bottom:1px solid var(--color-border);">
+        <button type="button" class="nav-icon-button direction-toggle" id="sidebarDirectionToggle" title="Change text direction" style="font-size:0.85rem; font-weight:bold; background:transparent; border:none; color:var(--color-text-primary); cursor:pointer;">
+          <span id="sidebarDirectionText">RTL</span>
+        </button>
+        <button type="button" class="nav-icon-button theme-toggle" id="sidebarThemeToggle" title="Toggle theme" style="background:transparent; border:none; color:var(--color-text-primary); cursor:pointer;">
+          <i data-lucide="moon" id="sidebarThemeIcon"></i>
+        </button>
+      </div>
+      
+      <nav class="sidebar-nav">
+        <a href="#" class="sidebar-link active" data-view="overview"><i data-lucide="layout-dashboard"></i> Dashboard</a>
+        <a href="#" class="sidebar-link" data-view="stitching"><i data-lucide="scissors"></i> Custom Stitching</a>
+        <a href="#" class="sidebar-link" data-view="measurements"><i data-lucide="ruler"></i> My Measurements</a>
+        <a href="#" class="sidebar-link" data-view="references"><i data-lucide="image"></i> Design References</a>
+        <a href="#" class="sidebar-link" data-view="fabrics"><i data-lucide="shirt"></i> My Fabrics</a>
+        <a href="#" class="sidebar-link" data-view="appointments"><i data-lucide="calendar"></i> Appointments</a>
+        <a href="#" class="sidebar-link" data-view="orders"><i data-lucide="shopping-bag"></i> My Orders</a>
+        <a href="#" class="sidebar-link" data-view="invoices"><i data-lucide="receipt"></i> Invoices</a>
+        <a href="#" class="sidebar-link" data-view="profile"><i data-lucide="user-cog"></i> Profile</a>
+        <a href="login.html" class="sidebar-link text-danger"><i data-lucide="log-out"></i> Logout</a>
+      </nav>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="dashboard-content">
+      
+      <!-- VIEW: OVERVIEW -->
+      <section id="view-overview" class="dashboard-view active-view">
+        <div class="view-header flex-between">
+          <div>
+            <h1>Good Morning, Priya</h1>
+            <p>Here is an overview of your STITCHLY creations.</p>
+          </div>
+          <div class="user-loyalty-badge" style="text-align: right;">
+            <p style="color:var(--color-gold); font-weight:700;"><i data-lucide="award" style="width:16px;height:16px;"></i> Gold Tier</p>
+            <p style="font-size:0.8rem; color:var(--color-text-secondary);">450 Points Available</p>
+          </div>
+        </div>
+        
+        <div class="stats-grid">
+          <div class="stat-card">
+            <i data-lucide="shopping-bag"></i>
+            <div>
+              <h4>Active Orders</h4>
+              <p>2</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <i data-lucide="calendar"></i>
+            <div>
+              <h4>Upcoming Appointment</h4>
+              <p>Oct 12, 10:30 AM</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <i data-lucide="ruler"></i>
+            <div>
+              <h4>Saved Measurements</h4>
+              <p>3 Profiles</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <i data-lucide="image"></i>
+            <div>
+              <h4>Design References</h4>
+              <p>8 Images</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Extra Block 1 & 2 for Overview -->
+        <div class="dashboard-grid-2 mb-30">
+          <div class="dash-card">
+            <h3>Current Active Order</h3>
+            <div class="active-order-summary">
+              <div class="order-img">
+                <img src="assets/dress_collection_1.jpg" alt="Bridal Lehenga">
+              </div>
+              <div class="order-details-info">
+                <h4>Bridal Lehenga (Custom)</h4>
+                <p>Order #ST-8992</p>
+                <p class="expected">Expected: Oct 25, 2026</p>
+              </div>
+            </div>
+            
+            <div class="stitching-progress-mini">
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 50%;"></div>
+              </div>
+              <div class="progress-status">
+                <span>Order Confirmed</span>
+                <span class="current">Cutting & Stitching</span>
+                <span>Delivered</span>
+              </div>
+            </div>
+            
+            <button class="btn-outline w-100" onclick="switchView('orders')">Track Full Order</button>
+          </div>
+
+          <div class="dash-card quick-actions-card">
+            <h3>Quick Actions</h3>
+            <div class="action-grid">
+              <button class="action-btn" onclick="switchView('stitching')">
+                <i data-lucide="scissors"></i> Start Custom Stitching
+              </button>
+              <button class="action-btn" onclick="switchView('measurements')">
+                <i data-lucide="ruler"></i> Add Measurements
+              </button>
+              <button class="action-btn" onclick="switchView('references')">
+                <i data-lucide="upload"></i> Upload Design
+              </button>
+              <button class="action-btn" onclick="switchView('appointments')">
+                <i data-lucide="calendar-plus"></i> Book Appointment
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Extra Block 3 for Overview: Style Inspiration & Notifications -->
+        <div class="dashboard-grid-2">
+          <div class="dash-card">
+            <h3>Seasonal Style Inspiration</h3>
+            <div class="inspiration-grid" style="display:flex; gap:15px; margin-top:20px;">
+              <img src="assets/dress_collection_2.jpg" style="width:33%; border-radius:8px; object-fit:cover;" alt="Style">
+              <img src="assets/dress_collection_3.jpg" style="width:33%; border-radius:8px; object-fit:cover;" alt="Style">
+              <img src="assets/dress_collection_4.jpg" style="width:33%; border-radius:8px; object-fit:cover;" alt="Style">
+            </div>
+            <button class="btn-outline w-100 mt-20">View Lookbook</button>
+          </div>
+          
+          <div class="dash-card">
+            <h3>Recent Notifications</h3>
+            <ul class="detail-list mt-20">
+              <li>
+                <div>
+                  <p style="color:var(--color-text-primary); font-weight:600; font-size:0.95rem;">Order #ST-8992 Updated</p>
+                  <p style="font-size:0.8rem;">Your Bridal Lehenga has moved to stitching.</p>
+                </div>
+                <span style="font-size:0.8rem;">2 hrs ago</span>
+              </li>
+              <li>
+                <div>
+                  <p style="color:var(--color-text-primary); font-weight:600; font-size:0.95rem;">Appointment Reminder</p>
+                  <p style="font-size:0.8rem;">Fitting at STITCHLY Studio tomorrow.</p>
+                </div>
+                <span style="font-size:0.8rem;">1 day ago</span>
+              </li>
+              <li>
+                <div>
+                  <p style="color:var(--color-text-primary); font-weight:600; font-size:0.95rem;">New Fabric Collection</p>
+                  <p style="font-size:0.8rem;">Explore the new Autumn silks.</p>
+                </div>
+                <span style="font-size:0.8rem;">3 days ago</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- VIEW: CUSTOM STITCHING (WIZARD) -->
+      <section id="view-stitching" class="dashboard-view">
+        <div class="view-header">
+          <h1>Custom Stitching Order</h1>
+          <p>Create your perfect garment in 7 steps.</p>
+        </div>
+        
+        <div class="wizard-container">
+          <div class="wizard-steps">
+            <div class="step active" data-step="1">1. Garment</div>
+            <div class="step" data-step="2">2. Fabric</div>
+            <div class="step" data-step="3">3. Customize</div>
+            <div class="step" data-step="4">4. Measure</div>
+            <div class="step" data-step="5">5. Reference</div>
+            <div class="step" data-step="6">6. Appt.</div>
+            <div class="step" data-step="7">7. Review</div>
+          </div>
+
+          <div class="wizard-content">
+            
+            <!-- Step 1 -->
+            <div class="wizard-panel active" id="wizard-step-1">
+              <h2>Select Garment Type</h2>
+              <div class="selection-grid">
+                <div class="select-card active"><img src="assets/dress_collection_5.jpg" style="width:100%; height:120px; object-fit:cover; border-radius:4px; margin-bottom:10px;">Saree Blouse</div>
+                <div class="select-card"><img src="assets/dress_collection_6.jpg" style="width:100%; height:120px; object-fit:cover; border-radius:4px; margin-bottom:10px;">Salwar / Kurti</div>
+                <div class="select-card"><img src="assets/dress_collection_2.jpg" style="width:100%; height:120px; object-fit:cover; border-radius:4px; margin-bottom:10px;">Dress / Gown</div>
+                <div class="select-card"><img src="assets/dress_collection_1.jpg" style="width:100%; height:120px; object-fit:cover; border-radius:4px; margin-bottom:10px;">Lehenga</div>
+                <div class="select-card"><img src="assets/dress_collection_4.jpg" style="width:100%; height:120px; object-fit:cover; border-radius:4px; margin-bottom:10px;">Skirt</div>
+                <div class="select-card"><img src="assets/kids_collection_1.jpg" style="width:100%; height:120px; object-fit:cover; border-radius:4px; margin-bottom:10px;">Kids Wear</div>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="wizard-panel" id="wizard-step-2">
+              <h2>Select Fabric</h2>
+              <div class="fabric-grid" id="wizardFabricGrid">
+                <!-- Injected via JS -->
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="wizard-panel" id="wizard-step-3">
+              <h2>Customize Design</h2>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label>Neckline</label>
+                  <select><option>Sweetheart</option><option>Round</option><option>V-Neck</option></select>
+                </div>
+                <div class="form-group">
+                  <label>Sleeve Style</label>
+                  <select><option>Short</option><option>Long</option><option>Sleeveless</option></select>
+                </div>
+                <div class="form-group">
+                  <label>Embroidery</label>
+                  <select><option>None</option><option>Heavy Zari</option><option>Threadwork</option></select>
+                </div>
+                <div class="form-group">
+                  <label>Lining</label>
+                  <select><option>Cotton</option><option>Satin</option><option>Crepe</option></select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="wizard-panel" id="wizard-step-4">
+              <h2>Measurements</h2>
+              <div class="dash-card">
+                <h3>Use Saved Profile</h3>
+                <select class="w-100 mb-20"><option>Wedding Blouse (CM)</option><option>Casual Kurti (IN)</option></select>
+                <div class="auth-divider"><span>OR</span></div>
+                <button class="btn-outline w-100">Add New Measurements</button>
+              </div>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="wizard-panel" id="wizard-step-5">
+              <h2>Design Reference</h2>
+              <div class="upload-zone" style="text-align:center; padding:40px; border:2px dashed var(--color-gold); border-radius:8px; cursor:pointer;">
+                <i data-lucide="upload-cloud" style="width:48px;height:48px;color:var(--color-gold);margin-bottom:15px;"></i>
+                <p>Drag & Drop or <span style="color:var(--color-gold);font-weight:bold;">Browse</span></p>
+                <p class="small" style="color:var(--color-text-secondary);font-size:0.8rem;">Upload inspiration images (JPG, PNG)</p>
+              </div>
+            </div>
+
+            <!-- Step 6 -->
+            <div class="wizard-panel" id="wizard-step-6">
+              <h2>Measurement Appointment</h2>
+              <p class="mb-20">Do you need assistance with measurements?</p>
+              <div class="selection-grid mb-20">
+                <div class="select-card active">In-Store Measurement</div>
+                <div class="select-card">Virtual Assistance</div>
+                <div class="select-card">I've provided measurements</div>
+              </div>
+              <div class="form-grid" id="apptSelection">
+                <div class="form-group">
+                  <label>Select Date</label>
+                  <input type="date">
+                </div>
+                <div class="form-group">
+                  <label>Select Time</label>
+                  <input type="time">
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 7 -->
+            <div class="wizard-panel" id="wizard-step-7">
+              <h2>Review Order</h2>
+              
+              <div class="dashboard-grid-2">
+                <div class="review-box" style="background:var(--color-surface); padding:20px; border-radius:8px; border:1px solid var(--color-border);">
+                  <p><strong>Garment:</strong> Saree Blouse</p>
+                  <p><strong>Fabric:</strong> Banarasi Silk ($45/m)</p>
+                  <p><strong>Customizations:</strong> Sweetheart Neck, Short Sleeves, Heavy Zari</p>
+                  <p><strong>Measurements:</strong> Wedding Blouse Profile</p>
+                  <p><strong>Appointment:</strong> Oct 12, 10:30 AM (In-Store)</p>
+                  <hr style="margin:20px 0; border:none; border-top:1px dashed var(--color-border);">
+                  <h3 class="mt-20" style="color:var(--color-gold);">Estimated Total: $120.00</h3>
+                </div>
+
+                <div class="extra-review-options">
+                  <div class="form-group mb-20">
+                    <label>Have a Promo Code?</label>
+                    <div style="display:flex; gap:10px;">
+                      <input type="text" placeholder="Enter code" style="flex:1;">
+                      <button class="btn-outline">Apply</button>
+                    </div>
+                  </div>
+                  
+                  <div class="form-group mb-20">
+                    <label>Special Instructions / Notes</label>
+                    <textarea rows="3" placeholder="e.g. Please ensure the neckline is exactly 7 inches deep..."></textarea>
+                  </div>
+                  
+                  <div style="display:flex; align-items:center; gap:10px; margin-top:20px;">
+                    <input type="checkbox" style="width:auto;" id="termsCheck">
+                    <label for="termsCheck" style="margin:0; font-size:0.85rem; color:var(--color-text-secondary);">I agree to the <a href="#" style="color:var(--color-gold);">Terms of Service</a> & <a href="#" style="color:var(--color-gold);">Return Policy</a>.</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="wizard-footer">
+            <button class="btn-outline" id="wizardPrev" disabled>Back</button>
+            <button class="primary-btn" id="wizardNext">Next Step</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW: MEASUREMENTS -->
+      <section id="view-measurements" class="dashboard-view">
+        <div class="view-header flex-between">
+          <div>
+            <h1>My Measurements</h1>
+            <p>Manage your saved measurement profiles.</p>
+          </div>
+          <button class="primary-btn"><i data-lucide="plus"></i> New Profile</button>
+        </div>
+        
+        <div class="measurement-cards" id="measurementsList">
+          <!-- Injected via JS -->
+        </div>
+
+        <div class="dash-card mt-30">
+          <h3>Measurement Guide & Assistance</h3>
+          <div style="display:flex; gap:20px; align-items:center; margin-top:20px;">
+            <div style="flex:1;">
+              <p style="margin-bottom:15px; color:var(--color-text-secondary); line-height:1.6;">Need help taking your measurements? Our expert tailors can guide you step-by-step through a virtual consultation or you can visit our studio for a professional fitting.</p>
+              <button class="btn-outline">Book Fitting Appointment</button>
+            </div>
+            <img src="assets/dress_collection_4.jpg" alt="Tailor" style="width:150px; height:150px; object-fit:cover; border-radius:8px;">
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW: DESIGN REFERENCES -->
+      <section id="view-references" class="dashboard-view">
+        <div class="view-header flex-between">
+          <div>
+            <h1>Design References</h1>
+            <p>Your uploaded inspiration images.</p>
+          </div>
+          <button class="primary-btn"><i data-lucide="upload"></i> Upload</button>
+        </div>
+        
+        <div class="reference-gallery" id="referenceList">
+          <!-- Injected via JS -->
+        </div>
+
+        <div class="dashboard-grid-2 mt-30">
+          <!-- Extra Block 1 -->
+          <div class="dash-card">
+            <h3>Stitchly Editor's Picks</h3>
+            <p style="color:var(--color-text-secondary); margin-bottom:20px;">Add these trending designs to your references directly.</p>
+            <div style="display:flex; gap:15px;">
+              <div style="width:50%; position:relative;">
+                <img src="assets/dress_collection_6.jpg" style="width:100%; border-radius:8px;" alt="Pick">
+                <button class="btn-outline" style="position:absolute; bottom:10px; left:10%; width:80%; background:#fff; color:#000; padding:5px; font-size:0.8rem; border:none;">+ Add</button>
+              </div>
+              <div style="width:50%; position:relative;">
+                <img src="assets/dress_collection_2.jpg" style="width:100%; border-radius:8px;" alt="Pick">
+                <button class="btn-outline" style="position:absolute; bottom:10px; left:10%; width:80%; background:#fff; color:#000; padding:5px; font-size:0.8rem; border:none;">+ Add</button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Extra Block 2 -->
+          <div class="dash-card">
+            <h3>Recent Inspiration Uploads</h3>
+            <p style="color:var(--color-text-secondary); margin-bottom:20px;">Images recently synced from your mobile app.</p>
+            <div style="display:flex; gap:15px;">
+              <img src="assets/dress_collection_5.jpg" style="width:48%; border-radius:8px; object-fit:cover;" alt="Inspiration">
+              <img src="assets/kids_collection_1.jpg" style="width:48%; border-radius:8px; object-fit:cover;" alt="Inspiration">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW: MY FABRICS -->
+      <section id="view-fabrics" class="dashboard-view">
+        <div class="view-header">
+          <h1>My Saved Fabrics</h1>
+          <p>Fabrics you've bookmarked for future orders.</p>
+        </div>
+        
+        <div class="fabric-grid" id="savedFabricGrid">
+          <!-- Injected via JS -->
+        </div>
+
+        <!-- Extra blocks for Fabrics -->
+        <div class="dashboard-grid-2 mt-30">
+          <div class="dash-card">
+            <h3>Trending Fabrics</h3>
+            <ul class="detail-list mt-20">
+              <li style="align-items:center;">
+                <img src="assets/images/fabrics/banarasi.png" style="width:40px; height:40px; border-radius:50%; object-fit:cover;">
+                <div style="flex-grow:1; padding-left:15px;">
+                  <p style="color:var(--color-text-primary); font-weight:600;">Banarasi Silk</p>
+                  <p style="font-size:0.8rem;">Top choice for Lehengas</p>
+                </div>
+                <button class="btn-outline" style="padding:5px 10px; font-size:0.8rem;">Bookmark</button>
+              </li>
+              <li style="align-items:center;">
+                <img src="assets/images/fabrics/organza.png" style="width:40px; height:40px; border-radius:50%; object-fit:cover;">
+                <div style="flex-grow:1; padding-left:15px;">
+                  <p style="color:var(--color-text-primary); font-weight:600;">Floral Organza</p>
+                  <p style="font-size:0.8rem;">Trending for Summer</p>
+                </div>
+                <button class="btn-outline" style="padding:5px 10px; font-size:0.8rem;">Bookmark</button>
+              </li>
+            </ul>
+          </div>
+
+          <div class="dash-card" style="background-image:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('assets/images/fabrics/velvet.png'); background-size:cover; color:#fff;">
+            <h3 style="color:#fff; border-color:rgba(255,255,255,0.2);">Fabric Care Guide</h3>
+            <p style="margin-bottom:20px; font-size:0.9rem; line-height:1.5;">Learn how to maintain the quality and longevity of your premium bespoke garments.</p>
+            <button class="primary-btn">Read the Guide</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW: APPOINTMENTS -->
+      <section id="view-appointments" class="dashboard-view">
+        <div class="view-header flex-between">
+          <div>
+            <h1>Appointments</h1>
+            <p>Manage your measurement and fitting appointments.</p>
+          </div>
+          <button class="primary-btn"><i data-lucide="calendar-plus"></i> Schedule New</button>
+        </div>
+
+        <div class="tabs">
+          <button class="tab-btn active">Upcoming</button>
+          <button class="tab-btn">Completed</button>
+          <button class="tab-btn">Cancelled</button>
+        </div>
+        
+        <div class="appointment-list" id="appointmentList">
+          <!-- Injected via JS -->
+        </div>
+
+        <!-- Extra Block -->
+        <div class="dash-card mt-30">
+          <h3>How to Prepare for Your Fitting</h3>
+          <p style="color:var(--color-text-secondary); margin-bottom:15px;">Ensure the best possible fit by following these simple preparation steps.</p>
+          <ul style="color:var(--color-text-secondary); font-size:0.9rem; line-height:1.6; padding-left:20px;">
+            <li>Wear undergarments similar to what you plan to wear with the final garment.</li>
+            <li>Bring the shoes you intend to wear to ensure accurate hem length.</li>
+            <li>Allow 30-45 minutes for a complete measurement consultation.</li>
+          </ul>
+        </div>
+        
+        <!-- Book New Appointment Form -->
+        <div class="dash-card mt-30" style="border:1px solid var(--color-gold);">
+          <h3><i data-lucide="calendar-plus" style="display:inline-block; vertical-align:middle; width:20px; height:20px; margin-right:8px;"></i> Book New Appointment</h3>
+          <form class="form-grid mt-20">
+            <div class="form-group">
+              <label>Reason for Appointment</label>
+              <select>
+                <option>Initial Measurement</option>
+                <option>First Fitting</option>
+                <option>Final Fitting</option>
+                <option>Alterations Request</option>
+                <option>Style Consultation</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Location / Type</label>
+              <select>
+                <option>STITCHLY NYC Studio</option>
+                <option>Virtual Zoom Consultation</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Date</label>
+              <input type="date">
+            </div>
+            <div class="form-group">
+              <label>Time</label>
+              <input type="time">
+            </div>
+            <div class="form-group" style="grid-column: 1 / -1;">
+              <button type="button" class="primary-btn w-100">Confirm Booking</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- VIEW: MY ORDERS -->
+      <section id="view-orders" class="dashboard-view">
+        <div class="view-header">
+          <h1>My Orders</h1>
+          <p>Track the status of your STITCHLY creations.</p>
+        </div>
+
+        <div class="tabs">
+          <button class="tab-btn active">All</button>
+          <button class="tab-btn">Processing</button>
+          <button class="tab-btn">Stitching</button>
+          <button class="tab-btn">Ready</button>
+          <button class="tab-btn">Delivered</button>
+        </div>
+        
+        <div class="order-list" id="orderList">
+          <!-- Injected via JS -->
+        </div>
+
+        <!-- Extra Block -->
+        <div class="dash-card mt-30">
+          <h3>Alterations & Adjustments</h3>
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <p style="color:var(--color-text-secondary); font-size:0.95rem; max-width:60%;">Does a delivered order need a minor tweak? We offer complimentary adjustments within 14 days of delivery.</p>
+            <button class="btn-outline" onclick="switchView('appointments')">Request Alteration</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW: ORDER DETAILS (TRACKING) -->
+      <section id="view-order-details" class="dashboard-view">
+        <div class="view-header flex-between">
+          <div>
+            <h1>Order #ST-8992</h1>
+            <p>Bridal Lehenga - Custom Stitching</p>
+          </div>
+          <button class="btn-outline" onclick="switchView('orders')"><i data-lucide="arrow-left"></i> Back to Orders</button>
+        </div>
+
+        <div class="dash-card mb-30">
+          <h3>Stitching Timeline</h3>
+          <div class="stitching-timeline">
+            <div class="timeline-step completed">
+              <div class="dot"><i data-lucide="check"></i></div>
+              <p>Order Confirmed</p>
+            </div>
+            <div class="timeline-step completed">
+              <div class="dot"><i data-lucide="check"></i></div>
+              <p>Measurements</p>
+            </div>
+            <div class="timeline-step completed">
+              <div class="dot"><i data-lucide="check"></i></div>
+              <p>Cutting</p>
+            </div>
+            <div class="timeline-step active">
+              <div class="dot"><i data-lucide="scissors"></i></div>
+              <p>Stitching</p>
+            </div>
+            <div class="timeline-step">
+              <div class="dot"></div>
+              <p>Quality Check</p>
+            </div>
+            <div class="timeline-step">
+              <div class="dot"></div>
+              <p>Ready</p>
+            </div>
+            <div class="timeline-step">
+              <div class="dot"></div>
+              <p>Delivered</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="dashboard-grid-2">
+          <div class="dash-card">
+            <h3>Order Details</h3>
+            <ul class="detail-list">
+              <li><span>Garment:</span> Lehenga</li>
+              <li><span>Fabric:</span> Banarasi Silk</li>
+              <li><span>Customizations:</span> Heavy Zari, Sweetheart Neck</li>
+              <li><span>Measurements:</span> Wedding Profile</li>
+            </ul>
+          </div>
+          <div class="dash-card">
+            <h3>Reference & Price</h3>
+            <ul class="detail-list">
+              <li><span>Est. Delivery:</span> Oct 25, 2026</li>
+              <li><span>Total Price:</span> $450.00</li>
+            </ul>
+            <div class="mt-20">
+              <img src="assets/images/dress_collection_3.jpg" alt="Reference" style="width:100px; border-radius:8px;">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW: INVOICES -->
+      <section id="view-invoices" class="dashboard-view">
+        <div class="view-header">
+          <h1>Invoices</h1>
+          <p>Billing history and downloadable invoices.</p>
+        </div>
+        
+        <div class="dashboard-grid-2 mb-30">
+          <div class="dash-card" style="display:flex; align-items:center; gap:20px;">
+            <div style="background:rgba(163,130,88,0.1); padding:20px; border-radius:50%; color:var(--color-gold);">
+              <i data-lucide="credit-card" style="width:32px; height:32px;"></i>
+            </div>
+            <div>
+              <p style="color:var(--color-text-secondary); font-size:0.9rem;">Total Spent (YTD)</p>
+              <h2 style="font-size:2rem; margin:5px 0;">$1,450.00</h2>
+            </div>
+          </div>
+          <div class="dash-card" style="display:flex; align-items:center; gap:20px;">
+            <div style="background:rgba(76,175,80,0.1); padding:20px; border-radius:50%; color:#4CAF50;">
+              <i data-lucide="check-circle" style="width:32px; height:32px;"></i>
+            </div>
+            <div>
+              <p style="color:var(--color-text-secondary); font-size:0.9rem;">Payment Status</p>
+              <h2 style="font-size:1.5rem; margin:5px 0; color:#4CAF50;">All Caught Up</h2>
+              <p style="font-size:0.8rem; color:var(--color-text-secondary);">No pending invoices.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="table-responsive dash-card">
+          <table class="dash-table" id="invoiceTable">
+            <thead>
+              <tr>
+                <th>Invoice #</th>
+                <th>Order #</th>
+                <th>Date</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Injected via JS -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- VIEW: PROFILE -->
+      <section id="view-profile" class="dashboard-view">
+        <div class="view-header">
+          <h1>Profile Settings</h1>
+          <p>Manage your account details and preferences.</p>
+        </div>
+        
+        <div class="dashboard-grid-2">
+          <div class="dash-card">
+            <h3>Personal Information</h3>
+            <form class="mt-20">
+              <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" value="Priya Sharma">
+              </div>
+              <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" value="priya@example.com">
+              </div>
+              <div class="form-group">
+                <label>Phone Number</label>
+                <input type="tel" value="+1 (555) 123-4567">
+              </div>
+              <div class="form-group">
+                <label>Shipping Address</label>
+                <textarea rows="3">123 Fashion Ave, Suite 4B, New York, NY 10001</textarea>
+              </div>
+              <button type="button" class="primary-btn mt-10">Save Changes</button>
+            </form>
+          </div>
+          
+          <div style="display:flex; flex-direction:column; gap:30px;">
+            <div class="dash-card">
+              <h3>Account Statistics</h3>
+              <ul class="detail-list mt-20">
+                <li><span>Total Orders:</span> 5</li>
+                <li><span>Saved Measurements:</span> 3</li>
+                <li><span>Saved Fabrics:</span> 12</li>
+                <li><span>Member Since:</span> Jan 2025</li>
+              </ul>
+            </div>
+            
+            <!-- Extra Profile Block 1 -->
+            <div class="dash-card">
+              <h3>Payment Methods</h3>
+              <div style="display:flex; align-items:center; justify-content:space-between; margin-top:15px; padding:15px; border:1px solid var(--color-border); border-radius:8px;">
+                <div style="display:flex; align-items:center; gap:10px;">
+                  <i data-lucide="credit-card" style="color:var(--color-gold);"></i>
+                  <span style="font-weight:600;">Visa ending in 4242</span>
+                </div>
+                <button class="btn-outline" style="padding:5px 10px; font-size:0.8rem; border:none;">Remove</button>
+              </div>
+              <button class="btn-outline w-100 mt-15" style="margin-top:15px;">+ Add Payment Method</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Extra Profile Block 2 & 3 -->
+        <div class="dashboard-grid-2 mt-30">
+          <div class="dash-card">
+            <h3>Notification Preferences</h3>
+            <ul class="detail-list mt-20">
+              <li style="align-items:center;">
+                <span>Order Status Updates</span>
+                <input type="checkbox" checked style="width:auto; transform:scale(1.2);">
+              </li>
+              <li style="align-items:center;">
+                <span>Appointment Reminders</span>
+                <input type="checkbox" checked style="width:auto; transform:scale(1.2);">
+              </li>
+              <li style="align-items:center;">
+                <span>Promotions & Offers</span>
+                <input type="checkbox" style="width:auto; transform:scale(1.2);">
+              </li>
+            </ul>
+          </div>
+          
+          <div class="dash-card">
+            <h3>Body Profile</h3>
+            <p style="font-size:0.85rem; color:var(--color-text-secondary); margin-bottom:15px;">Help our tailors understand your fit preferences better.</p>
+            <div class="form-grid">
+              <div class="form-group">
+                <label>Height</label>
+                <input type="text" value="5'6&quot;">
+              </div>
+              <div class="form-group">
+                <label>Typical Fit Preference</label>
+                <select><option>Slim Fit</option><option selected>Regular Fit</option><option>Loose/Relaxed</option></select>
+              </div>
+            </div>
+            <button class="btn-outline mt-10">Update Profile</button>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+  </div>
+
+
+  <!-- Javascript -->
+  <script src="js/main.js"></script>
+  <script src="js/dashboard.js"></script>
+
+</body>
+</html>

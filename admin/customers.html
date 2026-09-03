@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STITCHLY Admin - Customers</title>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="css/admin-responsive.css">
+  
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <div class="admin-layout">
+    
+    <!-- SIDEBAR -->
+    <aside class="admin-sidebar" id="admin-sidebar">
+      <div class="sidebar-header" style="padding-top: 30px; padding-bottom: 20px; height: auto;">
+        <a href="index.html">
+          <img src="../assets/logoo1.png" alt="STITCHLY" class="logo-light" style="max-width:140px;">
+          <img src="../assets/logoo1_dark.png" alt="STITCHLY" class="logo-dark" style="max-width:140px;">
+        </a>
+      </div>
+      
+      <div class="sidebar-settings" style="display:flex; justify-content:space-around; margin-bottom:20px; padding-bottom:20px; border-bottom:1px solid var(--color-border);">
+        <button type="button" class="nav-icon-button direction-toggle" id="sidebarDirectionToggle" title="Change text direction" style="font-size:0.85rem; font-weight:bold; background:transparent; border:none; color:inherit; cursor:pointer;">
+          <span id="sidebarDirectionText">RTL</span>
+        </button>
+        <button type="button" class="nav-icon-button theme-toggle" id="sidebarThemeToggle" title="Toggle theme" style="background:transparent; border:none; color:inherit; cursor:pointer;">
+          <i data-lucide="moon" id="sidebarThemeIcon"></i>
+        </button>
+      </div>
+      
+      <ul class="sidebar-nav">
+        <li class="nav-item">
+          <a href="index.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="layout-dashboard"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="orders.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="shopping-bag"></i>
+            <span>Orders</span>
+            <span class="nav-badge">12</span>
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a href="customers.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="users"></i>
+            <span>Customers</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="measurements.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="ruler"></i>
+            <span>Measurements</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="appointments.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="calendar"></i>
+            <span>Appointments</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="stitching.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="scissors"></i>
+            <span>Custom Stitching</span>
+            <span class="nav-badge">5</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="collections.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="layers"></i>
+            <span>Collections</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="fabrics.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="palette"></i>
+            <span>Fabrics</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="gallery.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="image"></i>
+            <span>Design Gallery</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="pricing.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="tag"></i>
+            <span>Pricing</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="invoices.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="file-text"></i>
+            <span>Invoices</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="reviews.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="star"></i>
+            <span>Reviews</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="messages.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="message-square"></i>
+            <span>Messages</span>
+            <span class="nav-badge">3</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="analytics.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="bar-chart-2"></i>
+            <span>Reports & Analytics</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="notifications.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="bell"></i>
+            <span>Notifications</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="../login.html" style="display: flex; align-items: center; gap: 16px; width: 100%; margin-top: 20px;">
+            <i data-lucide="log-out"></i>
+            <span>Logout</span>
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="admin-main">
+      
+      <!-- TOP HEADER -->
+      <header class="admin-header">
+        <div class="header-left">
+          <button class="toggle-sidebar" id="toggle-sidebar">
+            <i data-lucide="menu"></i>
+          </button>
+          <div class="page-title">
+            <h1>Customers Directory</h1>
+            <div class="breadcrumb">Admin / Customers</div>
+          </div>
+        </div>
+
+        <div class="header-right">
+          
+          
+          <button class="btn-primary">
+            <i data-lucide="user-plus"></i> Add Customer
+          </button>
+          
+          <button class="header-icon" id="theme-toggle">
+            <i data-lucide="moon"></i>
+          </button>
+          
+          <button class="header-icon">
+            <i data-lucide="bell"></i>
+            <span class="badge">4</span>
+          </button>
+
+          <div class="admin-profile">
+            <img src="../assets/team-1.jpg" alt="Admin" class="admin-avatar" onerror="this.src='https://ui-avatars.com/api/?name=Admin+User&background=c8a96b&color=fff'">
+            <div class="admin-info">
+              <h4>Eleanor Vance</h4>
+              <span>Administrator</span>
+            </div>
+            <i data-lucide="chevron-down" style="color: var(--color-text-light); width: 16px;"></i>
+          </div>
+        </div>
+      </header>
+
+      <!-- PAGE CONTENT -->
+      <div class="admin-content">
+        
+        <!-- KPI Cards -->
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-header">
+              <h3>Total Customers</h3>
+              <div class="kpi-icon"><i data-lucide="users"></i></div>
+            </div>
+            <div class="kpi-value">856</div>
+            <div class="kpi-meta">
+              <span class="kpi-change positive"><i data-lucide="trending-up" style="width: 12px; height: 12px; margin-right: 4px; display: inline-block; vertical-align: middle;"></i> +18</span>
+              <span>new this week</span>
+            </div>
+          </div>
+          
+          <div class="kpi-card">
+            <div class="kpi-header">
+              <h3>Active Members</h3>
+              <div class="kpi-icon"><i data-lucide="user-check"></i></div>
+            </div>
+            <div class="kpi-value">642</div>
+            <div class="kpi-meta">
+              <span class="kpi-change positive"><i data-lucide="trending-up" style="width: 12px; height: 12px; margin-right: 4px; display: inline-block; vertical-align: middle;"></i> +5.2%</span>
+              <span>vs last month</span>
+            </div>
+          </div>
+          
+          <div class="kpi-card">
+            <div class="kpi-header">
+              <h3>VIP Clients</h3>
+              <div class="kpi-icon"><i data-lucide="award"></i></div>
+            </div>
+            <div class="kpi-value">128</div>
+            <div class="kpi-meta">
+              <span class="kpi-change positive"><i data-lucide="trending-up" style="width: 12px; height: 12px; margin-right: 4px; display: inline-block; vertical-align: middle;"></i> +2</span>
+              <span>this month</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Filter Bar -->
+        <div class="card" style="margin-top: 24px; margin-bottom: 24px;">
+          <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center;">
+            <div style="display: flex; gap: 10px; overflow-x: auto;">
+              <button class="btn-primary" style="background: var(--color-gold); color: #fff; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer;">All Customers</button>
+              <button style="background: transparent; border: 1px solid var(--color-border); padding: 8px 16px; border-radius: 6px; cursor: pointer; color: var(--color-text-primary);">Active</button>
+              <button style="background: transparent; border: 1px solid var(--color-border); padding: 8px 16px; border-radius: 6px; cursor: pointer; color: var(--color-text-primary);">VIP</button>
+              <button style="background: transparent; border: 1px solid var(--color-border); padding: 8px 16px; border-radius: 6px; cursor: pointer; color: var(--color-text-primary);">Inactive</button>
+            </div>
+            
+            <div style="display: flex; gap: 10px;">
+              <select style="border: 1px solid var(--color-border); padding: 8px 16px; border-radius: 6px; outline: none; background: transparent; color: var(--color-text-primary);">
+                <option>Sort by: Newest</option>
+                <option>Sort by: Name A-Z</option>
+                <option>Sort by: Total Spent</option>
+                <option>Sort by: Most Orders</option>
+              </select>
+              <button style="display: flex; align-items: center; gap: 8px; background: transparent; border: 1px solid var(--color-border); padding: 8px 16px; border-radius: 6px; cursor: pointer; color: var(--color-text-primary);">
+                <i data-lucide="download" style="width: 16px;"></i> Export CSV
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Customers Table -->
+        <div class="card">
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th><input type="checkbox"></th>
+                  <th>Customer</th>
+                  <th>Phone / Email</th>
+                  <th>Date Joined</th>
+                  <th>Total Orders</th>
+                  <th>Total Spent</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><input type="checkbox"></td>
+                  <td>
+                    <div class="customer-cell">
+                      <img src="https://ui-avatars.com/api/?name=Sarah+Jenkins&background=eee7dc" class="customer-avatar">
+                      <div>
+                        <div class="customer-name">Sarah Jenkins <i data-lucide="award" style="color: var(--color-gold); width: 14px; display: inline-block; vertical-align: text-top;" title="VIP Member"></i></div>
+                        <div class="customer-email" style="font-size: 11px;">ID: CUST-4921</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div style="font-size: 13px;">+1 (555) 123-4567</div>
+                    <div class="customer-email">sarah.j@example.com</div>
+                  </td>
+                  <td>Mar 15, 2025</td>
+                  <td>14</td>
+                  <td>$4,250.00</td>
+                  <td><span class="status-badge status-ready">Active</span></td>
+                  <td>
+                    <button class="action-btn" title="View Profile"><i data-lucide="user" style="width: 16px;"></i></button>
+                    <button class="action-btn" title="Edit Customer"><i data-lucide="edit" style="width: 16px;"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox"></td>
+                  <td>
+                    <div class="customer-cell">
+                      <img src="https://ui-avatars.com/api/?name=Maria+Garcia&background=eee7dc" class="customer-avatar">
+                      <div>
+                        <div class="customer-name">Maria Garcia</div>
+                        <div class="customer-email" style="font-size: 11px;">ID: CUST-4922</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div style="font-size: 13px;">+1 (555) 987-6543</div>
+                    <div class="customer-email">maria.g@example.com</div>
+                  </td>
+                  <td>Jun 02, 2025</td>
+                  <td>4</td>
+                  <td>$820.00</td>
+                  <td><span class="status-badge status-ready">Active</span></td>
+                  <td>
+                    <button class="action-btn" title="View Profile"><i data-lucide="user" style="width: 16px;"></i></button>
+                    <button class="action-btn" title="Edit Customer"><i data-lucide="edit" style="width: 16px;"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox"></td>
+                  <td>
+                    <div class="customer-cell">
+                      <img src="https://ui-avatars.com/api/?name=Priya+Patel&background=eee7dc" class="customer-avatar">
+                      <div>
+                        <div class="customer-name">Priya Patel <i data-lucide="award" style="color: var(--color-gold); width: 14px; display: inline-block; vertical-align: text-top;" title="VIP Member"></i></div>
+                        <div class="customer-email" style="font-size: 11px;">ID: CUST-4923</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div style="font-size: 13px;">+1 (555) 234-5678</div>
+                    <div class="customer-email">priya.p@example.com</div>
+                  </td>
+                  <td>Jan 20, 2025</td>
+                  <td>22</td>
+                  <td>$7,180.00</td>
+                  <td><span class="status-badge status-ready">Active</span></td>
+                  <td>
+                    <button class="action-btn" title="View Profile"><i data-lucide="user" style="width: 16px;"></i></button>
+                    <button class="action-btn" title="Edit Customer"><i data-lucide="edit" style="width: 16px;"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox"></td>
+                  <td>
+                    <div class="customer-cell">
+                      <img src="https://ui-avatars.com/api/?name=Emma+Watson&background=eee7dc" class="customer-avatar">
+                      <div>
+                        <div class="customer-name">Emma Watson</div>
+                        <div class="customer-email" style="font-size: 11px;">ID: CUST-4924</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div style="font-size: 13px;">+1 (555) 876-5432</div>
+                    <div class="customer-email">emma.w@example.com</div>
+                  </td>
+                  <td>Aug 11, 2025</td>
+                  <td>2</td>
+                  <td>$485.00</td>
+                  <td><span class="status-badge status-pending" style="color: #6b7280; background: rgba(107, 114, 128, 0.1);">Inactive</span></td>
+                  <td>
+                    <button class="action-btn" title="View Profile"><i data-lucide="user" style="width: 16px;"></i></button>
+                    <button class="action-btn" title="Edit Customer"><i data-lucide="edit" style="width: 16px;"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox"></td>
+                  <td>
+                    <div class="customer-cell">
+                      <img src="https://ui-avatars.com/api/?name=Anita+Roy&background=eee7dc" class="customer-avatar">
+                      <div>
+                        <div class="customer-name">Anita Roy</div>
+                        <div class="customer-email" style="font-size: 11px;">ID: CUST-4925</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div style="font-size: 13px;">+1 (555) 345-6789</div>
+                    <div class="customer-email">anita.r@example.com</div>
+                  </td>
+                  <td>Sep 05, 2025</td>
+                  <td>6</td>
+                  <td>$1,150.00</td>
+                  <td><span class="status-badge status-ready">Active</span></td>
+                  <td>
+                    <button class="action-btn" title="View Profile"><i data-lucide="user" style="width: 16px;"></i></button>
+                    <button class="action-btn" title="Edit Customer"><i data-lucide="edit" style="width: 16px;"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox"></td>
+                  <td>
+                    <div class="customer-cell">
+                      <img src="https://ui-avatars.com/api/?name=Chloe+Smith&background=eee7dc" class="customer-avatar">
+                      <div>
+                        <div class="customer-name">Chloe Smith</div>
+                        <div class="customer-email" style="font-size: 11px;">ID: CUST-4926</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div style="font-size: 13px;">+1 (555) 765-4321</div>
+                    <div class="customer-email">chloe.s@example.com</div>
+                  </td>
+                  <td>Feb 28, 2026</td>
+                  <td>1</td>
+                  <td>$195.00</td>
+                  <td><span class="status-badge status-ready">Active</span></td>
+                  <td>
+                    <button class="action-btn" title="View Profile"><i data-lucide="user" style="width: 16px;"></i></button>
+                    <button class="action-btn" title="Edit Customer"><i data-lucide="edit" style="width: 16px;"></i></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <!-- Pagination -->
+          <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 20px; border-top: 1px solid var(--color-border); margin-top: 20px;">
+            <div style="color: var(--color-text-light); font-size: 14px;">
+              Showing 1 to 6 of 856 customers
+            </div>
+            <div style="display: flex; gap: 5px;">
+              <button style="padding: 6px 12px; border: 1px solid var(--color-border); background: transparent; border-radius: 4px; cursor: pointer; color: var(--color-text-primary);"><i data-lucide="chevron-left" style="width: 16px;"></i></button>
+              <button style="padding: 6px 12px; border: 1px solid var(--color-gold); background: var(--color-gold); color: white; border-radius: 4px; cursor: pointer;">1</button>
+              <button style="padding: 6px 12px; border: 1px solid var(--color-border); background: transparent; border-radius: 4px; cursor: pointer; color: var(--color-text-primary);">2</button>
+              <button style="padding: 6px 12px; border: 1px solid var(--color-border); background: transparent; border-radius: 4px; cursor: pointer; color: var(--color-text-primary);">3</button>
+              <span style="padding: 6px 12px; color: var(--color-text-light);">...</span>
+              <button style="padding: 6px 12px; border: 1px solid var(--color-border); background: transparent; border-radius: 4px; cursor: pointer; color: var(--color-text-primary);">143</button>
+              <button style="padding: 6px 12px; border: 1px solid var(--color-border); background: transparent; border-radius: 4px; cursor: pointer; color: var(--color-text-primary);"><i data-lucide="chevron-right" style="width: 16px;"></i></button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="js/admin.js"></script>
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+  </script>
+</body>
+</html>

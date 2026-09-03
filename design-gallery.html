@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="STITCHLY Design Gallery — Explore our curated collection of couture designs and discover inspiration for your next custom creation.">
+  <title>STITCHLY | Design Gallery</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest" defer></script>
+
+  <!-- Main Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/design-gallery.css">
+</head>
+
+<body class="dark-mode">
+
+  <!-- Navbar Injected -->
+  <div id="navbar"></div>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="gallery-hero">
+      <h1>Where Inspiration Becomes <span style="color: var(--color-gold); font-style: italic;">Your Style</span></h1>
+      <p>Explore our curated collection of couture designs and discover inspiration for your next custom creation.</p>
+      <div class="hero-ctas">
+        <button class="btn btn-primary" onclick="document.getElementById('gallery').scrollIntoView({behavior: 'smooth'})">Explore Designs</button>
+        <a href="custom-stitching.html" class="btn btn-outline" style="color: #fff; border-color: #fff;">Create Your Own</a>
+      </div>
+    </section>
+
+    <!-- Category Filters -->
+    <section class="gallery-filters" id="gallery">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="women">Women</button>
+      <button class="filter-btn" data-filter="men">Men</button>
+      <button class="filter-btn" data-filter="bridal">Bridal</button>
+      <button class="filter-btn" data-filter="party">Party Wear</button>
+      <button class="filter-btn" data-filter="traditional">Traditional</button>
+      <button class="filter-btn" data-filter="contemporary">Contemporary</button>
+    </section>
+
+    <!-- Featured Designs (Masonry Gallery) -->
+    <section class="masonry-section">
+      <div class="masonry-grid">
+        
+        <div class="masonry-item" data-category="women">
+          <img src="assets/images/collections/saree gown.png" alt="Champagne Saree Gown">
+          <div class="masonry-overlay">
+            <span><i data-lucide="sparkles" style="width: 14px; height: 14px;"></i> Women</span>
+            <h3>Champagne Saree Gown</h3>
+            <p>View Design &rarr;</p>
+          </div>
+        </div>
+
+        <div class="masonry-item" data-category="traditional">
+          <img src="assets/images/collections/anarkali.png" alt="Royal Anarkali">
+          <div class="masonry-overlay">
+            <span><i data-lucide="sparkles" style="width: 14px; height: 14px;"></i> Traditional</span>
+            <h3>Royal Anarkali</h3>
+            <p>View Design &rarr;</p>
+          </div>
+        </div>
+
+        <div class="masonry-item" data-category="men">
+          <img src="assets/images/collections/coat.png" alt="Midnight Sherwani">
+          <div class="masonry-overlay">
+            <span><i data-lucide="sparkles" style="width: 14px; height: 14px;"></i> Men</span>
+            <h3>Midnight Sherwani</h3>
+            <p>View Design &rarr;</p>
+          </div>
+        </div>
+
+        <div class="masonry-item" data-category="contemporary">
+          <img src="assets/images/collections/western.png" alt="Midnight Elegance">
+          <div class="masonry-overlay">
+            <span><i data-lucide="sparkles" style="width: 14px; height: 14px;"></i> Contemporary</span>
+            <h3>Midnight Elegance</h3>
+            <p>View Design &rarr;</p>
+          </div>
+        </div>
+
+        <div class="masonry-item" data-category="party">
+          <img src="assets/images/collections/festive.png" alt="Embroidered Evening Dress">
+          <div class="masonry-overlay">
+            <span><i data-lucide="sparkles" style="width: 14px; height: 14px;"></i> Party Wear</span>
+            <h3>Embroidered Evening Dress</h3>
+            <p>View Design &rarr;</p>
+          </div>
+        </div>
+
+        <div class="masonry-item" data-category="men">
+          <img src="assets/images/collections/formal.png" alt="Burgundy Bandhgala">
+          <div class="masonry-overlay">
+            <span><i data-lucide="sparkles" style="width: 14px; height: 14px;"></i> Men</span>
+            <h3>Modern Designer Suit</h3>
+            <p>View Design &rarr;</p>
+          </div>
+        </div>
+
+        <div class="masonry-item" data-category="women">
+          <img src="assets/images/collections/dress_manu.png" alt="Ivory Couture Dress">
+          <div class="masonry-overlay">
+            <span><i data-lucide="sparkles" style="width: 14px; height: 14px;"></i> Women</span>
+            <h3>Ivory Couture Dress</h3>
+            <p>View Design &rarr;</p>
+          </div>
+        </div>
+
+        <div class="masonry-item" data-category="bridal">
+          <img src="assets/images/collections/saree.png" alt="Bridal Silk Saree">
+          <div class="masonry-overlay">
+            <span><i data-lucide="sparkles" style="width: 14px; height: 14px;"></i> Bridal</span>
+            <h3>Bridal Silk Saree</h3>
+            <p>View Design &rarr;</p>
+          </div>
+        </div>
+
+        <div class="masonry-item" data-category="traditional">
+          <img src="assets/images/collections/kurttii.png" alt="Classic Linen Kurta">
+          <div class="masonry-overlay">
+            <span><i data-lucide="sparkles" style="width: 14px; height: 14px;"></i> Traditional</span>
+            <h3>Classic Embroidered Kurti</h3>
+            <p>View Design &rarr;</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Inspiration by Style -->
+    <section class="style-section">
+      <div class="section-header">
+        <h2>Inspiration by Style</h2>
+      </div>
+      <div class="style-grid">
+        
+        <div class="style-card">
+          <img src="assets/images/collections/1.jpg" alt="Timeless Elegance">
+          <div class="style-content">
+            <h3>Timeless Elegance</h3>
+            <p>Classic silhouettes with refined detailing.</p>
+          </div>
+        </div>
+
+        <div class="style-card">
+          <img src="assets/images/collections/3.jpg" alt="Modern Couture">
+          <div class="style-content">
+            <h3>Modern Couture</h3>
+            <p>Contemporary designs with sophisticated structure.</p>
+          </div>
+        </div>
+
+        <div class="style-card">
+          <img src="assets/images/collections/4.jpg" alt="Feminine Romance">
+          <div class="style-content">
+            <h3>Feminine Romance</h3>
+            <p>Soft colors, flowing silhouettes and delicate details.</p>
+          </div>
+        </div>
+
+        <div class="style-card">
+          <img src="assets/images/collections/saree.png" alt="Regal Heritage">
+          <div class="style-content">
+            <h3>Regal Heritage</h3>
+            <p>Traditional Indian craftsmanship with a modern touch.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- From Inspiration to Creation -->
+    <section class="process-section">
+      <div class="section-header">
+        <h2 style="color: #fff;">From Inspiration to Creation</h2>
+        <p style="color: #ccc; margin-top: 15px; font-family: var(--font-secondary);">See how we bring your vision to life.</p>
+      </div>
+      
+      <div class="process-container">
+        
+        <div class="process-step">
+          <div class="process-image">
+            <img src="assets/images/collections/co ord.png" alt="Reference silhouette">
+          </div>
+          <h4>Inspiration</h4>
+          <p>Reference silhouette</p>
+        </div>
+
+        <i data-lucide="arrow-right" class="process-arrow"></i>
+
+        <div class="process-step">
+          <div class="process-image">
+            <img src="assets/images/fabrics/silk.png" alt="Fabric & Customization">
+          </div>
+          <h4>Customization</h4>
+          <p>Fabric + Details</p>
+        </div>
+
+        <i data-lucide="arrow-right" class="process-arrow"></i>
+
+        <div class="process-step">
+          <div class="process-image">
+            <img src="assets/images/collections/western.png" alt="Final Tailored Outfit">
+          </div>
+          <h4>Creation</h4>
+          <p>Final Tailored Outfit</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Trending This Season -->
+    <section class="trending-section">
+      <div class="section-header" style="text-align: left; padding-left: 20px; max-width: 1400px; margin: 0 auto;">
+        <h2>Trending This Season</h2>
+      </div>
+      <div class="trending-scroll">
+        
+        <div class="trending-item">
+          <img src="assets/images/collections/dress_manu.png" alt="Midnight Navy Gown">
+          <h4>Midnight Navy Gown</h4>
+          <a href="#" style="color: var(--color-gold); font-family: var(--font-secondary); text-decoration: none; font-weight: 600;">Explore &rarr;</a>
+        </div>
+
+        <div class="trending-item">
+          <img src="assets/images/collections/coat.png" alt="Ivory Bandhgala">
+          <h4>Ivory Bandhgala</h4>
+          <a href="#" style="color: var(--color-gold); font-family: var(--font-secondary); text-decoration: none; font-weight: 600;">Explore &rarr;</a>
+        </div>
+
+        <div class="trending-item">
+          <img src="assets/images/collections/anarkali.png" alt="Burgundy Anarkali">
+          <h4>Burgundy Anarkali</h4>
+          <a href="#" style="color: var(--color-gold); font-family: var(--font-secondary); text-decoration: none; font-weight: 600;">Explore &rarr;</a>
+        </div>
+
+        <div class="trending-item">
+          <img src="assets/images/collections/saree gown.png" alt="Champagne Saree Gown">
+          <h4>Champagne Saree Gown</h4>
+          <a href="#" style="color: var(--color-gold); font-family: var(--font-secondary); text-decoration: none; font-weight: 600;">Explore &rarr;</a>
+        </div>
+
+        <div class="trending-item">
+          <img src="assets/images/collections/kurttii.png" alt="Embroidered Kurta">
+          <h4>Embroidered Kurta</h4>
+          <a href="#" style="color: var(--color-gold); font-family: var(--font-secondary); text-decoration: none; font-weight: 600;">Explore &rarr;</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Upload Your Own Inspiration -->
+    <section class="upload-banner">
+      <div class="upload-box">
+        <i data-lucide="upload-cloud"></i>
+        <h3>Have Your Own Design in Mind?</h3>
+        <p style="font-family: var(--font-secondary); color: var(--color-text-secondary); margin-bottom: 30px; font-size: 1.1rem;">Found something on Pinterest, Instagram, or your own wardrobe? Share your inspiration with us and we'll help transform it into a custom STITCHLY creation.</p>
+        <a href="custom-stitching.html" class="btn btn-primary">Upload Your Design &rarr;</a>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="gallery-cta">
+      <span class="section-eyebrow" style="color: var(--color-gold); margin-bottom: 20px;">READY TO START?</span>
+      <h2>Inspired Yet? Let's Make It Yours.</h2>
+      <p style="font-family: var(--font-secondary); color: #ccc; margin-bottom: 40px; font-size: 1.1rem;">Choose your design, select your fabric and create a garment made exclusively for you.</p>
+      <a href="custom-stitching.html" class="btn btn-primary" style="padding: 0 40px; min-height: 60px; font-size: 1rem;">Start Custom Stitching</a>
+    </section>
+
+  </main>
+
+  <!-- Footer Injected -->
+  <div id="footer"></div>
+
+  <!-- Design Details Modal -->
+  <div class="design-modal-overlay" id="designModalOverlay">
+    <div class="design-modal">
+      <button class="modal-close" id="modalClose">
+        <i data-lucide="x"></i>
+      </button>
+      
+      <div class="modal-image">
+        <img id="modalImg" src="" alt="Design Preview">
+      </div>
+      
+      <div class="modal-details">
+        <span class="category" id="modalCategory">Category</span>
+        <h2 id="modalTitle">Design Name</h2>
+        
+        <p style="font-family: var(--font-secondary); color: var(--color-text-secondary); margin-bottom: 30px; line-height: 1.6;">
+          This design can be fully customized to your exact measurements and style preferences by our master tailors.
+        </p>
+
+        <ul class="detail-list">
+          <li><strong>Recommended Fabric:</strong> <span>Silk / Satin / Crepe</span></li>
+          <li><strong>Customization Options:</strong></li>
+          <li>Neckline <i data-lucide="check" style="color: var(--color-gold); width: 16px; height: 16px;"></i></li>
+          <li>Sleeves <i data-lucide="check" style="color: var(--color-gold); width: 16px; height: 16px;"></i></li>
+          <li>Length <i data-lucide="check" style="color: var(--color-gold); width: 16px; height: 16px;"></i></li>
+          <li>Embroidery Level <i data-lucide="check" style="color: var(--color-gold); width: 16px; height: 16px;"></i></li>
+        </ul>
+
+        <a href="custom-stitching.html" class="btn btn-primary" style="width: 100%; text-align: center;">Make This Design Yours &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/design-gallery.js"></script>
+</body>
+</html>

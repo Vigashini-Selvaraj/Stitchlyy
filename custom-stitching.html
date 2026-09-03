@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="STITCHLY Custom Stitching — Design your own outfit, choose your fabric, and provide measurements for the perfect fit.">
+  <title>STITCHLY | Custom Stitching</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest" defer></script>
+
+  <!-- Main Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/custom-stitching.css">
+</head>
+
+<body class="dark-mode">
+
+  <!-- Navbar Injected -->
+  <div id="navbar"></div>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="stitching-hero">
+      <h1>Design Your Own <span style="color: var(--color-gold);">Outfit</span></h1>
+      <p>Unleash your creativity. Choose your silhouette, select luxurious fabrics, and provide your measurements for a flawlessly tailored piece.</p>
+    </section>
+
+    <!-- Custom Layout -->
+    <div class="custom-layout">
+      
+      <!-- Main Form Area -->
+      <div class="custom-form-wrapper">
+        <form id="customStitchingForm">
+          
+          <!-- Step 1: Garment Type -->
+          <div class="form-step">
+            <div class="form-step-header">
+              <h2 class="form-step-title"><i data-lucide="shirt"></i> 1. Choose Your Garment</h2>
+            </div>
+            <div class="radio-card-grid">
+              <label class="radio-card">
+                <input type="radio" name="garmentType" value="Lehenga" checked>
+                <div class="radio-card-content">
+                  <img src="assets/images/collections/1.jpg" alt="Lehenga" class="radio-card-image">
+                  <span class="radio-card-label">Lehenga</span>
+                </div>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="garmentType" value="Suit/Anarkali">
+                <div class="radio-card-content">
+                  <img src="assets/images/collections/anarkali.png" alt="Suit/Anarkali" class="radio-card-image">
+                  <span class="radio-card-label">Suit / Anarkali</span>
+                </div>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="garmentType" value="Gown">
+                <div class="radio-card-content">
+                  <img src="assets/images/collections/saree gown.png" alt="Gown" class="radio-card-image">
+                  <span class="radio-card-label">Gown</span>
+                </div>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="garmentType" value="Blouse">
+                <div class="radio-card-content">
+                  <img src="assets/images/collections/kurttii.png" alt="Blouse" class="radio-card-image">
+                  <span class="radio-card-label">Kurti / Blouse</span>
+                </div>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="garmentType" value="Western Wear">
+                <div class="radio-card-content">
+                  <img src="assets/images/collections/western.png" alt="Western Wear" class="radio-card-image">
+                  <span class="radio-card-label">Western Wear</span>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Step 2: Fabric & Style -->
+          <div class="form-step">
+            <div class="form-step-header">
+              <h2 class="form-step-title"><i data-lucide="palette"></i> 2. Fabric & Details</h2>
+            </div>
+            
+            <h3 style="margin-bottom: 15px; font-family: var(--font-secondary); font-size: 1rem; color: var(--color-text-primary);">Select Fabric Base</h3>
+            <div class="radio-card-grid" style="margin-bottom: 30px;">
+              <label class="radio-card">
+                <input type="radio" name="fabricType" value="Raw Silk" checked>
+                <div class="radio-card-content">
+                  <img src="assets/images/fabrics/silk.png" alt="Raw Silk" class="small-card-image">
+                  <span class="radio-card-label">Raw Silk</span>
+                </div>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="fabricType" value="Georgette">
+                <div class="radio-card-content">
+                  <img src="assets/images/fabrics/georgrette.png" alt="Georgette" class="small-card-image">
+                  <span class="radio-card-label">Georgette</span>
+                </div>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="fabricType" value="Velvet">
+                <div class="radio-card-content">
+                  <img src="assets/images/fabrics/velvet.png" alt="Velvet" class="small-card-image">
+                  <span class="radio-card-label">Velvet</span>
+                </div>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="fabricType" value="Organza">
+                <div class="radio-card-content">
+                  <img src="assets/images/fabrics/organza.png" alt="Organza" class="small-card-image">
+                  <span class="radio-card-label">Organza</span>
+                </div>
+              </label>
+            </div>
+
+            <h3 style="margin-bottom: 15px; font-family: var(--font-secondary); font-size: 1rem; color: var(--color-text-primary);">Embroidery Level</h3>
+            <div class="radio-card-grid">
+              <label class="radio-card">
+                <input type="radio" name="embroidery" value="Minimal" checked>
+                <div class="radio-card-content">
+                  <img src="assets/images/collections/4.jpg" alt="Minimal" class="small-card-image">
+                  <span class="radio-card-label">Minimal / Subtle</span>
+                </div>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="embroidery" value="Medium">
+                <div class="radio-card-content">
+                  <img src="assets/images/collections/2.jpg" alt="Medium" class="small-card-image">
+                  <span class="radio-card-label">Medium Detailing</span>
+                </div>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="embroidery" value="Heavy/Bridal">
+                <div class="radio-card-content">
+                  <img src="assets/images/collections/1.jpg" alt="Heavy" class="small-card-image">
+                  <span class="radio-card-label">Heavy / Bridal</span>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Step 3: Measurements -->
+          <div class="form-step">
+            <div class="form-step-header">
+              <h2 class="form-step-title"><i data-lucide="ruler"></i> 3. Fit & Measurements</h2>
+            </div>
+            
+            <div class="radio-card-grid" style="margin-bottom: 25px;">
+              <label class="radio-card">
+                <input type="radio" name="sizingMethod" value="Standard" id="standardSizeBtn" checked>
+                <div class="radio-card-content" style="padding: 20px 15px; justify-content: center;">
+                  <span class="radio-card-label" style="padding: 0;">Standard Size</span>
+                </div>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="sizingMethod" value="Custom" id="customSizeBtn">
+                <div class="radio-card-content" style="padding: 20px 15px; justify-content: center;">
+                  <span class="radio-card-label" style="padding: 0;">Custom Measurements</span>
+                </div>
+              </label>
+            </div>
+
+            <!-- Standard Size Dropdown -->
+            <div id="standardSizeSection" class="input-group">
+              <label for="standardSize">Select Size</label>
+              <select id="standardSize" name="standardSize">
+                <option value="XS">XS (Extra Small)</option>
+                <option value="S">S (Small)</option>
+                <option value="M" selected>M (Medium)</option>
+                <option value="L">L (Large)</option>
+                <option value="XL">XL (Extra Large)</option>
+                <option value="XXL">XXL</option>
+              </select>
+            </div>
+
+            <!-- Custom Size Inputs -->
+            <div id="customSizeSection" style="display: none;">
+              <p style="margin-bottom: 15px; font-size: 0.9rem; color: var(--color-text-secondary);">Please provide accurate measurements in inches.</p>
+              <div class="measurements-grid">
+                <div class="input-group">
+                  <label>Bust (in)</label>
+                  <input type="number" name="bust" placeholder="e.g. 34">
+                </div>
+                <div class="input-group">
+                  <label>Waist (in)</label>
+                  <input type="number" name="waist" placeholder="e.g. 28">
+                </div>
+                <div class="input-group">
+                  <label>Hips (in)</label>
+                  <input type="number" name="hips" placeholder="e.g. 38">
+                </div>
+                <div class="input-group">
+                  <label>Shoulder (in)</label>
+                  <input type="number" name="shoulder" placeholder="e.g. 14.5">
+                </div>
+                <div class="input-group">
+                  <label>Length (in)</label>
+                  <input type="number" name="length" placeholder="e.g. 58">
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Step 4: Inspiration -->
+          <div class="form-step">
+            <div class="form-step-header">
+              <h2 class="form-step-title"><i data-lucide="image"></i> 4. Share Inspiration</h2>
+            </div>
+            
+            <div class="file-upload-zone" id="fileUploadZone">
+              <i data-lucide="upload-cloud" style="width:40px; height:40px;"></i>
+              <p style="margin-top: 10px; font-weight: 500; color: var(--color-text-primary);">Click or drag image to upload reference design</p>
+              <p style="font-size: 0.8rem; margin-top: 5px;">(JPEG, PNG up to 5MB)</p>
+              <input type="file" id="fileInput" accept="image/png, image/jpeg">
+            </div>
+            <div id="fileUploadName" style="margin-top: 10px; font-size: 0.9rem; color: var(--color-gold);"></div>
+
+            <div class="input-group" style="margin-top: 25px;">
+              <label>Additional Notes</label>
+              <textarea name="notes" rows="4" placeholder="Describe any specific neckline, sleeves, or stylistic changes..."></textarea>
+            </div>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- Live Summary Sidebar -->
+      <div class="custom-summary-wrapper">
+        <div class="summary-card">
+          <h3>Your Design</h3>
+          <ul class="summary-list">
+            <li><span class="label">Garment</span> <span id="sumGarment" style="font-weight: 600;">Lehenga</span></li>
+            <li><span class="label">Fabric</span> <span id="sumFabric">Raw Silk</span></li>
+            <li><span class="label">Embroidery</span> <span id="sumEmbroidery">Minimal</span></li>
+            <li><span class="label">Fit / Size</span> <span id="sumSize">Standard (M)</span></li>
+            <li><span class="label">Reference Image</span> <span id="sumRef">None provided</span></li>
+          </ul>
+
+          <div style="margin-bottom: 25px; padding: 15px; background: rgba(163, 130, 88, 0.05); border-radius: 6px; border-left: 3px solid var(--color-gold);">
+            <p style="font-size: 0.85rem; margin: 0; color: var(--color-text-secondary); line-height: 1.5;">
+              <strong style="color: var(--color-text-primary);">Professional Tailoring Guarantee:</strong> Every piece is meticulously crafted by our master tailors with premium finishing and attention to detail.
+            </p>
+          </div>
+
+          <button class="btn-checkout" onclick="alert('Custom order inquiry submitted successfully! Our team will contact you shortly.')">Book Custom Stitching</button>
+        </div>
+      </div>
+      
+    </div>
+
+    <!-- Discover Our Collections Section -->
+    <section class="section-padding" style="background-color: var(--color-surface, #0a0a0a); text-align: center; border-top: 1px solid var(--border-color, #222);">
+      <div class="section-container">
+        <span class="section-eyebrow" style="color: var(--color-gold);">FIND INSPIRATION</span>
+        <h2 class="section-title" style="margin-top: 10px; margin-bottom: 40px; color: var(--color-text-primary);">
+          Explore Our <span style="color: var(--color-gold);">Collections</span>
+        </h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; text-align: left;">
+          
+          <div style="position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 3/4; cursor: pointer;" onclick="window.location.href='collections.html'">
+            <img src="assets/images/collections/1.jpg" alt="Bridal Collection" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            <div style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 20px; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); color: #fff;">
+              <h3 style="font-family: var(--font-primary, 'Fraunces', serif); font-size: 1.5rem; margin: 0;">Bridal & Wedding</h3>
+            </div>
+          </div>
+
+          <div style="position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 3/4; cursor: pointer;" onclick="window.location.href='collections.html'">
+            <img src="assets/images/collections/formal.png" alt="Modern Formal" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            <div style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 20px; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); color: #fff;">
+              <h3 style="font-family: var(--font-primary, 'Fraunces', serif); font-size: 1.5rem; margin: 0;">Modern Formal</h3>
+            </div>
+          </div>
+
+          <div style="position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 3/4; cursor: pointer;" onclick="window.location.href='collections.html'">
+            <img src="assets/images/collections/festive.png" alt="Festive Radiance" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            <div style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 20px; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); color: #fff;">
+              <h3 style="font-family: var(--font-primary, 'Fraunces', serif); font-size: 1.5rem; margin: 0;">Festive Radiance</h3>
+            </div>
+          </div>
+
+        </div>
+
+        <a href="collections.html" class="btn btn-outline" style="margin-top: 40px; display: inline-flex; align-items: center; gap: 10px; border: 1px solid var(--color-gold); padding: 12px 25px; color: var(--color-gold); text-decoration: none; font-weight: 500; border-radius: 4px; transition: all 0.3s ease;" onmouseover="this.style.background='var(--color-gold)'; this.style.color='#fff';" onmouseout="this.style.background='transparent'; this.style.color='var(--color-gold)';">
+          View Full Gallery <i data-lucide="arrow-right"></i>
+        </a>
+      </div>
+    </section>
+
+  
+
+
+    <!-- ===================================================
+         TESTIMONIAL
+    ==================================================== -->
+    <section class="testimonial-section section-padding" style="background: var(--color-navy); color: white;">
+      <div class="section-container" style="text-align: center;">
+        <i data-lucide="quote" style="width: 48px; height: 48px; color: var(--color-gold); margin-bottom: 2rem;"></i>
+        <h2 style="font-family: 'Fraunces', serif; font-size: 2rem; font-weight: 500; font-style: italic; max-width: 800px; margin: 0 auto; line-height: 1.4;">"STITCHLY completely transformed my wardrobe. The fit is impeccable, and the attention to detail is truly unmatched. I've never felt more confident."</h2>
+        <p style="margin-top: 2rem; color: var(--color-gold); text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem;">— Ananya S., Loyal Client</p>
+      </div>
+    </section>
+
+
+
+    <!-- ===================================================
+         FAQ MINI
+    ==================================================== -->
+    <section class="faq-mini-section section-padding" style="background: var(--surface-color);">
+      <div class="section-container">
+        <div style="text-align: center; margin-bottom: 3rem;">
+          <span class="section-eyebrow">FAQ</span>
+          <h2 class="section-title">Common <span>Questions</span></h2>
+        </div>
+        <div style="max-width: 800px; margin: 0 auto; display: grid; gap: 2rem; text-align: left;">
+          <div style="border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
+            <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; font-family: 'Fraunces', serif;">How long does custom stitching take?</h3>
+            <p style="color: var(--text-secondary); font-family: 'Manrope', sans-serif;">Typically, our bespoke process takes 2-3 weeks from the initial measurement to the final fitting.</p>
+          </div>
+          <div style="border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
+            <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; font-family: 'Fraunces', serif;">Can I provide my own fabric?</h3>
+            <p style="color: var(--text-secondary); font-family: 'Manrope', sans-serif;">Yes! While we offer a curated selection of premium fabrics, we are happy to craft garments using materials you provide.</p>
+          </div>
+        </div>
+        <div style="text-align: center; margin-top: 3rem;">
+          <a href="faq.html" class="btn btn-secondary">Read All FAQs</a>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- ===================================================
+         OUR PROMISE
+    ==================================================== -->
+    <section class="process-section section-padding" style="text-align: center;">
+      <div class="section-container">
+        <span class="section-eyebrow">OUR PROMISE</span>
+        <h2 class="section-title">The STITCHLY <span>Standard.</span></h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem;">
+          <div>
+            <i data-lucide="ruler" style="width: 32px; height: 32px; color: var(--color-gold); margin-bottom: 1rem;"></i>
+            <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; font-family: 'Fraunces', serif;">Precision Fit</h3>
+            <p style="color: var(--text-secondary); font-size: 0.9rem;">Tailored to your exact measurements.</p>
+          </div>
+          <div>
+            <i data-lucide="star" style="width: 32px; height: 32px; color: var(--color-gold); margin-bottom: 1rem;"></i>
+            <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; font-family: 'Fraunces', serif;">Premium Quality</h3>
+            <p style="color: var(--text-secondary); font-size: 0.9rem;">The finest fabrics and thread.</p>
+          </div>
+          <div>
+            <i data-lucide="truck" style="width: 32px; height: 32px; color: var(--color-gold); margin-bottom: 1rem;"></i>
+            <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; font-family: 'Fraunces', serif;">Timely Delivery</h3>
+            <p style="color: var(--text-secondary); font-size: 0.9rem;">Delivered on schedule, every time.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- ===================================================
+         CONTACT SUPPORT
+    ==================================================== -->
+    <section class="contact-support-section section-padding" style="text-align: center;">
+      <div class="section-container">
+        <span class="section-eyebrow">NEED HELP?</span>
+        <h2 class="section-title">We're here for <span>you.</span></h2>
+        <p style="margin-top: 1rem; color: var(--text-secondary); max-width: 600px; margin-left: auto; margin-right: auto;">Whether you have a question about your order, need sizing advice, or just want to chat about fabrics, our team is ready to assist.</p>
+        <div style="margin-top: 2rem;">
+          <a href="contact.html" class="btn btn-primary">Contact Us</a>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- ===================================================
+         NEWSLETTER
+    ==================================================== -->
+    <section class="newsletter-section section-padding" style="background: var(--surface-hover); text-align: center;">
+      <div class="section-container">
+        <span class="section-eyebrow">STAY UPDATED</span>
+        <h2 class="section-title">Join the <span>STITCHLY</span> family.</h2>
+        <p style="margin-top: 1rem; color: var(--text-secondary); max-width: 500px; margin-left: auto; margin-right: auto;">Subscribe to our newsletter for the latest styling tips, exclusive offers, and behind-the-scenes looks.</p>
+        <form style="margin-top: 2rem; display: flex; justify-content: center; gap: 1rem; max-width: 500px; margin-left: auto; margin-right: auto;">
+          <input type="email" placeholder="Enter your email" style="padding: 1rem; flex: 1; border: 1px solid var(--border-color); border-radius: 4px; font-family: 'Manrope', sans-serif;">
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+      </div>
+    </section>
+
+
+  </main>
+
+  <!-- Footer Injected -->
+  <div id="footer"></div>
+
+  <!-- Page Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/custom-stitching.js"></script>
+</body>
+</html>

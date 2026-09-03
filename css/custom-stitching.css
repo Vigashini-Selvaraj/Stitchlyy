@@ -1,0 +1,374 @@
+/* =====================================================
+   CUSTOM STITCHING CSS
+====================================================== */
+
+.stitching-hero {
+  padding: 150px 20px 80px;
+  text-align: center;
+  background-color: var(--color-surface, #fcfcfc);
+  border-bottom: 1px solid var(--border-color, #eee);
+  position: relative;
+  overflow: hidden;
+}
+
+body.dark-mode .stitching-hero {
+  background-color: #0a0a0a;
+}
+
+.stitching-hero h1 {
+  font-family: var(--font-primary, 'Fraunces', serif);
+  font-size: 3.5rem;
+  color: var(--color-text-primary, #111);
+  margin-bottom: 20px;
+}
+
+body.dark-mode .stitching-hero h1 {
+  color: #fff;
+}
+
+.stitching-hero p {
+  font-family: var(--font-secondary, 'Manrope', sans-serif);
+  font-size: 1.1rem;
+  color: var(--color-text-secondary, #666);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+body.dark-mode .stitching-hero p {
+  color: #ccc;
+}
+
+.custom-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (min-width: 992px) {
+  .custom-layout {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+.custom-form-wrapper {
+  flex: 1;
+}
+
+.custom-summary-wrapper {
+  width: 100%;
+  position: sticky;
+  top: 100px;
+}
+
+@media (min-width: 992px) {
+  .custom-summary-wrapper {
+    width: 350px;
+    flex-shrink: 0;
+  }
+}
+
+/* Form Steps */
+.form-step {
+  background: var(--color-background, #fff);
+  border: 1px solid var(--border-color, #eee);
+  border-radius: 12px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+}
+
+body.dark-mode .form-step {
+  background: #111;
+  border-color: #333;
+}
+
+.form-step-header {
+  margin-bottom: 25px;
+  border-bottom: 1px solid var(--border-color, #eee);
+  padding-bottom: 15px;
+}
+
+.form-step-title {
+  font-family: var(--font-primary, 'Fraunces', serif);
+  font-size: 1.8rem;
+  color: var(--color-text-primary, #111);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+body.dark-mode .form-step-title {
+  color: #fff;
+}
+
+.form-step-title i {
+  color: var(--color-gold, #a38258);
+}
+
+/* Radio Cards (for Selection) */
+.radio-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 20px;
+}
+
+.radio-card {
+  display: block;
+  cursor: pointer;
+  position: relative;
+}
+
+.radio-card input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+}
+
+.radio-card-content {
+  border: 1px solid var(--border-color, #ccc);
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: center;
+  transition: all 0.3s ease;
+  background: var(--color-background, #fff);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+body.dark-mode .radio-card-content {
+  background: #1a1a1a;
+  border-color: #333;
+}
+
+.radio-card-image {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.small-card-image {
+  width: 100%;
+  height: 80px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.radio-card:hover .radio-card-image,
+.radio-card:hover .small-card-image {
+  transform: scale(1.05);
+}
+
+.radio-card-label {
+  padding: 15px;
+  font-weight: 500;
+  color: var(--color-text-secondary, #ccc);
+  transition: color 0.3s ease;
+}
+
+.radio-card:hover .radio-card-content {
+  border-color: var(--color-gold, #a38258);
+}
+
+.radio-card input[type="radio"]:checked + .radio-card-content {
+  border-color: var(--color-gold, #a38258);
+  box-shadow: 0 0 0 1px var(--color-gold, #a38258);
+}
+
+.radio-card input[type="radio"]:checked + .radio-card-content .radio-card-label {
+  color: var(--color-gold, #a38258);
+  font-weight: 600;
+}
+
+/* Fabric Swatches */
+.fabric-swatch-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.fabric-swatch {
+  display: block;
+  cursor: pointer;
+}
+
+.fabric-swatch input[type="radio"] {
+  display: none;
+}
+
+.swatch-color {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: block;
+  border: 2px solid transparent;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  margin: 0 auto 5px;
+}
+
+.fabric-swatch:hover .swatch-color {
+  transform: scale(1.1);
+}
+
+.fabric-swatch input[type="radio"]:checked + .swatch-color {
+  border-color: var(--color-gold, #a38258);
+  transform: scale(1.1);
+}
+
+.swatch-label {
+  font-size: 0.85rem;
+  text-align: center;
+  display: block;
+  color: var(--color-text-secondary, #666);
+}
+
+/* Measurements Grid */
+.measurements-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.input-group label {
+  font-size: 0.9rem;
+  color: var(--color-text-primary, #333);
+  font-weight: 500;
+}
+
+body.dark-mode .input-group label {
+  color: #ddd;
+}
+
+.input-group input, .input-group select, .input-group textarea {
+  padding: 12px;
+  border: 1px solid var(--border-color, #ccc);
+  border-radius: 6px;
+  font-family: inherit;
+  background: var(--color-background, #fff);
+  color: var(--color-text-primary, #111);
+}
+
+body.dark-mode .input-group input, 
+body.dark-mode .input-group select, 
+body.dark-mode .input-group textarea {
+  background: #1a1a1a;
+  border-color: #444;
+  color: #fff;
+}
+
+/* File Upload Zone */
+.file-upload-zone {
+  border: 2px dashed var(--border-color, #ccc);
+  border-radius: 8px;
+  padding: 40px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.file-upload-zone:hover {
+  background: rgba(0,0,0,0.02);
+}
+
+body.dark-mode .file-upload-zone:hover {
+  background: rgba(255,255,255,0.05);
+}
+
+.file-upload-zone i {
+  color: var(--color-text-secondary, #888);
+  margin-bottom: 10px;
+}
+
+.file-upload-zone p {
+  color: var(--color-text-secondary, #666);
+  margin: 0;
+}
+
+#fileInput {
+  display: none;
+}
+
+/* Summary Card */
+.summary-card {
+  background: var(--color-background, #fff);
+  border: 1px solid var(--color-gold, #a38258);
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(163, 130, 88, 0.15);
+}
+
+body.dark-mode .summary-card {
+  background: #111;
+}
+
+.summary-card h3 {
+  font-family: var(--font-primary, 'Fraunces', serif);
+  font-size: 1.5rem;
+  color: var(--color-text-primary, #111);
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--border-color, #eee);
+  padding-bottom: 10px;
+}
+
+body.dark-mode .summary-card h3 {
+  color: #fff;
+  border-bottom-color: #333;
+}
+
+.summary-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 25px;
+}
+
+.summary-list li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+  color: var(--color-text-primary, #111);
+}
+
+body.dark-mode .summary-list li {
+  color: #ddd;
+}
+
+.summary-list span.label {
+  color: var(--color-text-secondary, #777);
+}
+
+.btn-checkout {
+  width: 100%;
+  padding: 15px;
+  background: var(--color-text-primary, #111);
+  color: var(--color-background, #fff);
+  border: none;
+  border-radius: 6px;
+  font-family: var(--font-secondary, 'Manrope', sans-serif);
+  font-weight: 600;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background 0.3s ease;
+}
+
+body.dark-mode .btn-checkout {
+  background: #fff;
+  color: #111;
+}
+
+.btn-checkout:hover {
+  background: var(--color-gold, #a38258);
+  color: #fff;
+}

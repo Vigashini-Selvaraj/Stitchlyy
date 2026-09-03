@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact STITCHLY — Get in touch for custom stitching, design consultations, and tailoring enquiries.">
+  <title>STITCHLY | Contact Us</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest" defer></script>
+
+  <!-- Main Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/contact.css">
+</head>
+
+<body class="dark-mode">
+
+  <!-- Navbar Injected -->
+  <div id="navbar"></div>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="contact-hero">
+      <h1>Let's Create Something <span style="color: var(--color-gold);">Beautiful</span> Together</h1>
+      <p>Have a question about custom stitching, fabrics, measurements, or your order? Our team is here to help.</p>
+      <a href="custom-stitching.html" class="btn btn-primary">Start Your Custom Design</a>
+    </section>
+
+    <!-- Contact Info Cards -->
+    <section class="info-section">
+      <div class="info-grid">
+        
+        <div class="info-card">
+          <i data-lucide="phone-call"></i>
+          <h3>Call Us</h3>
+          <p>Speak directly with our tailoring team.</p>
+          <a href="tel:+910000000000" class="contact-detail">+91 XXXXX XXXXX</a>
+        </div>
+
+        <div class="info-card">
+          <i data-lucide="mail"></i>
+          <h3>Email Us</h3>
+          <p>For enquiries and custom orders.</p>
+          <a href="mailto:hello@stitchly.com" class="contact-detail">hello@stitchly.com</a>
+        </div>
+
+        <div class="info-card">
+          <i data-lucide="message-circle"></i>
+          <h3>WhatsApp</h3>
+          <p>Get quick assistance with your design.</p>
+          <a href="#" class="contact-detail" style="color: var(--color-gold);">Chat With Us &rarr;</a>
+        </div>
+
+        <div class="info-card">
+          <i data-lucide="map-pin"></i>
+          <h3>Visit Our Atelier</h3>
+          <p>Come in for a personal consultation.</p>
+          <span class="contact-detail" style="cursor: default;">Your Studio Address</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Send Us a Message Form -->
+    <section class="form-section">
+      <div class="form-container">
+        <div class="form-header">
+          <h2>Send Us a Message</h2>
+        </div>
+
+        <form id="contactForm" class="contact-form">
+          <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" required placeholder="Enter your full name">
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" required placeholder="Enter your email address">
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" placeholder="Enter your phone number">
+          </div>
+
+          <div class="form-group">
+            <label for="subject">What can we help you with?</label>
+            <select id="subject" required>
+              <option value="" disabled selected>Select an option</option>
+              <option value="custom">Custom Stitching</option>
+              <option value="fabric">Fabric Selection</option>
+              <option value="measurements">Measurements</option>
+              <option value="pricing">Pricing</option>
+              <option value="order">Existing Order</option>
+              <option value="general">General Enquiry</option>
+            </select>
+          </div>
+
+          <div class="form-group full-width">
+            <label for="message">Message</label>
+            <textarea id="message" rows="5" required placeholder="How can we help you today?"></textarea>
+          </div>
+
+          <div class="form-group full-width">
+            <label>Upload Design / Inspiration (Optional)</label>
+            <div class="file-upload-wrapper">
+              <i data-lucide="upload-cloud"></i>
+              <p>Click or drag an image here</p>
+              <input type="file" id="designUpload" accept="image/png, image/jpeg">
+            </div>
+            <span id="fileNameDisplay"></span>
+          </div>
+
+          <div class="form-submit">
+            <button type="submit" class="btn btn-primary" style="padding: 0 40px; min-height: 56px;">Send Message &rarr;</button>
+          </div>
+        </form>
+
+      </div>
+    </section>
+
+    <!-- Consultation Banner -->
+    <section class="consultation-banner">
+      <h3>Need Help Designing Your Outfit?</h3>
+      <p>Not sure which fabric, silhouette, neckline or stitching style would work best? Talk to our team and we'll help bring your idea to life.</p>
+      <a href="custom-stitching.html" class="btn btn-outline" style="color: #fff; border-color: #fff;">Book a Consultation &rarr;</a>
+    </section>
+
+    <!-- Visit Our Atelier -->
+    <section class="atelier-section">
+      <div class="atelier-container">
+        <div class="atelier-text">
+          <span class="section-eyebrow">COME SAY HI</span>
+          <h2>Experience STITCHLY In Person</h2>
+          <p>Visit our atelier to explore luxury fabrics, discuss your bespoke design, and get professionally measured by our master tailors.</p>
+          
+          <ul class="atelier-details">
+            <li>
+              <i data-lucide="map-pin"></i>
+              <div>
+                <strong>Address</strong>
+                <span>123 Fashion Avenue, Design District<br>Chennai, 600001</span>
+              </div>
+            </li>
+            <li>
+              <i data-lucide="clock"></i>
+              <div>
+                <strong>Opening Hours</strong>
+                <span>Monday - Saturday: 10:00 AM - 7:00 PM<br>Sunday: By Appointment Only</span>
+              </div>
+            </li>
+            <li>
+              <i data-lucide="phone"></i>
+              <div>
+                <strong>Phone</strong>
+                <span>+91 XXXXX XXXXX</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="atelier-map">
+          <!-- Google Maps Embed -->
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248756.1313110271!2d80.04420074121175!3d13.047473315809802!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265ea4f7d3361%3A0x6e61a70b6863d433!2sChennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+            width="100%" 
+            height="400" 
+            style="border:0; border-radius: 12px; box-shadow: 0 15px 40px rgba(163, 130, 88, 0.15);" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Customer Support Links -->
+    <section class="support-section">
+      <h2>We're Here When You Need Us</h2>
+      <div class="support-grid">
+        
+        <div class="support-card">
+          <h4>Order Support</h4>
+          <p>Questions about an existing order or need an update?</p>
+          <a href="#">Get Help &rarr;</a>
+        </div>
+
+        <div class="support-card">
+          <h4>Measurement Help</h4>
+          <p>Need help taking your measurements accurately?</p>
+          <a href="measurement-guide.html">Get Help &rarr;</a>
+        </div>
+
+        <div class="support-card">
+          <h4>Design Assistance</h4>
+          <p>Have a custom design in mind but need advice?</p>
+          <a href="custom-stitching.html">Get Help &rarr;</a>
+        </div>
+
+        <div class="support-card">
+          <h4>Fabric Guidance</h4>
+          <p>Not sure which fabric to choose for your silhouette?</p>
+          <a href="fabrics.html">Get Help &rarr;</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <div class="section-header" style="text-align: center; margin-bottom: 50px;">
+        <h2 style="font-family: var(--font-primary, 'Fraunces', serif); font-size: 2.2rem; color: var(--color-text-primary);">Frequently Asked Questions</h2>
+      </div>
+      <div class="faq-container">
+        
+        <div class="faq-item">
+          <button class="faq-question">
+            How can I place a custom stitching order?
+            <i data-lucide="chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>You can easily place an order through our Custom Stitching page online. Choose your garment type, fabric, provide measurements, and upload any reference designs. Our team will review it and confirm your order.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Can I send my own design?
+            <i data-lucide="chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Yes! We highly encourage you to upload reference photos, sketches, or inspiration boards using the file upload option on our contact or custom stitching forms. Our tailors will recreate your vision.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Can I visit the atelier for measurements?
+            <i data-lucide="chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Absolutely. If you prefer to be measured by a professional, you can book an appointment or walk into our atelier during operating hours. We will save your measurements to your profile for future online orders.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            How can I check my order status?
+            <i data-lucide="chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Once your order is confirmed, you will receive tracking updates via email. You can also log into your User Dashboard at any time to see the live status of your garment being stitched.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            How quickly will I receive a response?
+            <i data-lucide="chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Our support team aims to reply to all email and contact form enquiries within 24 hours. For immediate assistance, please use our WhatsApp chat feature or call us directly during business hours.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+      <span class="section-eyebrow" style="color: var(--color-gold); margin-bottom: 20px;">YOUR IDEA. OUR CRAFTSMANSHIP.</span>
+      <h2>Let's turn your vision into something uniquely yours.</h2>
+      <a href="custom-stitching.html" class="btn btn-primary" style="padding: 0 40px; min-height: 60px; font-size: 1rem;">Start Custom Stitching</a>
+    </section>
+
+  </main>
+
+  <!-- Footer Injected -->
+  <div id="footer"></div>
+
+  <!-- Page Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+</html>

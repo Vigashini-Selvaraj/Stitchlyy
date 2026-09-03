@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STITCHLY Admin - Dashboard</title>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="css/admin-responsive.css">
+  
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <div class="admin-layout">
+    
+    <!-- SIDEBAR -->
+    <aside class="admin-sidebar" id="admin-sidebar">
+      <div class="sidebar-header" style="padding-top: 30px; padding-bottom: 20px; height: auto;">
+        <a href="index.html">
+          <img src="../assets/logoo1.png" alt="STITCHLY" class="logo-light" style="max-width:140px;">
+          <img src="../assets/logoo1_dark.png" alt="STITCHLY" class="logo-dark" style="max-width:140px;">
+        </a>
+      </div>
+      
+      <div class="sidebar-settings" style="display:flex; justify-content:space-around; margin-bottom:20px; padding-bottom:20px; border-bottom:1px solid var(--color-border);">
+        <button type="button" class="nav-icon-button direction-toggle" id="sidebarDirectionToggle" title="Change text direction" style="font-size:0.85rem; font-weight:bold; background:transparent; border:none; color:inherit; cursor:pointer;">
+          <span id="sidebarDirectionText">RTL</span>
+        </button>
+        <button type="button" class="nav-icon-button theme-toggle" id="sidebarThemeToggle" title="Toggle theme" style="background:transparent; border:none; color:inherit; cursor:pointer;">
+          <i data-lucide="moon" id="sidebarThemeIcon"></i>
+        </button>
+      </div>
+      
+      <ul class="sidebar-nav">
+        <li class="nav-item active">
+          <i data-lucide="layout-dashboard"></i>
+          <span>Dashboard</span>
+        </li>
+        <li class="nav-item">
+          <a href="orders.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="shopping-bag"></i>
+            <span>Orders</span>
+            <span class="nav-badge">12</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="customers.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="users"></i>
+            <span>Customers</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="measurements.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="ruler"></i>
+            <span>Measurements</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="appointments.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="calendar"></i>
+            <span>Appointments</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="stitching.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="scissors"></i>
+            <span>Custom Stitching</span>
+            <span class="nav-badge">5</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="collections.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="layers"></i>
+            <span>Collections</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="fabrics.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="palette"></i>
+            <span>Fabrics</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="gallery.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="image"></i>
+            <span>Design Gallery</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="pricing.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="tag"></i>
+            <span>Pricing</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="invoices.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="file-text"></i>
+            <span>Invoices</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="reviews.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="star"></i>
+            <span>Reviews</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="messages.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="message-square"></i>
+            <span>Messages</span>
+            <span class="nav-badge">3</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="analytics.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="bar-chart-2"></i>
+            <span>Reports & Analytics</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="notifications.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="bell"></i>
+            <span>Notifications</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="../login.html" style="display: flex; align-items: center; gap: 16px; width: 100%; margin-top: 20px;">
+            <i data-lucide="log-out"></i>
+            <span>Logout</span>
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="admin-main">
+      
+      <!-- TOP HEADER -->
+      <header class="admin-header">
+        <div class="header-left">
+          <button class="toggle-sidebar" id="toggle-sidebar">
+            <i data-lucide="menu"></i>
+          </button>
+          <div class="page-title">
+            <h1>Dashboard Overview</h1>
+            <div class="breadcrumb">Admin / Dashboard</div>
+          </div>
+        </div>
+
+        <div class="header-right">
+          
+          
+          <button class="btn-primary">
+            <i data-lucide="plus"></i> New Order
+          </button>
+          
+          <button class="header-icon" id="theme-toggle">
+            <i data-lucide="moon"></i>
+          </button>
+          
+          <button class="header-icon">
+            <i data-lucide="bell"></i>
+            <span class="badge">4</span>
+          </button>
+
+          <div class="admin-profile">
+            <img src="../assets/team-1.jpg" alt="Admin" class="admin-avatar" onerror="this.src='https://ui-avatars.com/api/?name=Admin+User&background=c8a96b&color=fff'">
+            <div class="admin-info">
+              <h4>Eleanor Vance</h4>
+              <span>Administrator</span>
+            </div>
+            <i data-lucide="chevron-down" style="color: var(--color-text-light); width: 16px;"></i>
+          </div>
+        </div>
+      </header>
+
+      <!-- PAGE CONTENT -->
+      <div class="admin-content">
+        
+        <!-- KPI Cards -->
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-header">
+              <h3>Total Revenue</h3>
+              <div class="kpi-icon"><i data-lucide="dollar-sign"></i></div>
+            </div>
+            <div class="kpi-value">$24,500</div>
+            <div class="kpi-meta">
+              <span class="kpi-change positive"><i data-lucide="trending-up" style="width: 12px; height: 12px; margin-right: 4px; display: inline-block; vertical-align: middle;"></i> +12.5%</span>
+              <span>vs last month</span>
+            </div>
+          </div>
+          
+          <div class="kpi-card">
+            <div class="kpi-header">
+              <h3>Total Orders</h3>
+              <div class="kpi-icon"><i data-lucide="shopping-bag"></i></div>
+            </div>
+            <div class="kpi-value">184</div>
+            <div class="kpi-meta">
+              <span class="kpi-change positive"><i data-lucide="trending-up" style="width: 12px; height: 12px; margin-right: 4px; display: inline-block; vertical-align: middle;"></i> +5.2%</span>
+              <span>vs last month</span>
+            </div>
+          </div>
+          
+          <div class="kpi-card">
+            <div class="kpi-header">
+              <h3>Active Stitching</h3>
+              <div class="kpi-icon"><i data-lucide="scissors"></i></div>
+            </div>
+            <div class="kpi-value">42</div>
+            <div class="kpi-meta">
+              <span class="kpi-change negative"><i data-lucide="trending-down" style="width: 12px; height: 12px; margin-right: 4px; display: inline-block; vertical-align: middle;"></i> -2.1%</span>
+              <span>vs last week</span>
+            </div>
+          </div>
+          
+          <div class="kpi-card">
+            <div class="kpi-header">
+              <h3>Total Customers</h3>
+              <div class="kpi-icon"><i data-lucide="users"></i></div>
+            </div>
+            <div class="kpi-value">856</div>
+            <div class="kpi-meta">
+              <span class="kpi-change positive"><i data-lucide="trending-up" style="width: 12px; height: 12px; margin-right: 4px; display: inline-block; vertical-align: middle;"></i> +18</span>
+              <span>new this week</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="dashboard-grid">
+          <!-- Revenue Analytics -->
+          <div class="card">
+            <div class="card-header">
+              <h2>Revenue Analytics</h2>
+              <select style="border: 1px solid var(--color-border); padding: 6px 12px; border-radius: 6px; font-family: var(--font-body); outline: none;">
+                <option>This Year</option>
+                <option>Last Year</option>
+              </select>
+            </div>
+            <!-- Dummy Chart via CSS -->
+            <div class="chart-container">
+              <div class="chart-bar-wrap">
+                <div class="chart-bar" style="height: 40%;"></div>
+                <span class="chart-label">Jan</span>
+              </div>
+              <div class="chart-bar-wrap">
+                <div class="chart-bar" style="height: 60%;"></div>
+                <span class="chart-label">Feb</span>
+              </div>
+              <div class="chart-bar-wrap">
+                <div class="chart-bar" style="height: 50%;"></div>
+                <span class="chart-label">Mar</span>
+              </div>
+              <div class="chart-bar-wrap">
+                <div class="chart-bar" style="height: 80%;"></div>
+                <span class="chart-label">Apr</span>
+              </div>
+              <div class="chart-bar-wrap">
+                <div class="chart-bar" style="height: 70%;"></div>
+                <span class="chart-label">May</span>
+              </div>
+              <div class="chart-bar-wrap">
+                <div class="chart-bar" style="height: 90%;"></div>
+                <span class="chart-label">Jun</span>
+              </div>
+              <div class="chart-bar-wrap">
+                <div class="chart-bar" style="height: 65%;"></div>
+                <span class="chart-label">Jul</span>
+              </div>
+              <div class="chart-bar-wrap">
+                <div class="chart-bar" style="height: 85%;"></div>
+                <span class="chart-label">Aug</span>
+              </div>
+              <div class="chart-bar-wrap">
+                <div class="chart-bar" style="height: 100%;"></div>
+                <span class="chart-label">Sep</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stitching Pipeline -->
+          <div class="card">
+            <div class="card-header">
+              <h2>Stitching Pipeline</h2>
+              <a href="#" class="card-action">View All</a>
+            </div>
+            <div class="workflow-pipeline">
+              <div class="workflow-step">
+                <div class="step-icon"><i data-lucide="ruler"></i></div>
+                <div class="step-content">
+                  <h4>Measurement</h4>
+                  <span>Pending details</span>
+                </div>
+                <div class="step-count">12</div>
+              </div>
+              <div class="workflow-step">
+                <div class="step-icon"><i data-lucide="palette"></i></div>
+                <div class="step-content">
+                  <h4>Fabric Selection</h4>
+                  <span>Awaiting confirmation</span>
+                </div>
+                <div class="step-count">8</div>
+              </div>
+              <div class="workflow-step">
+                <div class="step-icon"><i data-lucide="scissors"></i></div>
+                <div class="step-content">
+                  <h4>Cutting & Stitching</h4>
+                  <span>In progress</span>
+                </div>
+                <div class="step-count">24</div>
+              </div>
+              <div class="workflow-step">
+                <div class="step-icon"><i data-lucide="check-circle"></i></div>
+                <div class="step-content">
+                  <h4>Quality Check</h4>
+                  <span>Final review</span>
+                </div>
+                <div class="step-count">5</div>
+              </div>
+              <div class="workflow-step">
+                <div class="step-icon"><i data-lucide="package"></i></div>
+                <div class="step-content">
+                  <h4>Ready for Delivery</h4>
+                  <span>Awaiting pickup/dispatch</span>
+                </div>
+                <div class="step-count">14</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Orders Table -->
+        <div class="card" style="margin-bottom: 40px;">
+          <div class="card-header">
+            <h2>Recent Orders</h2>
+            <a href="orders.html" class="card-action">View All Orders</a>
+          </div>
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Order ID</th>
+                  <th>Customer</th>
+                  <th>Service</th>
+                  <th>Date</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>#ORD-9012</strong></td>
+                  <td>
+                    <div class="customer-cell">
+                      <img src="https://ui-avatars.com/api/?name=Sarah+Jenkins&background=eee7dc" class="customer-avatar">
+                      <div>
+                        <div class="customer-name">Sarah Jenkins</div>
+                        <div class="customer-email">sarah.j@example.com</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Bridal Lehenga</td>
+                  <td>Oct 24, 2026</td>
+                  <td>$1,250.00</td>
+                  <td><span class="status-badge status-progress">In Progress</span></td>
+                  <td>
+                    <button class="action-btn"><i data-lucide="eye" style="width: 16px;"></i></button>
+                    <button class="action-btn"><i data-lucide="edit" style="width: 16px;"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>#ORD-9011</strong></td>
+                  <td>
+                    <div class="customer-cell">
+                      <img src="https://ui-avatars.com/api/?name=Maria+Garcia&background=eee7dc" class="customer-avatar">
+                      <div>
+                        <div class="customer-name">Maria Garcia</div>
+                        <div class="customer-email">maria.g@example.com</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Custom Blouse</td>
+                  <td>Oct 23, 2026</td>
+                  <td>$120.00</td>
+                  <td><span class="status-badge status-pending">Measurement Pending</span></td>
+                  <td>
+                    <button class="action-btn"><i data-lucide="eye" style="width: 16px;"></i></button>
+                    <button class="action-btn"><i data-lucide="edit" style="width: 16px;"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>#ORD-9010</strong></td>
+                  <td>
+                    <div class="customer-cell">
+                      <img src="https://ui-avatars.com/api/?name=Priya+Patel&background=eee7dc" class="customer-avatar">
+                      <div>
+                        <div class="customer-name">Priya Patel</div>
+                        <div class="customer-email">priya.p@example.com</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Salwar Suit</td>
+                  <td>Oct 22, 2026</td>
+                  <td>$280.00</td>
+                  <td><span class="status-badge status-ready">Ready</span></td>
+                  <td>
+                    <button class="action-btn"><i data-lucide="eye" style="width: 16px;"></i></button>
+                    <button class="action-btn"><i data-lucide="edit" style="width: 16px;"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>#ORD-9009</strong></td>
+                  <td>
+                    <div class="customer-cell">
+                      <img src="https://ui-avatars.com/api/?name=Emma+Watson&background=eee7dc" class="customer-avatar">
+                      <div>
+                        <div class="customer-name">Emma Watson</div>
+                        <div class="customer-email">emma.w@example.com</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Evening Gown Alteration</td>
+                  <td>Oct 20, 2026</td>
+                  <td>$85.00</td>
+                  <td><span class="status-badge status-delivered">Delivered</span></td>
+                  <td>
+                    <button class="action-btn"><i data-lucide="eye" style="width: 16px;"></i></button>
+                    <button class="action-btn"><i data-lucide="edit" style="width: 16px;"></i></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="dashboard-grid">
+          <!-- Upcoming Appointments -->
+          <div class="card">
+            <div class="card-header">
+              <h2>Upcoming Appointments</h2>
+              <a href="appointments.html" class="card-action">Calendar</a>
+            </div>
+            
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+              <div style="display: flex; gap: 16px; align-items: center; padding: 12px; border: 1px solid var(--color-border); border-radius: var(--radius-sm);">
+                <div style="background: var(--color-ivory); color: var(--color-gold); padding: 12px; border-radius: 8px; text-align: center; min-width: 60px;">
+                  <div style="font-size: 12px; font-weight: 600; text-transform: uppercase;">Oct</div>
+                  <div style="font-size: 20px; font-family: var(--font-display); font-weight: 600; line-height: 1;">28</div>
+                </div>
+                <div style="flex: 1;">
+                  <h4 style="font-size: 15px; color: var(--color-navy); margin-bottom: 4px;">Initial Measurement</h4>
+                  <div style="font-size: 13px; color: var(--color-text-light); display: flex; align-items: center; gap: 8px;">
+                    <i data-lucide="clock" style="width: 14px;"></i> 10:00 AM - Sarah Jenkins
+                  </div>
+                </div>
+                <button class="action-btn" style="background: rgba(42, 157, 143, 0.1); color: #2a9d8f;"><i data-lucide="check" style="width: 16px;"></i></button>
+              </div>
+              
+              <div style="display: flex; gap: 16px; align-items: center; padding: 12px; border: 1px solid var(--color-border); border-radius: var(--radius-sm);">
+                <div style="background: var(--color-ivory); color: var(--color-gold); padding: 12px; border-radius: 8px; text-align: center; min-width: 60px;">
+                  <div style="font-size: 12px; font-weight: 600; text-transform: uppercase;">Oct</div>
+                  <div style="font-size: 20px; font-family: var(--font-display); font-weight: 600; line-height: 1;">28</div>
+                </div>
+                <div style="flex: 1;">
+                  <h4 style="font-size: 15px; color: var(--color-navy); margin-bottom: 4px;">Bridal Fitting</h4>
+                  <div style="font-size: 13px; color: var(--color-text-light); display: flex; align-items: center; gap: 8px;">
+                    <i data-lucide="clock" style="width: 14px;"></i> 02:30 PM - Priya Patel
+                  </div>
+                </div>
+                <button class="action-btn" style="background: rgba(42, 157, 143, 0.1); color: #2a9d8f;"><i data-lucide="check" style="width: 16px;"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Popular Services -->
+          <div class="card">
+            <div class="card-header">
+              <h2>Popular Services</h2>
+            </div>
+            
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                  <div style="width: 40px; height: 40px; background: var(--color-ivory); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--color-gold);">
+                    <i data-lucide="scissors"></i>
+                  </div>
+                  <div>
+                    <h4 style="font-size: 14px; color: var(--color-navy);">Custom Blouse</h4>
+                    <span style="font-size: 12px; color: var(--color-text-light);">68 orders this month</span>
+                  </div>
+                </div>
+                <strong style="font-size: 14px; color: var(--color-navy);">$8,160</strong>
+              </div>
+              
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                  <div style="width: 40px; height: 40px; background: var(--color-ivory); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--color-gold);">
+                    <i data-lucide="star"></i>
+                  </div>
+                  <div>
+                    <h4 style="font-size: 14px; color: var(--color-navy);">Bridal Wear</h4>
+                    <span style="font-size: 12px; color: var(--color-text-light);">12 orders this month</span>
+                  </div>
+                </div>
+                <strong style="font-size: 14px; color: var(--color-navy);">$15,000</strong>
+              </div>
+              
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                  <div style="width: 40px; height: 40px; background: var(--color-ivory); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--color-gold);">
+                    <i data-lucide="layers"></i>
+                  </div>
+                  <div>
+                    <h4 style="font-size: 14px; color: var(--color-navy);">Salwar Suit</h4>
+                    <span style="font-size: 12px; color: var(--color-text-light);">45 orders this month</span>
+                  </div>
+                </div>
+                <strong style="font-size: 14px; color: var(--color-navy);">$12,600</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="js/admin.js"></script>
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+  </script>
+</body>
+</html>

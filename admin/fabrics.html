@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STITCHLY Admin - Fabrics Inventory</title>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="css/admin-responsive.css">
+  
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <style>
+    .fabric-card {
+      background: var(--color-bg-card);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .fabric-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+    
+    .fabric-img-wrapper {
+      position: relative;
+      height: 220px;
+      width: 100%;
+      background: #f3f4f6;
+    }
+    
+    .fabric-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .stock-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: rgba(255,255,255,0.95);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .stock-badge.in-stock {
+      color: #10b981;
+    }
+    
+    .stock-badge.low-stock {
+      color: #f59e0b;
+    }
+    
+    .stock-badge.out-stock {
+      color: #ef4444;
+    }
+    
+    .fabric-content {
+      padding: 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .fabric-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--color-text-primary);
+      margin-bottom: 8px;
+    }
+    
+    .fabric-price {
+      font-size: 16px;
+      color: var(--color-gold);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    
+    .fabric-meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 20px;
+      font-size: 13px;
+      color: var(--color-text-light);
+    }
+    
+    .fabric-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .fabric-actions {
+      display: flex;
+      gap: 10px;
+      border-top: 1px solid var(--color-border);
+      padding-top: 15px;
+      margin-top: auto;
+    }
+    
+    .fabric-btn {
+      flex: 1;
+      padding: 8px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    
+    .btn-edit {
+      background: transparent;
+      border: 1px solid var(--color-border);
+      color: var(--color-text-primary);
+    }
+    .btn-edit:hover {
+      background: rgba(0,0,0,0.05);
+    }
+    
+    .btn-restock {
+      background: rgba(200, 169, 107, 0.1);
+      border: 1px solid var(--color-gold);
+      color: var(--color-gold);
+    }
+    .btn-restock:hover {
+      background: var(--color-gold);
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="admin-layout">
+    
+    <!-- SIDEBAR -->
+    <aside class="admin-sidebar" id="admin-sidebar">
+      <div class="sidebar-header" style="padding-top: 30px; padding-bottom: 20px; height: auto;">
+        <a href="index.html">
+          <img src="../assets/logoo1.png" alt="STITCHLY" class="logo-light" style="max-width:140px;">
+          <img src="../assets/logoo1_dark.png" alt="STITCHLY" class="logo-dark" style="max-width:140px;">
+        </a>
+      </div>
+      
+      <div class="sidebar-settings" style="display:flex; justify-content:space-around; margin-bottom:20px; padding-bottom:20px; border-bottom:1px solid var(--color-border);">
+        <button type="button" class="nav-icon-button direction-toggle" id="sidebarDirectionToggle" title="Change text direction" style="font-size:0.85rem; font-weight:bold; background:transparent; border:none; color:inherit; cursor:pointer;">
+          <span id="sidebarDirectionText">RTL</span>
+        </button>
+        <button type="button" class="nav-icon-button theme-toggle" id="sidebarThemeToggle" title="Toggle theme" style="background:transparent; border:none; color:inherit; cursor:pointer;">
+          <i data-lucide="moon" id="sidebarThemeIcon"></i>
+        </button>
+      </div>
+      
+      <ul class="sidebar-nav">
+        <li class="nav-item">
+          <a href="index.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="layout-dashboard"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="orders.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="shopping-bag"></i>
+            <span>Orders</span>
+            <span class="nav-badge">12</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="customers.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="users"></i>
+            <span>Customers</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="measurements.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="ruler"></i>
+            <span>Measurements</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="appointments.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="calendar"></i>
+            <span>Appointments</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="stitching.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="scissors"></i>
+            <span>Custom Stitching</span>
+            <span class="nav-badge">5</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="collections.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="layers"></i>
+            <span>Collections</span>
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a href="fabrics.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="palette"></i>
+            <span>Fabrics</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="gallery.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="image"></i>
+            <span>Design Gallery</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="pricing.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="tag"></i>
+            <span>Pricing</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="invoices.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="file-text"></i>
+            <span>Invoices</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="reviews.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="star"></i>
+            <span>Reviews</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="messages.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="message-square"></i>
+            <span>Messages</span>
+            <span class="nav-badge">3</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="analytics.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="bar-chart-2"></i>
+            <span>Reports & Analytics</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="notifications.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="bell"></i>
+            <span>Notifications</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="../login.html" style="display: flex; align-items: center; gap: 16px; width: 100%; margin-top: 20px;">
+            <i data-lucide="log-out"></i>
+            <span>Logout</span>
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="admin-main">
+      
+      <!-- TOP HEADER -->
+      <header class="admin-header">
+        <div class="header-left">
+          <button class="toggle-sidebar" id="toggle-sidebar">
+            <i data-lucide="menu"></i>
+          </button>
+          <div class="page-title">
+            <h1>Fabrics Inventory</h1>
+            <div class="breadcrumb">Admin / Fabrics</div>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <button class="btn-primary" id="addFabricBtn">
+            <i data-lucide="plus"></i> Add Fabric
+          </button>
+          
+          <button class="header-icon" id="theme-toggle">
+            <i data-lucide="moon"></i>
+          </button>
+          
+          <button class="header-icon">
+            <i data-lucide="bell"></i>
+            <span class="badge">2</span>
+          </button>
+
+          <div class="admin-profile">
+            <img src="../assets/team-1.jpg" alt="Admin" class="admin-avatar" onerror="this.src='https://ui-avatars.com/api/?name=Admin+User&background=c8a96b&color=fff'">
+            <div class="admin-info">
+              <h4>Eleanor Vance</h4>
+              <span>Administrator</span>
+            </div>
+            <i data-lucide="chevron-down" style="color: var(--color-text-light); width: 16px;"></i>
+          </div>
+        </div>
+      </header>
+
+      <!-- PAGE CONTENT -->
+      <div class="admin-content">
+        
+        <!-- KPI Cards -->
+        <div class="kpi-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+          <div class="kpi-card">
+            <div class="kpi-header">
+              <h3>Total Fabrics</h3>
+              <div class="kpi-icon"><i data-lucide="palette"></i></div>
+            </div>
+            <div class="kpi-value">142</div>
+            <div class="kpi-meta">
+              <span>Unique Variations</span>
+            </div>
+          </div>
+          
+          <div class="kpi-card">
+            <div class="kpi-header">
+              <h3>In Stock</h3>
+              <div class="kpi-icon" style="background: rgba(16, 185, 129, 0.1); color: #10b981;"><i data-lucide="check-circle"></i></div>
+            </div>
+            <div class="kpi-value">128</div>
+            <div class="kpi-meta">
+              <span class="kpi-change positive">Healthy inventory</span>
+            </div>
+          </div>
+          
+          <div class="kpi-card">
+            <div class="kpi-header">
+              <h3>Low Stock</h3>
+              <div class="kpi-icon" style="background: rgba(245, 158, 11, 0.1); color: #f59e0b;"><i data-lucide="alert-triangle"></i></div>
+            </div>
+            <div class="kpi-value">14</div>
+            <div class="kpi-meta">
+              <span class="kpi-change negative">Needs restocking</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Filter Bar -->
+        <div class="card" style="margin-top: 24px; margin-bottom: 24px;">
+          <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center;">
+            
+            
+            <div style="display: flex; gap: 10px; overflow-x: auto;" id="fabric-filters">
+              <button class="filter-btn btn-primary" data-filter="all" style="background: var(--color-gold); color: #fff; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer;">All Types</button>
+              <button class="filter-btn" data-filter="Silk" style="background: transparent; border: 1px solid var(--color-border); padding: 8px 16px; border-radius: 6px; cursor: pointer; color: var(--color-text-primary);">Silk</button>
+              <button class="filter-btn" data-filter="Cotton" style="background: transparent; border: 1px solid var(--color-border); padding: 8px 16px; border-radius: 6px; cursor: pointer; color: var(--color-text-primary);">Cotton</button>
+              <button class="filter-btn" data-filter="Luxury" style="background: transparent; border: 1px solid var(--color-border); padding: 8px 16px; border-radius: 6px; cursor: pointer; color: var(--color-text-primary);">Luxury</button>
+              <button class="filter-btn" data-filter="Lightweight" style="background: transparent; border: 1px solid var(--color-border); padding: 8px 16px; border-radius: 6px; cursor: pointer; color: var(--color-text-primary);">Lightweight</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fabrics Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px;">
+          
+          <!-- Banarasi Silk -->
+          <div class="fabric-card">
+            <div class="fabric-img-wrapper">
+              <img src="../assets/images/fabrics/banarasi.png" alt="Banarasi Silk">
+              <div class="stock-badge in-stock"><div style="width:6px; height:6px; border-radius:50%; background:#10b981;"></div> In Stock</div>
+            </div>
+            <div class="fabric-content">
+              <h3 class="fabric-title">Banarasi Silk</h3>
+              <div class="fabric-price">$85 / meter</div>
+              <div class="fabric-meta">
+                <div class="fabric-meta-item"><i data-lucide="tag" style="width: 14px;"></i> <span>Silk, Luxury</span></div>
+                <div class="fabric-meta-item"><i data-lucide="archive" style="width: 14px;"></i> <span>145 meters</span></div>
+              </div>
+              <div class="fabric-actions">
+                <button class="fabric-btn btn-edit"><i data-lucide="edit" style="width: 16px;"></i> Edit</button>
+                <button class="fabric-btn btn-restock"><i data-lucide="plus" style="width: 16px;"></i> Restock</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Brocade -->
+          <div class="fabric-card">
+            <div class="fabric-img-wrapper">
+              <img src="../assets/images/fabrics/brocade.png" alt="Brocade">
+              <div class="stock-badge low-stock"><div style="width:6px; height:6px; border-radius:50%; background:#f59e0b;"></div> Low Stock</div>
+            </div>
+            <div class="fabric-content">
+              <h3 class="fabric-title">Rich Brocade</h3>
+              <div class="fabric-price">$110 / meter</div>
+              <div class="fabric-meta">
+                <div class="fabric-meta-item"><i data-lucide="tag" style="width: 14px;"></i> <span>Silk, Traditional</span></div>
+                <div class="fabric-meta-item"><i data-lucide="archive" style="width: 14px;"></i> <span>12 meters</span></div>
+              </div>
+              <div class="fabric-actions">
+                <button class="fabric-btn btn-edit"><i data-lucide="edit" style="width: 16px;"></i> Edit</button>
+                <button class="fabric-btn btn-restock"><i data-lucide="plus" style="width: 16px;"></i> Restock</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Chanderi -->
+          <div class="fabric-card">
+            <div class="fabric-img-wrapper">
+              <img src="../assets/images/fabrics/chanderi.png" alt="Chanderi">
+              <div class="stock-badge in-stock"><div style="width:6px; height:6px; border-radius:50%; background:#10b981;"></div> In Stock</div>
+            </div>
+            <div class="fabric-content">
+              <h3 class="fabric-title">Chanderi Cotton</h3>
+              <div class="fabric-price">$45 / meter</div>
+              <div class="fabric-meta">
+                <div class="fabric-meta-item"><i data-lucide="tag" style="width: 14px;"></i> <span>Cotton, Lightweight</span></div>
+                <div class="fabric-meta-item"><i data-lucide="archive" style="width: 14px;"></i> <span>320 meters</span></div>
+              </div>
+              <div class="fabric-actions">
+                <button class="fabric-btn btn-edit"><i data-lucide="edit" style="width: 16px;"></i> Edit</button>
+                <button class="fabric-btn btn-restock"><i data-lucide="plus" style="width: 16px;"></i> Restock</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Chiffon -->
+          <div class="fabric-card">
+            <div class="fabric-img-wrapper">
+              <img src="../assets/images/fabrics/chiffon.png" alt="Chiffon">
+              <div class="stock-badge out-stock"><div style="width:6px; height:6px; border-radius:50%; background:#ef4444;"></div> Out of Stock</div>
+            </div>
+            <div class="fabric-content">
+              <h3 class="fabric-title">Pure Chiffon</h3>
+              <div class="fabric-price">$65 / meter</div>
+              <div class="fabric-meta">
+                <div class="fabric-meta-item"><i data-lucide="tag" style="width: 14px;"></i> <span>Silk, Lightweight</span></div>
+                <div class="fabric-meta-item"><i data-lucide="archive" style="width: 14px;"></i> <span>0 meters</span></div>
+              </div>
+              <div class="fabric-actions">
+                <button class="fabric-btn btn-edit"><i data-lucide="edit" style="width: 16px;"></i> Edit</button>
+                <button class="fabric-btn btn-restock"><i data-lucide="plus" style="width: 16px;"></i> Restock</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cotton -->
+          <div class="fabric-card">
+            <div class="fabric-img-wrapper">
+              <img src="../assets/images/fabrics/cotton.png" alt="Cotton">
+              <div class="stock-badge in-stock"><div style="width:6px; height:6px; border-radius:50%; background:#10b981;"></div> In Stock</div>
+            </div>
+            <div class="fabric-content">
+              <h3 class="fabric-title">Premium Cotton</h3>
+              <div class="fabric-price">$25 / meter</div>
+              <div class="fabric-meta">
+                <div class="fabric-meta-item"><i data-lucide="tag" style="width: 14px;"></i> <span>Cotton, Lightweight</span></div>
+                <div class="fabric-meta-item"><i data-lucide="archive" style="width: 14px;"></i> <span>850 meters</span></div>
+              </div>
+              <div class="fabric-actions">
+                <button class="fabric-btn btn-edit"><i data-lucide="edit" style="width: 16px;"></i> Edit</button>
+                <button class="fabric-btn btn-restock"><i data-lucide="plus" style="width: 16px;"></i> Restock</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Georgette -->
+          <div class="fabric-card">
+            <div class="fabric-img-wrapper">
+              <img src="../assets/images/fabrics/georgrette.png" alt="Georgette">
+              <div class="stock-badge in-stock"><div style="width:6px; height:6px; border-radius:50%; background:#10b981;"></div> In Stock</div>
+            </div>
+            <div class="fabric-content">
+              <h3 class="fabric-title">Viscose Georgette</h3>
+              <div class="fabric-price">$55 / meter</div>
+              <div class="fabric-meta">
+                <div class="fabric-meta-item"><i data-lucide="tag" style="width: 14px;"></i> <span>Lightweight</span></div>
+                <div class="fabric-meta-item"><i data-lucide="archive" style="width: 14px;"></i> <span>210 meters</span></div>
+              </div>
+              <div class="fabric-actions">
+                <button class="fabric-btn btn-edit"><i data-lucide="edit" style="width: 16px;"></i> Edit</button>
+                <button class="fabric-btn btn-restock"><i data-lucide="plus" style="width: 16px;"></i> Restock</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Organza -->
+          <div class="fabric-card">
+            <div class="fabric-img-wrapper">
+              <img src="../assets/images/fabrics/organza.png" alt="Organza">
+              <div class="stock-badge in-stock"><div style="width:6px; height:6px; border-radius:50%; background:#10b981;"></div> In Stock</div>
+            </div>
+            <div class="fabric-content">
+              <h3 class="fabric-title">Silk Organza</h3>
+              <div class="fabric-price">$75 / meter</div>
+              <div class="fabric-meta">
+                <div class="fabric-meta-item"><i data-lucide="tag" style="width: 14px;"></i> <span>Silk, Luxury</span></div>
+                <div class="fabric-meta-item"><i data-lucide="archive" style="width: 14px;"></i> <span>95 meters</span></div>
+              </div>
+              <div class="fabric-actions">
+                <button class="fabric-btn btn-edit"><i data-lucide="edit" style="width: 16px;"></i> Edit</button>
+                <button class="fabric-btn btn-restock"><i data-lucide="plus" style="width: 16px;"></i> Restock</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Satin -->
+          <div class="fabric-card">
+            <div class="fabric-img-wrapper">
+              <img src="../assets/images/fabrics/satin.png" alt="Satin">
+              <div class="stock-badge in-stock"><div style="width:6px; height:6px; border-radius:50%; background:#10b981;"></div> In Stock</div>
+            </div>
+            <div class="fabric-content">
+              <h3 class="fabric-title">Duchess Satin</h3>
+              <div class="fabric-price">$90 / meter</div>
+              <div class="fabric-meta">
+                <div class="fabric-meta-item"><i data-lucide="tag" style="width: 14px;"></i> <span>Silk, Luxury</span></div>
+                <div class="fabric-meta-item"><i data-lucide="archive" style="width: 14px;"></i> <span>180 meters</span></div>
+              </div>
+              <div class="fabric-actions">
+                <button class="fabric-btn btn-edit"><i data-lucide="edit" style="width: 16px;"></i> Edit</button>
+                <button class="fabric-btn btn-restock"><i data-lucide="plus" style="width: 16px;"></i> Restock</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pure Silk -->
+          <div class="fabric-card">
+            <div class="fabric-img-wrapper">
+              <img src="../assets/images/fabrics/silk.png" alt="Pure Silk">
+              <div class="stock-badge low-stock"><div style="width:6px; height:6px; border-radius:50%; background:#f59e0b;"></div> Low Stock</div>
+            </div>
+            <div class="fabric-content">
+              <h3 class="fabric-title">Raw Silk</h3>
+              <div class="fabric-price">$120 / meter</div>
+              <div class="fabric-meta">
+                <div class="fabric-meta-item"><i data-lucide="tag" style="width: 14px;"></i> <span>Silk, Luxury</span></div>
+                <div class="fabric-meta-item"><i data-lucide="archive" style="width: 14px;"></i> <span>25 meters</span></div>
+              </div>
+              <div class="fabric-actions">
+                <button class="fabric-btn btn-edit"><i data-lucide="edit" style="width: 16px;"></i> Edit</button>
+                <button class="fabric-btn btn-restock"><i data-lucide="plus" style="width: 16px;"></i> Restock</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Velvet -->
+          <div class="fabric-card">
+            <div class="fabric-img-wrapper">
+              <img src="../assets/images/fabrics/velvet.png" alt="Velvet">
+              <div class="stock-badge in-stock"><div style="width:6px; height:6px; border-radius:50%; background:#10b981;"></div> In Stock</div>
+            </div>
+            <div class="fabric-content">
+              <h3 class="fabric-title">Plush Velvet</h3>
+              <div class="fabric-price">$130 / meter</div>
+              <div class="fabric-meta">
+                <div class="fabric-meta-item"><i data-lucide="tag" style="width: 14px;"></i> <span>Luxury</span></div>
+                <div class="fabric-meta-item"><i data-lucide="archive" style="width: 14px;"></i> <span>65 meters</span></div>
+              </div>
+              <div class="fabric-actions">
+                <button class="fabric-btn btn-edit"><i data-lucide="edit" style="width: 16px;"></i> Edit</button>
+                <button class="fabric-btn btn-restock"><i data-lucide="plus" style="width: 16px;"></i> Restock</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="js/admin.js"></script>
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Fabric Filtering Logic
+    document.addEventListener('DOMContentLoaded', () => {
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const fabricCards = document.querySelectorAll('.fabric-card');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          // Reset styles on all buttons
+          filterBtns.forEach(b => {
+            b.classList.remove('btn-primary');
+            b.style.background = 'transparent';
+            b.style.color = 'var(--color-text-primary)';
+          });
+          
+          // Set active style on clicked button
+          btn.classList.add('btn-primary');
+          btn.style.background = 'var(--color-gold)';
+          btn.style.color = '#fff';
+
+          const filterValue = btn.getAttribute('data-filter');
+
+          // Filter the cards
+          fabricCards.forEach(card => {
+            const tags = card.querySelectorAll('.fabric-meta-item span')[0].innerText;
+
+            if (filterValue === 'all') {
+              card.style.display = 'flex';
+            } else {
+              if (tags.includes(filterValue)) {
+                card.style.display = 'flex';
+              } else {
+                card.style.display = 'none';
+              }
+            }
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>

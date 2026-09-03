@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STITCHLY Admin - Appointments</title>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="css/admin-responsive.css">
+  
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <div class="admin-layout">
+    
+    <!-- SIDEBAR -->
+    <aside class="admin-sidebar" id="admin-sidebar">
+      <div class="sidebar-header" style="padding-top: 30px; padding-bottom: 20px; height: auto;">
+        <a href="index.html">
+          <img src="../assets/logoo1.png" alt="STITCHLY" class="logo-light" style="max-width:140px;">
+          <img src="../assets/logoo1_dark.png" alt="STITCHLY" class="logo-dark" style="max-width:140px;">
+        </a>
+      </div>
+      
+      <div class="sidebar-settings" style="display:flex; justify-content:space-around; margin-bottom:20px; padding-bottom:20px; border-bottom:1px solid var(--color-border);">
+        <button type="button" class="nav-icon-button direction-toggle" id="sidebarDirectionToggle" title="Change text direction" style="font-size:0.85rem; font-weight:bold; background:transparent; border:none; color:inherit; cursor:pointer;">
+          <span id="sidebarDirectionText">RTL</span>
+        </button>
+        <button type="button" class="nav-icon-button theme-toggle" id="sidebarThemeToggle" title="Toggle theme" style="background:transparent; border:none; color:inherit; cursor:pointer;">
+          <i data-lucide="moon" id="sidebarThemeIcon"></i>
+        </button>
+      </div>
+      
+      <ul class="sidebar-nav">
+        <li class="nav-item">
+          <a href="index.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="layout-dashboard"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="orders.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="shopping-bag"></i>
+            <span>Orders</span>
+            <span class="nav-badge">12</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="customers.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="users"></i>
+            <span>Customers</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="measurements.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="ruler"></i>
+            <span>Measurements</span>
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a href="appointments.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="calendar"></i>
+            <span>Appointments</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="stitching.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="scissors"></i>
+            <span>Custom Stitching</span>
+            <span class="nav-badge">5</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="collections.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="layers"></i>
+            <span>Collections</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="fabrics.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="palette"></i>
+            <span>Fabrics</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="gallery.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="image"></i>
+            <span>Design Gallery</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="pricing.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="tag"></i>
+            <span>Pricing</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="invoices.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="file-text"></i>
+            <span>Invoices</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="reviews.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="star"></i>
+            <span>Reviews</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="messages.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="message-square"></i>
+            <span>Messages</span>
+            <span class="nav-badge">3</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="analytics.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="bar-chart-2"></i>
+            <span>Reports & Analytics</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="notifications.html" style="display: flex; align-items: center; gap: 16px; width: 100%;">
+            <i data-lucide="bell"></i>
+            <span>Notifications</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="../login.html" style="display: flex; align-items: center; gap: 16px; width: 100%; margin-top: 20px;">
+            <i data-lucide="log-out"></i>
+            <span>Logout</span>
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="admin-main">
+      
+      <!-- TOP HEADER -->
+      <header class="admin-header">
+        <div class="header-left">
+          <button class="toggle-sidebar" id="toggle-sidebar">
+            <i data-lucide="menu"></i>
+          </button>
+          <div class="page-title">
+            <h1>Appointments Schedule</h1>
+            <div class="breadcrumb">Admin / Appointments</div>
+          </div>
+        </div>
+
+        <div class="header-right">
+          
+          
+          <button class="btn-primary">
+            <i data-lucide="plus"></i> New Booking
+          </button>
+          
+          <button class="header-icon" id="theme-toggle">
+            <i data-lucide="moon"></i>
+          </button>
+          
+          <button class="header-icon">
+            <i data-lucide="bell"></i>
+            <span class="badge">4</span>
+          </button>
+
+          <div class="admin-profile">
+            <img src="../assets/team-1.jpg" alt="Admin" class="admin-avatar" onerror="this.src='https://ui-avatars.com/api/?name=Admin+User&background=c8a96b&color=fff'">
+            <div class="admin-info">
+              <h4>Eleanor Vance</h4>
+              <span>Administrator</span>
+            </div>
+            <i data-lucide="chevron-down" style="color: var(--color-text-light); width: 16px;"></i>
+          </div>
+        </div>
+      </header>
+
+      <!-- PAGE CONTENT -->
+      <div class="admin-content">
+        
+        <!-- KPI Cards -->
+        <div class="kpi-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+          <div class="kpi-card" style="border-left: 4px solid var(--color-gold);">
+            <div class="kpi-header">
+              <h3>Today's Appointments</h3>
+              <div class="kpi-icon"><i data-lucide="calendar-check"></i></div>
+            </div>
+            <div class="kpi-value">8</div>
+            <div class="kpi-meta">
+              <span class="kpi-change positive">3 remaining today</span>
+            </div>
+          </div>
+          
+          <div class="kpi-card">
+            <div class="kpi-header">
+              <h3>Upcoming This Week</h3>
+              <div class="kpi-icon"><i data-lucide="calendar"></i></div>
+            </div>
+            <div class="kpi-value">24</div>
+            <div class="kpi-meta">
+              <span>Next 7 days</span>
+            </div>
+          </div>
+          
+          <div class="kpi-card">
+            <div class="kpi-header">
+              <h3>Virtual Consultations</h3>
+              <div class="kpi-icon"><i data-lucide="video"></i></div>
+            </div>
+            <div class="kpi-value">12</div>
+            <div class="kpi-meta">
+              <span>This week</span>
+            </div>
+          </div>
+          
+          <div class="kpi-card">
+            <div class="kpi-header">
+              <h3>Cancellations</h3>
+              <div class="kpi-icon"><i data-lucide="calendar-x" style="color: #ef4444;"></i></div>
+            </div>
+            <div class="kpi-value">2</div>
+            <div class="kpi-meta">
+              <span class="kpi-change negative">-1 vs last week</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Layout Grid -->
+        <div class="dashboard-grid" style="grid-template-columns: 3fr 1fr; margin-top: 24px;">
+          
+          <!-- Appointment List -->
+          <div class="card">
+            <div class="card-header" style="margin-bottom: 20px;">
+              <h2>Schedule</h2>
+              <div style="display: flex; gap: 10px;">
+                <button style="border: none; background: transparent; color: var(--color-text-primary); font-weight: 600; cursor: pointer; border-bottom: 2px solid var(--color-gold); padding-bottom: 5px;">List View</button>
+                <button style="border: none; background: transparent; color: var(--color-text-light); font-weight: 600; cursor: pointer; padding-bottom: 5px;">Calendar View</button>
+              </div>
+            </div>
+            
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Date & Time</th>
+                    <th>Customer</th>
+                    <th>Type</th>
+                    <th>Tailor Assigned</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Row 1 -->
+                  <tr>
+                    <td>
+                      <div style="font-weight: 600;">Today, Oct 28</div>
+                      <div style="font-size: 13px; color: var(--color-text-light);">10:00 AM - 10:45 AM</div>
+                    </td>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: 10px;">
+                        <img src="https://ui-avatars.com/api/?name=Sarah+Jenkins&background=eee7dc" class="customer-avatar" style="width: 32px; height: 32px;">
+                        <span style="font-weight: 500;">Sarah Jenkins</span>
+                      </div>
+                    </td>
+                    <td>Initial Measurement</td>
+                    <td>Master Tailor Ali</td>
+                    <td><span class="status-badge status-ready"><i data-lucide="check-circle" style="width: 12px; display: inline-block;"></i> Completed</span></td>
+                    <td>
+                      <button class="action-btn" title="View"><i data-lucide="eye" style="width: 16px;"></i></button>
+                      <button class="action-btn" title="Edit"><i data-lucide="edit" style="width: 16px;"></i></button>
+                    </td>
+                  </tr>
+                  
+                  <!-- Row 2 -->
+                  <tr>
+                    <td>
+                      <div style="font-weight: 600;">Today, Oct 28</div>
+                      <div style="font-size: 13px; color: var(--color-text-light);">01:30 PM - 02:30 PM</div>
+                    </td>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: 10px;">
+                        <img src="https://ui-avatars.com/api/?name=Priya+Patel&background=eee7dc" class="customer-avatar" style="width: 32px; height: 32px;">
+                        <span style="font-weight: 500;">Priya Patel</span>
+                      </div>
+                    </td>
+                    <td>Bridal Fitting (1st)</td>
+                    <td>Master Tailor Ali</td>
+                    <td><span class="status-badge status-progress"><i data-lucide="clock" style="width: 12px; display: inline-block;"></i> In Progress</span></td>
+                    <td>
+                      <button class="action-btn" title="View"><i data-lucide="eye" style="width: 16px;"></i></button>
+                      <button class="action-btn" title="Edit"><i data-lucide="edit" style="width: 16px;"></i></button>
+                    </td>
+                  </tr>
+                  
+                  <!-- Row 3 -->
+                  <tr>
+                    <td>
+                      <div style="font-weight: 600; color: var(--color-gold);">Tomorrow, Oct 29</div>
+                      <div style="font-size: 13px; color: var(--color-text-light);">11:00 AM - 11:30 AM</div>
+                    </td>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: 10px;">
+                        <img src="https://ui-avatars.com/api/?name=Emma+Watson&background=eee7dc" class="customer-avatar" style="width: 32px; height: 32px;">
+                        <span style="font-weight: 500;">Emma Watson</span>
+                      </div>
+                    </td>
+                    <td>Virtual Consultation</td>
+                    <td>Eleanor Vance</td>
+                    <td><span class="status-badge status-pending" style="color: #4b5563; background: #f3f4f6;">Upcoming</span></td>
+                    <td>
+                      <button class="action-btn" title="Start Call"><i data-lucide="video" style="width: 16px;"></i></button>
+                      <button class="action-btn" title="Edit"><i data-lucide="edit" style="width: 16px;"></i></button>
+                    </td>
+                  </tr>
+                  
+                  <!-- Row 4 -->
+                  <tr>
+                    <td>
+                      <div style="font-weight: 600; color: var(--color-gold);">Tomorrow, Oct 29</div>
+                      <div style="font-size: 13px; color: var(--color-text-light);">03:00 PM - 03:45 PM</div>
+                    </td>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: 10px;">
+                        <img src="https://ui-avatars.com/api/?name=Anita+Roy&background=eee7dc" class="customer-avatar" style="width: 32px; height: 32px;">
+                        <span style="font-weight: 500;">Anita Roy</span>
+                      </div>
+                    </td>
+                    <td>Final Alteration Fitting</td>
+                    <td>Tailor John</td>
+                    <td><span class="status-badge status-pending" style="color: #4b5563; background: #f3f4f6;">Upcoming</span></td>
+                    <td>
+                      <button class="action-btn" title="View"><i data-lucide="eye" style="width: 16px;"></i></button>
+                      <button class="action-btn" title="Edit"><i data-lucide="edit" style="width: 16px;"></i></button>
+                    </td>
+                  </tr>
+                  
+                  <!-- Row 5 -->
+                  <tr>
+                    <td>
+                      <div style="font-weight: 600;">Thursday, Oct 30</div>
+                      <div style="font-size: 13px; color: var(--color-text-light);">09:30 AM - 10:00 AM</div>
+                    </td>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: 10px;">
+                        <img src="https://ui-avatars.com/api/?name=Chloe+Smith&background=eee7dc" class="customer-avatar" style="width: 32px; height: 32px;">
+                        <span style="font-weight: 500;">Chloe Smith</span>
+                      </div>
+                    </td>
+                    <td>Design Consultation</td>
+                    <td>Designer Maya</td>
+                    <td><span class="status-badge" style="color: #ef4444; background: rgba(239, 68, 68, 0.1);">Cancelled</span></td>
+                    <td>
+                      <button class="action-btn" title="Reschedule"><i data-lucide="calendar-plus" style="width: 16px;"></i></button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            
+            <!-- Pagination -->
+            <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 20px; border-top: 1px solid var(--color-border); margin-top: 20px;">
+              <div style="color: var(--color-text-light); font-size: 14px;">
+                Showing 1 to 5 of 32 upcoming appointments
+              </div>
+              <div style="display: flex; gap: 5px;">
+                <button style="padding: 6px 12px; border: 1px solid var(--color-border); background: transparent; border-radius: 4px; cursor: pointer; color: var(--color-text-primary);"><i data-lucide="chevron-left" style="width: 16px;"></i></button>
+                <button style="padding: 6px 12px; border: 1px solid var(--color-gold); background: var(--color-gold); color: white; border-radius: 4px; cursor: pointer;">1</button>
+                <button style="padding: 6px 12px; border: 1px solid var(--color-border); background: transparent; border-radius: 4px; cursor: pointer; color: var(--color-text-primary);">2</button>
+                <button style="padding: 6px 12px; border: 1px solid var(--color-border); background: transparent; border-radius: 4px; cursor: pointer; color: var(--color-text-primary);"><i data-lucide="chevron-right" style="width: 16px;"></i></button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Mini Calendar & Staff Info -->
+          <div style="display: flex; flex-direction: column; gap: 24px;">
+            
+            <div class="card">
+              <h3 style="margin-bottom: 15px; font-size: 16px; border-bottom: 1px solid var(--color-border); padding-bottom: 10px;">Select Date</h3>
+              
+              <!-- Dummy Mini Calendar (Visual Only) -->
+              <div style="text-align: center; margin-bottom: 15px; font-weight: 600;">October 2026</div>
+              <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; text-align: center; font-size: 12px; color: var(--color-text-light); margin-bottom: 10px;">
+                <div>Su</div><div>Mo</div><div>Tu</div><div>We</div><div>Th</div><div>Fr</div><div>Sa</div>
+              </div>
+              <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; text-align: center; font-size: 14px;">
+                <div style="color: var(--color-text-light); opacity: 0.5;">27</div>
+                <div style="color: var(--color-text-light); opacity: 0.5;">28</div>
+                <div style="color: var(--color-text-light); opacity: 0.5;">29</div>
+                <div style="color: var(--color-text-light); opacity: 0.5;">30</div>
+                <div>1</div><div>2</div><div>3</div>
+                <div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div>
+                <div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div>
+                <div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div>
+                <div>25</div><div>26</div><div>27</div>
+                <div style="background: var(--color-gold); color: white; border-radius: 50%; width: 24px; height: 24px; line-height: 24px; margin: 0 auto;">28</div>
+                <div style="font-weight: 600; color: var(--color-gold);">29</div>
+                <div>30</div><div>31</div>
+              </div>
+            </div>
+            
+            <div class="card">
+              <h3 style="margin-bottom: 15px; font-size: 16px; border-bottom: 1px solid var(--color-border); padding-bottom: 10px;">Tailor Availability</h3>
+              <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 15px;">
+                <li style="display: flex; align-items: center; justify-content: space-between;">
+                  <div style="display: flex; align-items: center; gap: 10px;">
+                    <img src="https://ui-avatars.com/api/?name=Ali+Hassan&background=eee7dc" style="width: 32px; height: 32px; border-radius: 50%;">
+                    <div>
+                      <div style="font-weight: 500; font-size: 14px;">Master Ali</div>
+                      <div style="font-size: 12px; color: var(--color-text-light);">Fully Booked</div>
+                    </div>
+                  </div>
+                  <div style="width: 10px; height: 10px; border-radius: 50%; background: #ef4444;" title="Busy"></div>
+                </li>
+                <li style="display: flex; align-items: center; justify-content: space-between;">
+                  <div style="display: flex; align-items: center; gap: 10px;">
+                    <img src="https://ui-avatars.com/api/?name=John+Doe&background=eee7dc" style="width: 32px; height: 32px; border-radius: 50%;">
+                    <div>
+                      <div style="font-weight: 500; font-size: 14px;">Tailor John</div>
+                      <div style="font-size: 12px; color: var(--color-text-light);">Available 3 PM+</div>
+                    </div>
+                  </div>
+                  <div style="width: 10px; height: 10px; border-radius: 50%; background: #f59e0b;" title="Partially Available"></div>
+                </li>
+                <li style="display: flex; align-items: center; justify-content: space-between;">
+                  <div style="display: flex; align-items: center; gap: 10px;">
+                    <img src="https://ui-avatars.com/api/?name=Maya+Singh&background=eee7dc" style="width: 32px; height: 32px; border-radius: 50%;">
+                    <div>
+                      <div style="font-weight: 500; font-size: 14px;">Designer Maya</div>
+                      <div style="font-size: 12px; color: var(--color-text-light);">Available All Day</div>
+                    </div>
+                  </div>
+                  <div style="width: 10px; height: 10px; border-radius: 50%; background: #10b981;" title="Available"></div>
+                </li>
+              </ul>
+            </div>
+            
+          </div>
+          
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="js/admin.js"></script>
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+  </script>
+</body>
+</html>

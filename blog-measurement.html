@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The Art of the Perfect Fit — Why custom tailoring makes every outfit feel truly yours.">
+  <title>The Art of the Perfect Fit | STITCHLY</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest" defer></script>
+
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <style>
+    .blog-detail-hero {
+      padding: 180px 0 100px;
+      background: var(--color-navy);
+      color: var(--color-white);
+      text-align: center;
+      position: relative;
+    }
+    .blog-detail-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle at top, rgba(200, 169, 107, 0.15), transparent 50%);
+      pointer-events: none;
+    }
+    .blog-detail-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 5%;
+      position: relative;
+      z-index: 2;
+    }
+    .blog-detail-category {
+      color: var(--color-gold);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+    .blog-detail-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      line-height: 1.2;
+      margin-bottom: 25px;
+    }
+    .blog-detail-meta {
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+    }
+    .blog-detail-content {
+      padding: 80px 0;
+      background: var(--color-cream);
+    }
+    body.dark-mode .blog-detail-content {
+      background: var(--color-cream);
+    }
+    .article-body {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 5%;
+      font-size: 1.125rem;
+      line-height: 1.8;
+      color: var(--color-text);
+    }
+    .article-image {
+      width: 100%;
+      border-radius: var(--radius-md);
+      margin: 50px auto 50px;
+      position: relative;
+      z-index: 10;
+      box-shadow: var(--shadow-hover);
+      max-width: 1000px;
+    }
+    .article-body h2 {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: var(--color-navy);
+      margin: 2.5rem 0 1rem;
+    }
+    body.dark-mode .article-body h2 {
+      color: var(--color-text);
+    }
+    .article-body p {
+      margin-bottom: 1.5rem;
+    }
+    .article-body blockquote {
+      border-left: 4px solid var(--color-gold);
+      padding-left: 20px;
+      font-style: italic;
+      color: var(--color-navy-light);
+      margin: 2rem 0;
+      font-size: 1.25rem;
+    }
+    body.dark-mode .article-body blockquote {
+      color: var(--color-text);
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 40px;
+      font-weight: 600;
+      color: var(--color-navy);
+      transition: color var(--transition);
+    }
+    body.dark-mode .back-link {
+      color: var(--color-text);
+    }
+    .back-link:hover {
+      color: var(--color-gold);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div id="navbar"></div>
+
+  <main>
+    <!-- Blog Detail Hero Section -->
+    <section class="blog-detail-hero">
+      <div class="blog-detail-container">
+        <span class="blog-detail-category">MEASUREMENTS</span>
+        <h1 class="blog-detail-title">The Ultimate Measurement Guide</h1>
+        <div class="blog-detail-meta">
+          <span>By STITCHLY Atelier</span>
+          <span>•</span>
+          <span>September 03, 2026</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Content Section -->
+    <section class="blog-detail-content">
+      <div style="padding: 0 5%; max-width: 1100px; margin: 0 auto;">
+        <img src="assets/blog_measurement_1788431143309.jpg" alt="The Ultimate Measurement Guide" class="article-image">
+      </div>
+      
+      <div class="article-body">
+        <a href="blog.html" class="back-link"><i data-lucide="arrow-left"></i> Back to Journal</a>
+        
+        <p>Discover how precise measurements, thoughtful design, and expert stitching transform a beautiful fabric into a garment made specifically for you. Why custom tailoring makes every outfit feel truly yours.</p>
+
+        <h2>The Foundation of Bespoke</h2>
+        <p>When you slip into a garment that has been crafted uniquely for your measurements, you immediately understand the difference between 'wearing clothes' and 'being styled'. The art of custom tailoring is a meticulous process that begins long before the first cut of fabric. It starts with an understanding of silhouette, a vision of elegance, and a precise map of your measurements.</p>
+        
+        <blockquote>
+          "A perfect fit is not merely about exact measurements; it is about draping fabric in a way that flatters, comforts, and instills absolute confidence."
+        </blockquote>
+
+        <h2>Why Measurements Matter</h2>
+        <p>A simple guide to preparing accurate body measurements and understanding why details such as shoulder, bust, waist, hip, sleeve, and garment length matter. Our ateliers take over two dozen distinct measurements to ensure that the natural drape of the garment perfectly aligns with your posture and form.</p>
+        
+        <h2>Fabric and Form</h2>
+        <p>Beyond measurements, the choice of fabric dictates the behavior of the garment. Luxurious silks have a fluid fall, perfect for evening gowns and delicate blouses, while crisp linens and worsted wools hold structural integrity, defining the sharp lines of a bespoke suit. At STITCHLY, the consultation process marries your desired silhouette with the ideal fabric choice, ensuring a harmonious balance between design and wearability.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <div id="footer"></div>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>
