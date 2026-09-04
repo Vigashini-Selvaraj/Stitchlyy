@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="css/auth.css">
 
 </head>
-<body class="dark-mode">
+<body>
 
   <div class="auth-page">
     
@@ -42,15 +42,10 @@
         <h1>Create Your Account</h1>
         <p>Join STITCHLY and begin your personalized fashion journey.</p>
         
-        <div class="role-selector">
-          <button type="button" class="role-btn active" data-role="user" id="regRoleBtnUser">User</button>
-          <button type="button" class="role-btn" data-role="admin" id="regRoleBtnAdmin">Admin</button>
-        </div>
+
 
         <form id="registerForm">
           
-          <!-- USER FIELDS -->
-          <div id="userFields">
             <div class="form-group">
               <label for="fullName">Full Name</label>
               <input type="text" id="fullName" placeholder="Enter your full name" required>
@@ -94,45 +89,20 @@
                 I agree to the Terms of Service & Privacy Policy
               </label>
             </div>
+
+          <button type="submit" class="auth-submit-btn" id="registerBtnText">Create Account</button>
+          
+          <div class="social-divider">or continue with</div>
+          <div class="social-login">
+            <button type="button" class="btn-social">
+              <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" style="width:20px;height:20px;">
+              Google
+            </button>
+            <button type="button" class="btn-social">
+              <i data-lucide="apple"></i>
+              Apple
+            </button>
           </div>
-
-          <!-- ADMIN FIELDS (Initially Hidden) -->
-          <div id="adminFields" class="hidden-element">
-            <div class="form-group">
-              <label for="adminName">Admin Name</label>
-              <input type="text" id="adminName" placeholder="Enter your admin name">
-            </div>
-            
-            <div class="form-group">
-              <label for="adminEmail">Admin Email</label>
-              <input type="email" id="adminEmail" placeholder="Enter your admin email">
-            </div>
-            
-            <div class="form-group">
-              <label for="adminPassword">Password</label>
-              <div class="password-wrapper">
-                <input type="password" id="adminPassword" placeholder="Create a password">
-                <button type="button" class="toggle-password" aria-label="Toggle password visibility">
-                  <i data-lucide="eye" class="icon-eye"></i>
-                  <i data-lucide="eye-off" class="icon-eye-off hidden-element"></i>
-                </button>
-              </div>
-            </div>
-            
-            <div class="form-group">
-              <label for="adminConfirmPassword">Confirm Password</label>
-              <div class="password-wrapper">
-                <input type="password" id="adminConfirmPassword" placeholder="Confirm your password">
-                <button type="button" class="toggle-password" aria-label="Toggle password visibility">
-                  <i data-lucide="eye" class="icon-eye"></i>
-                  <i data-lucide="eye-off" class="icon-eye-off hidden-element"></i>
-                </button>
-              </div>
-            </div>
-
-          </div>
-
-          <button type="submit" class="auth-submit-btn" id="registerBtnText">Create User Account</button>
           
         </form>
 

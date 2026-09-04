@@ -3,17 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Services | STITCHLY</title>
+  <title>Bespoke Tailoring & Custom Stitching Services | STITCHLY</title>
+  <meta name="description" content="Explore STITCHLY's comprehensive list of bespoke tailoring and custom stitching services for men and women. Made to measure with master craftsmanship.">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
-  <!-- CSS -->
+  <!-- CSS Stylesheets -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css">
   <link rel="stylesheet" href="css/services.css">
@@ -22,7 +23,7 @@
 <body class="dark-mode">
 
   <!-- ==============================================
-       NAVBAR (Injected via JS)
+       NAVBAR (Injected via js/main.js)
   =============================================== -->
   <div id="navbar"></div>
 
@@ -32,313 +33,614 @@
   =============================================== -->
   <main class="services-page">
 
-    <!-- 1. Hero Section -->
+    <!-- 1. HERO SECTION -->
     <section class="services-hero">
-      <div class="hero-content">
-        <h1>Crafted With Precision.<br>Designed For You.</h1>
-        <p>From the first measurement to the final stitch, STITCHLY brings your vision to life through personalized tailoring and exceptional craftsmanship.</p>
-        <a href="custom-stitching.html" class="primary-btn">Start Custom Stitching &rarr;</a>
-      </div>
-    </section>
-
-    <!-- 2. Our Services -->
-    <section class="services-grid-section">
-      <div class="container">
-        
-        <div class="services-grid">
-          
-          <!-- Card 1 -->
-          <div class="service-card">
-            <div class="service-icon"><i data-lucide="scissors"></i></div>
-            <h3>Custom Stitching</h3>
-            <p class="service-subtitle">Made to your measurements. Made for your style.</p>
-            <p class="service-desc">Personalized garments crafted according to your preferred fit, silhouette and design.</p>
-            <a href="custom-stitching.html" class="service-link">Explore &rarr;</a>
-          </div>
-
-          <!-- Card 2 -->
-          <div class="service-card">
-            <div class="service-icon"><i data-lucide="ruler"></i></div>
-            <h3>Measurement Assistance</h3>
-            <p class="service-subtitle">The perfect fit starts here.</p>
-            <p class="service-desc">Guided measurement support to help you provide accurate measurements for your custom garment.</p>
-            <a href="measurement-guide.html" class="service-link">Learn More &rarr;</a>
-          </div>
-
-          <!-- Card 3 -->
-          <div class="service-card">
-            <div class="service-icon"><i data-lucide="shirt"></i></div>
-            <h3>Fabric Selection</h3>
-            <p class="service-subtitle">The right fabric transforms the design.</p>
-            <p class="service-desc">Explore our curated collection of premium fabrics and find the perfect match for your creation.</p>
-            <a href="fabrics.html" class="service-link">Explore Fabrics &rarr;</a>
-          </div>
-
-          <!-- Card 4 -->
-          <div class="service-card">
-            <div class="service-icon"><i data-lucide="sparkles"></i></div>
-            <h3>Design Customization</h3>
-            <p class="service-subtitle">Every detail is yours.</p>
-            <p class="service-desc">Customize necklines, sleeves, lengths, silhouettes, embroidery, buttons and more.</p>
-            <a href="custom-stitching.html" class="service-link">Customize &rarr;</a>
-          </div>
-
-          <!-- Card 5 -->
-          <div class="service-card">
-            <div class="service-icon"><i data-lucide="briefcase"></i></div>
-            <h3>Men's Tailoring</h3>
-            <p class="service-subtitle">Classic craftsmanship. Modern fit.</p>
-            <p class="service-desc">Bespoke shirts, kurtas, suits, sherwanis and other tailored creations.</p>
-            <a href="collections.html" class="service-link">Explore &rarr;</a>
-          </div>
-
-          <!-- Card 6 -->
-          <div class="service-card">
-            <div class="service-icon"><i data-lucide="flower-2"></i></div>
-            <h3>Women's Tailoring</h3>
-            <p class="service-subtitle">Designed to celebrate your style.</p>
-            <p class="service-desc">Custom dresses, blouses, gowns, Anarkalis, sarees and occasion wear.</p>
-            <a href="collections.html" class="service-link">Explore &rarr;</a>
-          </div>
-
+      <div class="services-hero-content">
+        <span class="services-hero-eyebrow">
+          <i data-lucide="scissors" style="width:14px; height:14px;"></i> STITCHLY &bull; BESPOKE DIRECTORY
+        </span>
+        <h1 class="services-hero-title">
+          Bespoke Services & <span>Custom Stitching.</span>
+        </h1>
+        <p class="services-hero-subtitle">
+          From full canvas suits and designer blouses to intricate embroidery and precision alterations — explore our full directory of custom stitching & tailoring services.
+        </p>
+        <div class="services-hero-actions">
+          <a href="#custom-stitching-inquiry" class="btn btn-primary">
+            Start Stitching Order <i data-lucide="arrow-right"></i>
+          </a>
+          <a href="#services-directory" class="btn btn-secondary">
+            Explore Service Directory
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- 3. How Our Service Works -->
-    <section class="how-it-works-section">
-      <div class="container">
-        <h2 class="section-title">How Our Service Works</h2>
-        
-        <div class="timeline-grid">
-          
-          <div class="timeline-step">
-            <div class="step-number">01</div>
-            <h4>Share Your Vision</h4>
-            <p>Tell us what you want to create.</p>
+    <!-- 2. INTERACTIVE SERVICE CATEGORY FILTER BAR -->
+    <section class="services-filter-section" id="services-directory">
+      <div class="services-filter-container">
+        <div class="services-tabs">
+          <button class="services-tab-btn active" data-category="all">
+            <i data-lucide="grid"></i> All Services
+          </button>
+          <button class="services-tab-btn" data-category="stitching">
+            <i data-lucide="scissors"></i> Custom Stitching
+          </button>
+          <button class="services-tab-btn" data-category="men">
+            <i data-lucide="briefcase"></i> Men's Bespoke
+          </button>
+          <button class="services-tab-btn" data-category="women">
+            <i data-lucide="sparkles"></i> Women's Tailoring
+          </button>
+          <button class="services-tab-btn" data-category="alterations">
+            <i data-lucide="ruler"></i> Restyling & Alterations
+          </button>
+        </div>
+        <span class="services-count-badge">Showing 9 services</span>
+      </div>
+    </section>
+
+    <!-- 3. DETAILED LISTINGS OF SERVICES GRID -->
+    <section class="services-listings-section">
+      <div class="services-listings-grid">
+
+        <!-- Service Card 01 -->
+        <article class="service-listing-card" data-category="stitching men">
+          <div class="service-card-media">
+            <img src="assets/images/collections/formal.png" alt="Custom Suit Stitching" loading="lazy">
+            <span class="service-tag-badge">Bespoke Suiting</span>
+            <span class="service-price-badge">From $280</span>
+          </div>
+          <div class="service-card-body">
+            <h3 class="service-card-title">Custom Suit Stitching</h3>
+            <p class="service-card-desc">Full floating canvas 2-piece & 3-piece suit construction tailored around your exact posture and proportions.</p>
+            <ul class="service-card-features">
+              <li><i data-lucide="check"></i> 2 Fitting Consultations</li>
+              <li><i data-lucide="check"></i> Hand-stitched Lapels & Buttonholes</li>
+              <li><i data-lucide="check"></i> Italian & English Wool Options</li>
+            </ul>
+            <div class="service-card-actions">
+              <a href="#custom-stitching-inquiry" class="btn btn-primary">Book Stitching</a>
+              <a href="custom-stitching.html" class="btn btn-secondary">Options</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Service Card 02 -->
+        <article class="service-listing-card" data-category="stitching women">
+          <div class="service-card-media">
+            <img src="assets/images/service_tailoring_1788338093887.jpg" alt="Designer Blouse & Saree Stitching" loading="lazy">
+            <span class="service-tag-badge">Women's Custom</span>
+            <span class="service-price-badge">From $95</span>
+          </div>
+          <div class="service-card-body">
+            <h3 class="service-card-title">Designer Blouse & Saree Stitching</h3>
+            <p class="service-card-desc">Precision-fitted blouses, saree fall & pico, designer necklines, and padded internal support structures.</p>
+            <ul class="service-card-features">
+              <li><i data-lucide="check"></i> Customized Necklines & Backs</li>
+              <li><i data-lucide="check"></i> Maggam & Zardosi Hand Embroidery</li>
+              <li><i data-lucide="check"></i> Guaranteed Comfort Fit</li>
+            </ul>
+            <div class="service-card-actions">
+              <a href="#custom-stitching-inquiry" class="btn btn-primary">Book Stitching</a>
+              <a href="custom-stitching.html" class="btn btn-secondary">Options</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Service Card 03 -->
+        <article class="service-listing-card" data-category="stitching men">
+          <div class="service-card-media">
+            <img src="assets/images/collections/western.png" alt="Custom Shirt & Trouser Tailoring" loading="lazy">
+            <span class="service-tag-badge">Made to Measure</span>
+            <span class="service-price-badge">From $75</span>
+          </div>
+          <div class="service-card-body">
+            <h3 class="service-card-title">Custom Shirts & Trousers</h3>
+            <p class="service-card-desc">Crisp, made-to-measure dress shirts and perfectly draped trousers crafted from Egyptian Giza cottons.</p>
+            <ul class="service-card-features">
+              <li><i data-lucide="check"></i> Choice of Collar & Cuff Styles</li>
+              <li><i data-lucide="check"></i> Monogramming & Custom Buttons</li>
+              <li><i data-lucide="check"></i> Anti-wrinkle Finishing</li>
+            </ul>
+            <div class="service-card-actions">
+              <a href="#custom-stitching-inquiry" class="btn btn-primary">Book Stitching</a>
+              <a href="custom-stitching.html" class="btn btn-secondary">Options</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Service Card 04 -->
+        <article class="service-listing-card" data-category="stitching women">
+          <div class="service-card-media">
+            <img src="assets/images/collection_1_1788338059856.jpg" alt="Evening Gowns & Dress Stitching" loading="lazy">
+            <span class="service-tag-badge">Occasion Wear</span>
+            <span class="service-price-badge">From $190</span>
+          </div>
+          <div class="service-card-body">
+            <h3 class="service-card-title">Evening Gowns & Dresses</h3>
+            <p class="service-card-desc">Flowing A-line, ballgown, and cocktail dresses stitched with silk linings and hand-finished hems.</p>
+            <ul class="service-card-features">
+              <li><i data-lucide="check"></i> Custom Corsetry & Structure</li>
+              <li><i data-lucide="check"></i> Silk, Satin & Organza Fabrics</li>
+              <li><i data-lucide="check"></i> Personalized Hem Lengths</li>
+            </ul>
+            <div class="service-card-actions">
+              <a href="#custom-stitching-inquiry" class="btn btn-primary">Book Stitching</a>
+              <a href="custom-stitching.html" class="btn btn-secondary">Options</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Service Card 05 -->
+        <article class="service-listing-card" data-category="stitching men">
+          <div class="service-card-media">
+            <img src="assets/images/collections/coat.png" alt="Sherwanis & Indo-Western Sets" loading="lazy">
+            <span class="service-tag-badge">Wedding & Ethnic</span>
+            <span class="service-price-badge">From $320</span>
+          </div>
+          <div class="service-card-body">
+            <h3 class="service-card-title">Sherwanis & Kurta Sets</h3>
+            <p class="service-card-desc">Regal groom and occasion ethnic wear embellished with threadwork, metallic zari, and structured shoulders.</p>
+            <ul class="service-card-features">
+              <li><i data-lucide="check"></i> Royal Velvet & Silk Brocades</li>
+              <li><i data-lucide="check"></i> Matching Dupatta & Churidar</li>
+              <li><i data-lucide="check"></i> Custom Fitting & Alterations</li>
+            </ul>
+            <div class="service-card-actions">
+              <a href="#custom-stitching-inquiry" class="btn btn-primary">Book Stitching</a>
+              <a href="custom-stitching.html" class="btn btn-secondary">Options</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Service Card 06 -->
+        <article class="service-listing-card" data-category="stitching women">
+          <div class="service-card-media">
+            <img src="assets/images/hero_tailoring_1788338041106.jpg" alt="Lehenga & Anarkali Custom Stitching" loading="lazy">
+            <span class="service-tag-badge">Ethnic Couture</span>
+            <span class="service-price-badge">From $210</span>
+          </div>
+          <div class="service-card-body">
+            <h3 class="service-card-title">Anarkali & Lehenga Stitching</h3>
+            <p class="service-card-desc">Multi-kalidaar Anarkalis and heavy flare Lehengas with can-can layering for grand volume.</p>
+            <ul class="service-card-features">
+              <li><i data-lucide="check"></i> Multi-layer Can-Can Padding</li>
+              <li><i data-lucide="check"></i> Latkan & Border Attachment</li>
+              <li><i data-lucide="check"></i> Custom Waistband Adjustments</li>
+            </ul>
+            <div class="service-card-actions">
+              <a href="#custom-stitching-inquiry" class="btn btn-primary">Book Stitching</a>
+              <a href="custom-stitching.html" class="btn btn-secondary">Options</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Service Card 07 -->
+        <article class="service-listing-card" data-category="alterations">
+          <div class="service-card-media">
+            <img src="assets/images/about/about_craftsmanship.jpg" alt="Garment Alteration & Restyling" loading="lazy">
+            <span class="service-tag-badge">Expert Alterations</span>
+            <span class="service-price-badge">From $35</span>
+          </div>
+          <div class="service-card-body">
+            <h3 class="service-card-title">Restyling & Master Fitting</h3>
+            <p class="service-card-desc">Breathe new life into your existing wardrobe with waist intake, shoulder narrowing, hem shortening, and total reshaping.</p>
+            <ul class="service-card-features">
+              <li><i data-lucide="check"></i> Express 48-Hour Turnaround</li>
+              <li><i data-lucide="check"></i> Suit & Dress Reshaping</li>
+              <li><i data-lucide="check"></i> Zipper & Lining Replacement</li>
+            </ul>
+            <div class="service-card-actions">
+              <a href="#custom-stitching-inquiry" class="btn btn-primary">Book Alteration</a>
+              <a href="measurement-guide.html" class="btn btn-secondary">Guide</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Service Card 08 -->
+        <article class="service-listing-card" data-category="stitching">
+          <div class="service-card-media">
+            <img src="assets/images/fabrics_hero.jpg" alt="Fabric Sourcing & Consultation" loading="lazy">
+            <span class="service-tag-badge">Material & Sourcing</span>
+            <span class="service-price-badge">Complimentary</span>
+          </div>
+          <div class="service-card-body">
+            <h3 class="service-card-title">Fabric Sourcing & Consultation</h3>
+            <p class="service-card-desc">Access our curated swatch library featuring Loro Piana, Scabal, Raw Silk, Chiffon, Linen, and Organic Cottons.</p>
+            <ul class="service-card-features">
+              <li><i data-lucide="check"></i> Swatch Book Preview</li>
+              <li><i data-lucide="check"></i> Drape & Weight Guidance</li>
+              <li><i data-lucide="check"></i> Bring-Your-Own-Fabric Welcome</li>
+            </ul>
+            <div class="service-card-actions">
+              <a href="fabrics.html" class="btn btn-primary">View Fabrics</a>
+              <a href="#custom-stitching-inquiry" class="btn btn-secondary">Inquire</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Service Card 09 -->
+        <article class="service-listing-card" data-category="stitching">
+          <div class="service-card-media">
+            <img src="assets/images/service_crafting_1788338115682.jpg" alt="Doorstep Fit & Styling Session" loading="lazy">
+            <span class="service-tag-badge">VIP Service</span>
+            <span class="service-price-badge">From $50</span>
+          </div>
+          <div class="service-card-body">
+            <h3 class="service-card-title">Doorstep Measurement Session</h3>
+            <p class="service-card-desc">Our master tailor visits your home or hotel to take precision 24-point measurements and conduct fitting consultations.</p>
+            <ul class="service-card-features">
+              <li><i data-lucide="check"></i> 24-Point Precision Measurements</li>
+              <li><i data-lucide="check"></i> On-site Swatch Inspection</li>
+              <li><i data-lucide="check"></i> Flexible Appointment Slots</li>
+            </ul>
+            <div class="service-card-actions">
+              <a href="#custom-stitching-inquiry" class="btn btn-primary">Request Visit</a>
+              <a href="contact.html" class="btn btn-secondary">Contact Us</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 4. CUSTOM STITCHING INTERACTIVE GARMENT & OPTION SHOWCASE -->
+    <section class="custom-stitching-hub-section">
+      <div class="stitching-hub-container">
+        <div class="hub-header">
+          <span class="section-eyebrow">Interactive Customizer</span>
+          <h2 class="section-title">Select Your <span>Garment Style</span></h2>
+          <p style="color: var(--color-text-secondary); margin-top: 10px;">Choose a garment category below to explore customizable options for necklines, sleeves, linings, and trims.</p>
+        </div>
+
+        <!-- Garment Cards Row -->
+        <div class="garment-selector-grid">
+          <div class="garment-type-card active" data-garment="Bespoke Suit">
+            <i data-lucide="briefcase"></i>
+            <h4>Bespoke Suit</h4>
+            <span>2 & 3 Piece</span>
+          </div>
+          <div class="garment-type-card" data-garment="Designer Blouse">
+            <i data-lucide="sparkles"></i>
+            <h4>Designer Blouse</h4>
+            <span>Saree & Choli</span>
+          </div>
+          <div class="garment-type-card" data-garment="Custom Shirt">
+            <i data-lucide="shirt"></i>
+            <h4>Custom Shirt</h4>
+            <span>Formal & Casual</span>
+          </div>
+          <div class="garment-type-card" data-garment="Evening Dress">
+            <i data-lucide="flower-2"></i>
+            <h4>Evening Dress</h4>
+            <span>Gowns & Maxi</span>
+          </div>
+          <div class="garment-type-card" data-garment="Sherwani & Kurta">
+            <i data-lucide="scissors"></i>
+            <h4>Sherwani / Kurta</h4>
+            <span>Ethnic & Groom</span>
+          </div>
+          <div class="garment-type-card" data-garment="Tailored Trouser">
+            <i data-lucide="ruler"></i>
+            <h4>Tailored Trouser</h4>
+            <span>Pleated & Chino</span>
+          </div>
+        </div>
+
+        <!-- Visual Product Listing Options Grid -->
+        <div class="options-breakdown-grid">
+          <!-- Product Listing Option Card 1: Necklines -->
+          <div class="option-product-card">
+            <div class="option-card-media">
+              <img src="assets/images/collections/saree gown.png" alt="Custom Neckline & Collar Options" loading="lazy">
+              <span class="option-badge">Tailoring Choice</span>
+              <span class="option-status-tag">Included</span>
+            </div>
+            <div class="option-card-body">
+              <div class="option-box-header">
+                <i data-lucide="scissors"></i>
+                <h4>Necklines & Collars</h4>
+              </div>
+              <p class="option-card-desc">Personalize your necklines with custom deep-cuts, mandarin collars, or lapels.</p>
+              <div class="option-tags-list">
+                <span class="option-pill">Round</span>
+                <span class="option-pill">V-Neck</span>
+                <span class="option-pill">Square</span>
+                <span class="option-pill">Sweetheart</span>
+                <span class="option-pill">Mandarin</span>
+                <span class="option-pill">Notch Lapel</span>
+              </div>
+              <a href="#custom-stitching-inquiry" class="btn btn-secondary option-cta-btn">Customize Style &rarr;</a>
+            </div>
           </div>
 
-          <div class="timeline-step">
-            <div class="step-number">02</div>
-            <h4>Choose Your Fabric</h4>
-            <p>Select from our curated fabric collection.</p>
+          <!-- Product Listing Option Card 2: Sleeves -->
+          <div class="option-product-card">
+            <div class="option-card-media">
+              <img src="assets/images/collections/kurttii.png" alt="Custom Sleeve & Cuff Styling" loading="lazy">
+              <span class="option-badge">Sleeve Crafting</span>
+              <span class="option-status-tag">Included</span>
+            </div>
+            <div class="option-card-body">
+              <div class="option-box-header">
+                <i data-lucide="shirt"></i>
+                <h4>Sleeves & Cuffs</h4>
+              </div>
+              <p class="option-card-desc">Choose from short, puff, bell, or French cuff designs crafted for comfort.</p>
+              <div class="option-tags-list">
+                <span class="option-pill">Short</span>
+                <span class="option-pill">Long</span>
+                <span class="option-pill">Puff Sleeve</span>
+                <span class="option-pill">Bell Sleeve</span>
+                <span class="option-pill">French Cuff</span>
+              </div>
+              <a href="#custom-stitching-inquiry" class="btn btn-secondary option-cta-btn">Customize Style &rarr;</a>
+            </div>
           </div>
 
-          <div class="timeline-step">
-            <div class="step-number">03</div>
-            <h4>Get Measured</h4>
-            <p>Provide your measurements using our guide.</p>
+          <!-- Product Listing Option Card 3: Silhouettes -->
+          <div class="option-product-card">
+            <div class="option-card-media">
+              <img src="assets/images/collections/dress_manu.png" alt="Tailored Silhouette Options" loading="lazy">
+              <span class="option-badge">Fit & Drape</span>
+              <span class="option-status-tag">Bespoke Fit</span>
+            </div>
+            <div class="option-card-body">
+              <div class="option-box-header">
+                <i data-lucide="layers"></i>
+                <h4>Silhouettes & Cuts</h4>
+              </div>
+              <p class="option-card-desc">Sculpted silhouettes ranging from fitted cuts to flowing flares and A-lines.</p>
+              <div class="option-tags-list">
+                <span class="option-pill">A-Line</span>
+                <span class="option-pill">Fitted</span>
+                <span class="option-pill">Flared</span>
+                <span class="option-pill">Straight</span>
+                <span class="option-pill">Peplum</span>
+              </div>
+              <a href="#custom-stitching-inquiry" class="btn btn-secondary option-cta-btn">Customize Style &rarr;</a>
+            </div>
           </div>
 
-          <div class="timeline-step">
-            <div class="step-number">04</div>
-            <h4>Customize</h4>
-            <p>Choose your preferred details and finishing.</p>
+          <!-- Product Listing Option Card 4: Details & Embroidery -->
+          <div class="option-product-card">
+            <div class="option-card-media">
+              <img src="assets/images/collections/festive.png" alt="Embroidery & Trim Details" loading="lazy">
+              <span class="option-badge">Hand Embroidery</span>
+              <span class="option-status-tag">Add-on Detail</span>
+            </div>
+            <div class="option-card-body">
+              <div class="option-box-header">
+                <i data-lucide="sparkles"></i>
+                <h4>Details & Trims</h4>
+              </div>
+              <p class="option-card-desc">Exquisite hand Zardosi, metallic thread lace, custom buttons, and monograms.</p>
+              <div class="option-tags-list">
+                <span class="option-pill">Embroidery</span>
+                <span class="option-pill">Lace</span>
+                <span class="option-pill">Buttons</span>
+                <span class="option-pill">Borders</span>
+                <span class="option-pill">Hand Zardosi</span>
+              </div>
+              <a href="#custom-stitching-inquiry" class="btn btn-secondary option-cta-btn">Customize Style &rarr;</a>
+            </div>
           </div>
-
-          <div class="timeline-step">
-            <div class="step-number">05</div>
-            <h4>We Stitch</h4>
-            <p>Our craftsmen bring your design to life.</p>
-          </div>
-
-          <div class="timeline-step">
-            <div class="step-number">06</div>
-            <h4>Delivered</h4>
-            <p>Receive your personalized STITCHLY creation.</p>
-          </div>
-
         </div>
       </div>
     </section>
 
-    <!-- 4. What Makes Our Service Different? -->
-    <section class="why-stitchly-section">
-      <div class="container">
-        <h2 class="section-title">What Makes Our Service Different?</h2>
-        
-        <div class="features-grid">
-          <div class="feature-box">
-            <i data-lucide="scan"></i>
-            <h4>Bespoke Fit</h4>
-            <p>Tailored around your unique measurements.</p>
-          </div>
-          <div class="feature-box">
-            <i data-lucide="gem"></i>
-            <h4>Premium Craftsmanship</h4>
-            <p>Every stitch receives careful attention.</p>
-          </div>
-          <div class="feature-box">
-            <i data-lucide="pen-tool"></i>
-            <h4>Personalized Design</h4>
-            <p>Your outfit reflects your individual style.</p>
-          </div>
-          <div class="feature-box">
-            <i data-lucide="check-circle"></i>
-            <h4>Quality Finishing</h4>
-            <p>Clean construction and refined finishing.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- 5. 5-STEP CUSTOM STITCHING WORKFLOW -->
+    <section class="process-section">
+      <div class="container" style="max-width: 1200px; margin: 0 auto; text-align: center;">
+        <span class="section-eyebrow">The Bespoke Process</span>
+        <h2 class="section-title">How Custom Stitching <span>Works</span></h2>
 
-    <!-- 5. Service Showcase -->
-    <section class="service-showcase">
-      <div class="showcase-content">
-        <h2>More Than Just Stitching</h2>
-        <p>We don't simply stitch clothes. We create pieces that are designed around you, your measurements and your personal style.</p>
-        <a href="design-gallery.html" class="secondary-btn">Discover Our Craft &rarr;</a>
-      </div>
-    </section>
+        <div class="timeline-steps-grid">
+          <div class="step-card">
+            <div class="step-number-badge">01</div>
+            <h4>Consultation & Vision</h4>
+            <p>Share your ideas, reference photos, or fabric choices with our styling team.</p>
+          </div>
 
-    <!-- 6. Customization Options -->
-    <section class="customization-options">
-      <div class="container">
-        <h2 class="section-title">Customization Options</h2>
-        
-        <div class="options-grid">
-          <div class="option-card">
-            <h4>Necklines</h4>
-            <p>Round • V-neck • Square • Sweetheart</p>
+          <div class="step-card">
+            <div class="step-number-badge">02</div>
+            <h4>Fabric & Accent Selection</h4>
+            <p>Select premium fabrics, lining colors, thread shades, and button details.</p>
           </div>
-          <div class="option-card">
-            <h4>Sleeves</h4>
-            <p>Short • Long • Puff • Bell</p>
+
+          <div class="step-card">
+            <div class="step-number-badge">03</div>
+            <h4>24-Point Measurement</h4>
+            <p>Provide measurements using our interactive guide or book a tailor visit.</p>
           </div>
-          <div class="option-card">
-            <h4>Silhouettes</h4>
-            <p>A-line • Fitted • Flared • Straight</p>
+
+          <div class="step-card">
+            <div class="step-number-badge">04</div>
+            <h4>Handcrafting & Stitching</h4>
+            <p>Our master artisans precision-cut and stitch your garment step by step.</p>
           </div>
-          <div class="option-card">
-            <h4>Details</h4>
-            <p>Embroidery • Lace • Buttons • Borders</p>
+
+          <div class="step-card">
+            <div class="step-number-badge">05</div>
+            <h4>Fitting & Final Delivery</h4>
+            <p>Try on your finished creation for final perfection and express doorstep delivery.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 7. Final CTA -->
-    <section class="luxury-cta">
-      <div class="cta-overlay">
-        <h2>Your Vision. Our Craft.</h2>
-        <p>Ready to create something uniquely yours?</p>
-        <a href="custom-stitching.html" class="primary-btn">Start Custom Stitching &rarr;</a>
-      </div>
-    </section>
-
-  
-
-
-    <!-- ===================================================
-         TESTIMONIAL
-    ==================================================== -->
-    <section class="testimonial-section section-padding" style="background: var(--color-navy); color: white;">
-      <div class="section-container" style="text-align: center;">
-        <i data-lucide="quote" style="width: 48px; height: 48px; color: var(--color-gold); margin-bottom: 2rem;"></i>
-        <h2 style="font-family: 'Fraunces', serif; font-size: 2rem; font-weight: 500; font-style: italic; max-width: 800px; margin: 0 auto; line-height: 1.4;">"STITCHLY completely transformed my wardrobe. The fit is impeccable, and the attention to detail is truly unmatched. I've never felt more confident."</h2>
-        <p style="margin-top: 2rem; color: var(--color-gold); text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem;">— Ananya S., Loyal Client</p>
-      </div>
-    </section>
-
-
-
-    <!-- ===================================================
-         FAQ MINI
-    ==================================================== -->
-    <section class="faq-mini-section section-padding" style="background: var(--surface-color);">
-      <div class="section-container">
-        <div style="text-align: center; margin-bottom: 3rem;">
-          <span class="section-eyebrow">FAQ</span>
-          <h2 class="section-title">Common <span>Questions</span></h2>
+    <!-- 6. SERVICE PRICING DIRECTORY -->
+    <section class="pricing-directory-section">
+      <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+        <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+          <span class="section-eyebrow">Transparent Rates</span>
+          <h2 class="section-title">Custom Stitching <span>Rate Directory</span></h2>
+          <p style="color: var(--color-text-secondary); margin-top: 8px;">Fair, transparent pricing with no hidden charges. All custom stitching includes master fitting guarantee.</p>
         </div>
-        <div style="max-width: 800px; margin: 0 auto; display: grid; gap: 2rem; text-align: left;">
-          <div style="border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
-            <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; font-family: 'Fraunces', serif;">How long does custom stitching take?</h3>
-            <p style="color: var(--text-secondary); font-family: 'Manrope', sans-serif;">Typically, our bespoke process takes 2-3 weeks from the initial measurement to the final fitting.</p>
+
+        <div class="pricing-table-grid">
+          <!-- Men's Directory -->
+          <div class="price-category-card">
+            <h3>Men's Bespoke Tailoring</h3>
+            <div class="price-row-item">
+              <span class="price-row-name">2-Piece Bespoke Suit</span>
+              <span class="price-row-val">$280 - $450</span>
+            </div>
+            <div class="price-row-item">
+              <span class="price-row-name">3-Piece Waistcoat Suit</span>
+              <span class="price-row-val">$350 - $550</span>
+            </div>
+            <div class="price-row-item">
+              <span class="price-row-name">Custom Formal Shirt</span>
+              <span class="price-row-val">$75 - $120</span>
+            </div>
+            <div class="price-row-item">
+              <span class="price-row-name">Bespoke Trouser</span>
+              <span class="price-row-val">$90 - $140</span>
+            </div>
+            <div class="price-row-item">
+              <span class="price-row-name">Wedding Sherwani</span>
+              <span class="price-row-val">$320 - $650</span>
+            </div>
           </div>
-          <div style="border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
-            <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; font-family: 'Fraunces', serif;">Can I provide my own fabric?</h3>
-            <p style="color: var(--text-secondary); font-family: 'Manrope', sans-serif;">Yes! While we offer a curated selection of premium fabrics, we are happy to craft garments using materials you provide.</p>
+
+          <!-- Women's Directory -->
+          <div class="price-category-card">
+            <h3>Women's Custom Stitching</h3>
+            <div class="price-row-item">
+              <span class="price-row-name">Designer Saree Blouse</span>
+              <span class="price-row-val">$95 - $180</span>
+            </div>
+            <div class="price-row-item">
+              <span class="price-row-name">Evening Gown / Dress</span>
+              <span class="price-row-val">$190 - $380</span>
+            </div>
+            <div class="price-row-item">
+              <span class="price-row-name">Anarkali Suit Set</span>
+              <span class="price-row-val">$160 - $290</span>
+            </div>
+            <div class="price-row-item">
+              <span class="price-row-name">Lehenga Choli Set</span>
+              <span class="price-row-val">$210 - $420</span>
+            </div>
+            <div class="price-row-item">
+              <span class="price-row-name">Kurti & Palazzos</span>
+              <span class="price-row-val">$85 - $150</span>
+            </div>
           </div>
-        </div>
-        <div style="text-align: center; margin-top: 3rem;">
-          <a href="faq.html" class="btn btn-secondary">Read All FAQs</a>
-        </div>
-      </div>
-    </section>
 
-
-
-    <!-- ===================================================
-         OUR PROMISE
-    ==================================================== -->
-    <section class="process-section section-padding" style="text-align: center;">
-      <div class="section-container">
-        <span class="section-eyebrow">OUR PROMISE</span>
-        <h2 class="section-title">The STITCHLY <span>Standard.</span></h2>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem;">
-          <div>
-            <i data-lucide="ruler" style="width: 32px; height: 32px; color: var(--color-gold); margin-bottom: 1rem;"></i>
-            <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; font-family: 'Fraunces', serif;">Precision Fit</h3>
-            <p style="color: var(--text-secondary); font-size: 0.9rem;">Tailored to your exact measurements.</p>
+          <!-- Alterations Directory -->
+          <div class="price-category-card">
+            <h3>Alterations & Restyling</h3>
+            <div class="price-row-item">
+              <span class="price-row-name">Suit Jacket Reshaping</span>
+              <span class="price-row-val">$65 - $110</span>
+            </div>
+            <div class="price-row-item">
+              <span class="price-row-name">Trouser Waist / Hem</span>
+              <span class="price-row-val">$25 - $45</span>
+            </div>
+            <div class="price-row-item">
+              <span class="price-row-name">Dress / Blouse Alteration</span>
+              <span class="price-row-val">$35 - $70</span>
+            </div>
+            <div class="price-row-item">
+              <span class="price-row-name">Zip & Lining Replacement</span>
+              <span class="price-row-val">$30 - $55</span>
+            </div>
+            <div class="price-row-item">
+              <span class="price-row-name">Express 48hr Turnaround</span>
+              <span class="price-row-val">+$30</span>
+            </div>
           </div>
-          <div>
-            <i data-lucide="star" style="width: 32px; height: 32px; color: var(--color-gold); margin-bottom: 1rem;"></i>
-            <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; font-family: 'Fraunces', serif;">Premium Quality</h3>
-            <p style="color: var(--text-secondary); font-size: 0.9rem;">The finest fabrics and thread.</p>
-          </div>
-          <div>
-            <i data-lucide="truck" style="width: 32px; height: 32px; color: var(--color-gold); margin-bottom: 1rem;"></i>
-            <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; font-family: 'Fraunces', serif;">Timely Delivery</h3>
-            <p style="color: var(--text-secondary); font-size: 0.9rem;">Delivered on schedule, every time.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-
-    <!-- ===================================================
-         CONTACT SUPPORT
-    ==================================================== -->
-    <section class="contact-support-section section-padding" style="text-align: center;">
-      <div class="section-container">
-        <span class="section-eyebrow">NEED HELP?</span>
-        <h2 class="section-title">We're here for <span>you.</span></h2>
-        <p style="margin-top: 1rem; color: var(--text-secondary); max-width: 600px; margin-left: auto; margin-right: auto;">Whether you have a question about your order, need sizing advice, or just want to chat about fabrics, our team is ready to assist.</p>
-        <div style="margin-top: 2rem;">
-          <a href="contact.html" class="btn btn-primary">Contact Us</a>
         </div>
       </div>
     </section>
 
+    <!-- 7. QUICK CUSTOM STITCHING INQUIRY FORM -->
+    <section class="stitching-inquiry-section" id="custom-stitching-inquiry">
+      <div class="inquiry-container">
+        <div class="inquiry-form-card">
+          <div style="text-align: center; margin-bottom: 20px;">
+            <span class="section-eyebrow">Get Started</span>
+            <h2 class="section-title" style="margin-bottom: 8px;">Book Custom <span>Stitching</span></h2>
+            <p style="color: var(--color-text-secondary); font-size: 0.92rem;">Select your garment preferences below to initiate a custom stitching order with our master tailors.</p>
+          </div>
 
+          <form id="stitching-inquiry-form">
+            <div class="inquiry-form-grid">
+              <div>
+                <label for="inquiry-name">Full Name</label>
+                <input type="text" id="inquiry-name" placeholder="Your name" required>
+              </div>
 
-    <!-- ===================================================
-         NEWSLETTER
-    ==================================================== -->
-    <section class="newsletter-section section-padding" style="background: var(--surface-hover); text-align: center;">
-      <div class="section-container">
-        <span class="section-eyebrow">STAY UPDATED</span>
-        <h2 class="section-title">Join the <span>STITCHLY</span> family.</h2>
-        <p style="margin-top: 1rem; color: var(--text-secondary); max-width: 500px; margin-left: auto; margin-right: auto;">Subscribe to our newsletter for the latest styling tips, exclusive offers, and behind-the-scenes looks.</p>
-        <form style="margin-top: 2rem; display: flex; justify-content: center; gap: 1rem; max-width: 500px; margin-left: auto; margin-right: auto;">
-          <input type="email" placeholder="Enter your email" style="padding: 1rem; flex: 1; border: 1px solid var(--border-color); border-radius: 4px; font-family: 'Manrope', sans-serif;">
-          <button type="submit" class="btn btn-primary">Subscribe</button>
-        </form>
+              <div>
+                <label for="inquiry-email">Email Address</label>
+                <input type="email" id="inquiry-email" placeholder="name@example.com" required>
+              </div>
+
+              <div>
+                <label for="inquiry-phone">Phone / WhatsApp</label>
+                <input type="tel" id="inquiry-phone" placeholder="+1 (555) 000-0000" required>
+              </div>
+
+              <div>
+                <label for="inquiry-garment-select">Garment Type</label>
+                <select id="inquiry-garment-select" required>
+                  <option value="Bespoke Suit">Bespoke Suit (2 / 3 Piece)</option>
+                  <option value="Designer Blouse">Designer Saree Blouse</option>
+                  <option value="Custom Shirt">Custom Shirt</option>
+                  <option value="Evening Dress">Evening Gown / Dress</option>
+                  <option value="Sherwani & Kurta">Sherwani / Kurta Set</option>
+                  <option value="Anarkali & Lehenga">Anarkali / Lehenga</option>
+                  <option value="Alteration">Garment Alteration</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="inquiry-fabric">Fabric Choice</label>
+                <select id="inquiry-fabric">
+                  <option value="STITCHLY Fabric Collection">STITCHLY Fabric Collection</option>
+                  <option value="Provide My Own Fabric">I Will Provide My Own Fabric</option>
+                  <option value="Fabric Consultation Needed">Need Fabric Sourcing Consultation</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="inquiry-timeline">Target Delivery Date</label>
+                <input type="date" id="inquiry-timeline">
+              </div>
+
+              <div class="form-group-full">
+                <label for="inquiry-notes">Customization Requirements / Style Notes</label>
+                <textarea id="inquiry-notes" rows="4" placeholder="Describe necklines, embroidery preferences, fitting notes, or special instructions..."></textarea>
+              </div>
+            </div>
+
+            <div style="margin-top: 24px; text-align: center;">
+              <button type="submit" class="btn btn-primary" style="padding: 14px 36px; font-size: 1rem; width: 100%; max-width: 320px;">
+                Submit Stitching Request <i data-lucide="send"></i>
+              </button>
+            </div>
+
+            <div id="inquiry-form-feedback" style="display: none;"></div>
+          </form>
+        </div>
       </div>
     </section>
-
 
   </main>
 
+
   <!-- ==============================================
-       FOOTER (Injected via JS)
+       FOOTER (Injected via js/main.js)
   =============================================== -->
   <div id="footer"></div>
 
   <!-- Javascript -->
   <script src="js/main.js"></script>
+  <script src="js/services.js"></script>
 
 </body>
 </html>

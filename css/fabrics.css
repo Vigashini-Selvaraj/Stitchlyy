@@ -5,7 +5,7 @@
 .fabrics-hero {
   padding: 160px 20px 100px;
   text-align: center;
-  background-color: #0a0a0a;
+  background-color: #151a25;
   border-bottom: 1px solid #222;
   position: relative;
   overflow: hidden;
@@ -58,7 +58,7 @@ body.dark-mode .atelier-section {
   border: 1px solid var(--border-color, #ccc);
   color: var(--color-text-secondary, #666);
   padding: 10px 25px;
-  border-radius: 30px;
+  border-radius: 32px;
   font-family: var(--font-secondary, 'Manrope', sans-serif);
   font-size: 0.95rem;
   font-weight: 500;
@@ -140,7 +140,7 @@ body.dark-mode .fabric-title {
   font-family: var(--font-secondary, 'Manrope', sans-serif);
   font-size: 0.85rem;
   color: var(--color-gold, #a38258);
-  text-transform: uppercase;
+  text-transform: none;
   letter-spacing: 2px;
   margin-bottom: 15px;
 }
@@ -187,7 +187,7 @@ body.dark-mode .fabric-link {
 }
 
 body.dark-mode .fabric-guide-section {
-  background-color: #0a0a0a;
+  background-color: #151a25;
   border-top-color: #222;
 }
 
@@ -216,7 +216,7 @@ body.dark-mode .guide-table th, body.dark-mode .guide-table td {
 .guide-table th {
   font-weight: 600;
   color: var(--color-text-secondary, #777);
-  text-transform: uppercase;
+  text-transform: none;
   letter-spacing: 1px;
   font-size: 0.85rem;
 }
@@ -295,7 +295,7 @@ body.dark-mode .guide-table td {
 }
 
 body.dark-mode .why-choose-section {
-  background-color: #0a0a0a;
+  background-color: #151a25;
 }
 
 body.dark-mode .why-choose-section h2 {

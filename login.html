@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="css/auth.css">
 
 </head>
-<body class="dark-mode">
+<body>
 
   <div class="auth-page">
     
@@ -42,10 +42,7 @@
         <h1>Welcome Back to STITCHLY</h1>
         <p>Sign in to continue to your account.</p>
         
-        <div class="role-selector">
-          <button type="button" class="role-btn active" data-role="user" id="roleBtnUser">User</button>
-          <button type="button" class="role-btn" data-role="admin" id="roleBtnAdmin">Admin</button>
-        </div>
+
 
         <form id="loginForm">
           <div class="form-group">
@@ -72,6 +69,17 @@
           <button type="submit" class="auth-submit-btn">Sign In</button>
 
 
+          <div class="social-divider">or continue with</div>
+          <div class="social-login">
+            <button type="button" class="btn-social">
+              <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" style="width:20px;height:20px;">
+              Google
+            </button>
+            <button type="button" class="btn-social">
+              <i data-lucide="apple"></i>
+              Apple
+            </button>
+          </div>
           
         </form>
 

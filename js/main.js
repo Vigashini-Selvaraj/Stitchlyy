@@ -18,18 +18,25 @@ document.addEventListener("DOMContentLoaded", () => {
           <img src="assets/logoo1_dark.png" alt="STITCHLY" class="logo-dark">
         </a>
 
-        <!-- Desktop Navigation -->
+        <!-- Desktop Navigation: 6 Main Pages from Architecture Guide -->
         <nav class="desktop-navigation" aria-label="Main navigation">
           <a href="index.html" data-page="index.html" class="nav-link">Home</a>
-          <a href="home2.html" data-page="home2.html" class="nav-link">Home 2</a>
           <a href="about.html" data-page="about.html" class="nav-link">About</a>
-          <a href="services.html" data-page="services.html" class="nav-link">Services</a>
+          
+          <div class="nav-dropdown">
+            <a href="services.html" data-page="services.html" class="nav-link" style="display:flex;align-items:center;">Services <i data-lucide="chevron-down" style="width: 14px; height: 14px; margin-left: 4px;"></i></a>
+            <div class="nav-dropdown-menu">
+              <a href="services.html" data-page="services.html" class="nav-dropdown-link">All Services</a>
+              <a href="custom-stitching.html" data-page="custom-stitching.html" class="nav-dropdown-link">Custom Stitching</a>
+              <a href="fabrics.html" data-page="fabrics.html" class="nav-dropdown-link">Fabrics</a>
+              <a href="measurement-guide.html" data-page="measurement-guide.html" class="nav-dropdown-link">Measurement Guide</a>
+              <a href="pricing.html" data-page="pricing.html" class="nav-dropdown-link">Pricing</a>
+              <a href="design-gallery.html" data-page="design-gallery.html" class="nav-dropdown-link">Design Gallery</a>
+            </div>
+          </div>
+
           <a href="collections.html" data-page="collections.html" class="nav-link">Collections</a>
-          <a href="custom-stitching.html" data-page="custom-stitching.html" class="nav-link">Custom Stitching</a>
-          <a href="fabrics.html" data-page="fabrics.html" class="nav-link">Fabrics</a>
-          <a href="measurement-guide.html" data-page="measurement-guide.html" class="nav-link">Measurement Guide</a>
-          <a href="pricing.html" data-page="pricing.html" class="nav-link">Pricing</a>
-          <a href="design-gallery.html" data-page="design-gallery.html" class="nav-link">Design Gallery</a>
+          <a href="blog.html" data-page="blog.html" class="nav-link">Blog</a>
           <a href="contact.html" data-page="contact.html" class="nav-link">Contact</a>
         </nav>
 
@@ -121,49 +128,34 @@ document.addEventListener("DOMContentLoaded", () => {
             <span>Home</span>
           </a>
 
-          <a href="home2.html" data-page="home2.html" class="mobile-nav-link">
-            <i data-lucide="sparkles"></i>
-            <span>Home 2</span>
-          </a>
-
           <a href="about.html" data-page="about.html" class="mobile-nav-link">
             <i data-lucide="info"></i>
             <span>About</span>
           </a>
 
-          <a href="services.html" data-page="services.html" class="mobile-nav-link">
-            <i data-lucide="briefcase"></i>
-            <span>Services</span>
-          </a>
+          <details class="mobile-nav-details">
+            <summary class="mobile-nav-link">
+              <span style="display:flex;align-items:center;gap:12px;"><i data-lucide="briefcase"></i> Services</span>
+              <i data-lucide="chevron-down"></i>
+            </summary>
+            <div class="mobile-dropdown-menu">
+              <a href="services.html" class="mobile-nav-link" style="border-bottom:none;"><span>All Services</span></a>
+              <a href="custom-stitching.html" class="mobile-nav-link" style="border-bottom:none;"><span>Custom Stitching</span></a>
+              <a href="fabrics.html" class="mobile-nav-link" style="border-bottom:none;"><span>Fabrics</span></a>
+              <a href="measurement-guide.html" class="mobile-nav-link" style="border-bottom:none;"><span>Measurement Guide</span></a>
+              <a href="pricing.html" class="mobile-nav-link" style="border-bottom:none;"><span>Pricing</span></a>
+              <a href="design-gallery.html" class="mobile-nav-link" style="border-bottom:none;"><span>Design Gallery</span></a>
+            </div>
+          </details>
 
           <a href="collections.html" data-page="collections.html" class="mobile-nav-link">
             <i data-lucide="layers"></i>
             <span>Collections</span>
           </a>
 
-          <a href="custom-stitching.html" data-page="custom-stitching.html" class="mobile-nav-link">
-            <i data-lucide="scissors"></i>
-            <span>Custom Stitching</span>
-          </a>
-          
-          <a href="fabrics.html" data-page="fabrics.html" class="mobile-nav-link">
-            <i data-lucide="shirt"></i>
-            <span>Fabrics</span>
-          </a>
-
-          <a href="measurement-guide.html" data-page="measurement-guide.html" class="mobile-nav-link">
-            <i data-lucide="ruler"></i>
-            <span>Measurement Guide</span>
-          </a>
-          
-          <a href="pricing.html" data-page="pricing.html" class="mobile-nav-link">
-            <i data-lucide="dollar-sign"></i>
-            <span>Pricing</span>
-          </a>
-
-          <a href="design-gallery.html" data-page="design-gallery.html" class="mobile-nav-link">
-            <i data-lucide="image"></i>
-            <span>Design Gallery</span>
+          <a href="blog.html" data-page="blog.html" class="mobile-nav-link">
+            <i data-lucide="book-open"></i>
+            <span>Blog</span>
           </a>
 
           <a href="contact.html" data-page="contact.html" class="mobile-nav-link">
@@ -232,9 +224,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             <h3>Quick Links</h3>
 
-            <ul>
+            <ul class="footer-links">
               <li><a href="index.html">Home</a></li>
-              <li><a href="home2.html">Home 2</a></li>
               <li><a href="about.html">About</a></li>
               <li><a href="collections.html">Collections</a></li>
               <li><a href="custom-stitching.html">Custom Stitching</a></li>
@@ -253,7 +244,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             <h3>Support</h3>
 
-            <ul>
+            <ul class="footer-links">
               <li>
                 <a href="contact.html">Contact Us</a>
               </li>
@@ -276,23 +267,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
             <h3>Get in Touch</h3>
 
-            <ul>
+            <ul class="footer-links">
 
-              <li>
+              <li class="footer-contact-item">
                 <i data-lucide="mail"></i>
                 <a href="mailto:hello@stitchly.com">
                   hello@stitchly.com
                 </a>
               </li>
 
-              <li>
+              <li class="footer-contact-item">
                 <i data-lucide="phone"></i>
                 <a href="tel:+910000000000">
                   +91 00000 00000
                 </a>
               </li>
 
-              <li>
+              <li class="footer-contact-item">
                 <i data-lucide="map-pin"></i>
                 <span>
                   Available by appointment

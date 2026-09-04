@@ -42,7 +42,7 @@
 }
 
 body.dark-mode .prep-section {
-  background-color: #0a0a0a;
+  background-color: #151a25;
 }
 
 .prep-container {
@@ -50,7 +50,7 @@ body.dark-mode .prep-section {
   margin: 0 auto;
   background: var(--color-background, #fff);
   border: 1px solid var(--color-gold, #a38258);
-  border-radius: 12px;
+  border-radius: 16px;
   padding: 40px;
   box-shadow: 0 10px 30px rgba(163, 130, 88, 0.1);
 }
@@ -239,7 +239,7 @@ body.dark-mode .measure-item p {
 }
 
 body.dark-mode .form-section {
-  background-color: #0a0a0a;
+  background-color: #151a25;
 }
 
 .form-container {
@@ -247,7 +247,7 @@ body.dark-mode .form-section {
   margin: 0 auto;
   background: var(--color-background, #fff);
   border: 1px solid var(--border-color, #eee);
-  border-radius: 12px;
+  border-radius: 16px;
   padding: 50px;
 }
 
@@ -281,7 +281,7 @@ body.dark-mode .form-title {
   display: flex;
   background: var(--color-surface, #fcfcfc);
   border: 1px solid var(--border-color, #ddd);
-  border-radius: 20px;
+  border-radius: 24px;
   overflow: hidden;
 }
 
@@ -332,7 +332,7 @@ body.dark-mode .measurement-table td {
   font-family: var(--font-secondary, 'Manrope', sans-serif);
   font-size: 0.9rem;
   color: var(--color-text-secondary, #777);
-  text-transform: uppercase;
+  text-transform: none;
   letter-spacing: 1px;
 }
 

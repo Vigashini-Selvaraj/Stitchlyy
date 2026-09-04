@@ -3,7 +3,7 @@
 ====================================================== */
 
 .stitching-hero {
-  padding: 150px 20px 80px;
+  padding: 85px 20px 80px;
   text-align: center;
   background-color: var(--color-surface, #fcfcfc);
   border-bottom: 1px solid var(--border-color, #eee);
@@ -12,7 +12,7 @@
 }
 
 body.dark-mode .stitching-hero {
-  background-color: #0a0a0a;
+  background-color: #151a25;
 }
 
 .stitching-hero h1 {
@@ -75,7 +75,7 @@ body.dark-mode .stitching-hero p {
 .form-step {
   background: var(--color-background, #fff);
   border: 1px solid var(--border-color, #eee);
-  border-radius: 12px;
+  border-radius: 16px;
   padding: 30px;
   margin-bottom: 30px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.02);
@@ -129,7 +129,7 @@ body.dark-mode .form-step-title {
 
 .radio-card-content {
   border: 1px solid var(--border-color, #ccc);
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
   text-align: center;
   transition: all 0.3s ease;
@@ -253,7 +253,7 @@ body.dark-mode .input-group label {
 .input-group input, .input-group select, .input-group textarea {
   padding: 12px;
   border: 1px solid var(--border-color, #ccc);
-  border-radius: 6px;
+  border-radius: 8px;
   font-family: inherit;
   background: var(--color-background, #fff);
   color: var(--color-text-primary, #111);
@@ -303,7 +303,7 @@ body.dark-mode .file-upload-zone:hover {
 .summary-card {
   background: var(--color-background, #fff);
   border: 1px solid var(--color-gold, #a38258);
-  border-radius: 12px;
+  border-radius: 16px;
   padding: 25px;
   box-shadow: 0 10px 30px rgba(163, 130, 88, 0.15);
 }
@@ -354,11 +354,11 @@ body.dark-mode .summary-list li {
   background: var(--color-text-primary, #111);
   color: var(--color-background, #fff);
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   font-family: var(--font-secondary, 'Manrope', sans-serif);
   font-weight: 600;
   cursor: pointer;
-  text-transform: uppercase;
+  text-transform: none;
   letter-spacing: 1px;
   transition: background 0.3s ease;
 }

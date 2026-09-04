@@ -178,7 +178,7 @@ body.dark-mode .masonry-section {
   font-size: 0.9rem;
   color: #fff;
   font-weight: 600;
-  text-transform: uppercase;
+  text-transform: none;
   letter-spacing: 1px;
   transform: translateY(20px);
   transition: transform 0.4s ease;
@@ -218,7 +218,7 @@ body.dark-mode .masonry-section {
   background: var(--color-white, #fff);
   max-width: 900px;
   width: 100%;
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -294,7 +294,7 @@ body.dark-mode .modal-details h2 {
   font-family: var(--font-secondary, 'Manrope', sans-serif);
   color: var(--color-gold, #a38258);
   font-size: 1rem;
-  text-transform: uppercase;
+  text-transform: none;
   letter-spacing: 1px;
   margin-bottom: 30px;
 }
@@ -350,7 +350,7 @@ body.dark-mode .detail-list li strong {
 }
 
 body.dark-mode .style-section {
-  background: #0a0a0a;
+  background: #151a25;
 }
 
 .style-grid {
@@ -364,7 +364,7 @@ body.dark-mode .style-section {
 .style-card {
   position: relative;
   height: 400px;
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
 }
 
@@ -527,7 +527,7 @@ body.dark-mode .trending-item h4 {
 }
 
 body.dark-mode .upload-banner {
-  background: #0a0a0a;
+  background: #151a25;
 }
 
 .upload-box {
@@ -536,7 +536,7 @@ body.dark-mode .upload-banner {
   padding: 60px;
   background: var(--color-white, #fff);
   border: 2px dashed var(--color-gold, #a38258);
-  border-radius: 12px;
+  border-radius: 16px;
 }
 
 body.dark-mode .upload-box {

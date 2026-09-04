@@ -5,12 +5,12 @@
 .auth-page {
   display: flex;
   min-height: 100vh;
-  background-color: var(--color-background, #fff);
+  background-color: var(--color-cream);
   margin-top: 0; /* Remove if navbar pushes it */
 }
 
 body.dark-mode .auth-page {
-  background-color: #0a0a0a;
+  background-color: #151a25;
 }
 
 /* Side Image */
@@ -69,11 +69,13 @@ body.dark-mode .back-link { color: #aaa; }
 .auth-logo {
   display: block;
   margin-bottom: 30px;
+  text-align: center;
 }
 
 .auth-logo img {
   height: 40px;
   object-fit: contain;
+  margin: 0 auto;
 }
 
 /* Headings */
@@ -99,7 +101,7 @@ body.dark-mode .auth-container p { color: #ccc; }
 .role-selector {
   display: flex;
   background: var(--color-surface, #f4f4f4);
-  border-radius: 99px;
+  border-radius: 999px;
   padding: 5px;
   margin-bottom: 30px;
   border: 1px solid var(--color-border, #eee);
@@ -121,7 +123,7 @@ body.dark-mode .role-selector {
   color: var(--color-text-secondary, #777);
   background: transparent;
   border: none;
-  border-radius: 99px;
+  border-radius: 999px;
   cursor: pointer;
   transition: all 0.3s ease;
   z-index: 2;
@@ -342,3 +344,63 @@ body.dark-mode .auth-footer { color: #aaa; }
 .hidden-element {
   display: none !important;
 }
+
+/* SOCIAL LOGIN */
+.social-login {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.social-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: var(--color-text-secondary, #777);
+  font-size: 0.9rem;
+  margin: 25px 0 15px;
+}
+.social-divider::before, .social-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid var(--color-border, #eee);
+}
+body.dark-mode .social-divider::before, body.dark-mode .social-divider::after {
+  border-bottom-color: #333;
+}
+.social-divider::before {
+  margin-right: 15px;
+}
+.social-divider::after {
+  margin-left: 15px;
+}
+.btn-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--color-border, #eee);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--color-text-primary, #111);
+  font-family: var(--font-secondary, 'Manrope', sans-serif);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.btn-social:hover {
+  background: var(--color-surface, #f4f4f4);
+}
+body.dark-mode .btn-social {
+  color: #fff;
+  border-color: #333;
+}
+body.dark-mode .btn-social:hover {
+  background: #151515;
+}
+
+
+
